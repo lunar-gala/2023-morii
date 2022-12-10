@@ -17,6 +17,8 @@ body {
   background-color: var(--color-bg);
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
@@ -30,7 +32,7 @@ body {
   --blend-mode-3: none;
   --blend-mode-4: darken;
   --blend-mode-5: darken;
-  --color-bg: #000000;
+  --color-bg: #fff;
   --color-link-hover: #ffe0b5;
   --color-link: #8e724d;
   --color-text: #8c6c45;
@@ -42,6 +44,34 @@ body {
   --time-anim: 1.5s;
   font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
   min-height: 100vh;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  margin: -150px 0 0 -300px;
+  top: 50%;
+  left: 50%;
+}
+
+.text p {
+  font-size: 40px;
+  padding: 0;
+}
+
+.img {
+  position: absolute;
+  height: 23%;
+  z-index: 1;
+}
+
+.content {
+  display: none !important;
 }
 
 .contentFixed {
@@ -104,6 +134,7 @@ body {
   position: absolute;
   top: 0;
   width: var(--glitch-width);
+  opacity: 0.76;
 }
 
 .glitchit {
@@ -237,10 +268,10 @@ body {
   78% {
     clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
   }
-  78.9% {
+  80.9% {
     transform: translate3d(calc(-1 * var(--gap-horizontal)), 0, 0);
   }
-  92%,
+  82%,
   100% {
     clip-path: polygon(0 0, 0 0, 0 0, 0 0);
     opacity: 0;
@@ -315,7 +346,7 @@ body {
       scale3d(-1, -1, 1);
   }
   66%,
-  90% {
+  100% {
     clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -328,7 +359,7 @@ body {
     opacity: 0.2;
     transform: translate3d(var(--gap-horizontal), var(--gap-vertical), 0);
   }
-  35.5%,
+  5.5%,
   100% {
     opacity: 0.1;
     transform: translate3d(0, 0, 0);
