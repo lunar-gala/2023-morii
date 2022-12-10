@@ -55,6 +55,7 @@ body {
   align-content: center;
   text-align: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .text p {
@@ -71,62 +72,110 @@ body {
 .img1 {
   top: 5%;
   left: 2%;
+  animation: circle 30s linear infinite;
 }
 
 .img2 {
   top: 55%;
   left: 19%;
+  animation: circle1 30s linear infinite;
 }
 
 .img3 {
   top: 85%;
   left: 72%;
+  animation: circle2 30s linear infinite;
 }
 
 .img4 {
   top: 45%;
   left: 82%;
+  animation: circle3 30s linear infinite;
 }
 
 .img5 {
   top: 38%;
   left: 12%;
+  animation: circle4 30s linear infinite;
 }
 .img6 {
   top: 8%;
   left: 42%;
+  animation: circle 30s linear infinite;
 }
 .img7 {
   top: 15%;
   left: 92%;
+  animation: circle2 30s linear infinite;
 }
 .img8 {
-  top: 38%;
-  left: 12%;
+  top: 42%;
+  left: 38%;
+  animation: circle3 30s linear infinite;
 }
 .img9 {
   top: 73%;
   left: 42%;
+  animation: circle4 30s linear infinite;
 }
 .img10 {
   top: 68%;
   left: 2%;
+  animation: circle 30s linear infinite;
 }
 .img11 {
   top: -2%;
   left: 22%;
+  animation: circle2 30s linear infinite;
 }
 .img12 {
   top: 28%;
   left: 62%;
   height: 20%;
+  animation: circle3 30s linear infinite;
 }
 .img13 {
   top: -3%;
   left: 76%;
   height: 25%;
+  animation: circle4 30s linear infinite;
 }
 
+@keyframes circle {
+  from {
+    transform: rotate(0deg) translate(-30px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-30px) rotate(-360deg);
+  }
+}
+@keyframes circle2 {
+  from {
+    transform: rotate(360deg) translate(-30px) rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg) translate(-30px) rotate(0deg);
+  }
+}
+
+@keyframes circle3 {
+  from {
+    transform: rotate(0deg) translate(-60px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-60px) rotate(-360deg);
+  }
+}
+@keyframes circle4 {
+  from {
+    transform: rotate(360deg) translate(-60px) rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg) translate(-60px) rotate(0deg);
+  }
+}
+
+/* glitch */
 .content {
   display: none !important;
 }
