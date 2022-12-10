@@ -240,7 +240,7 @@ body {
 }
 
 .glitchit {
-  background: var(--blend-color-1) url(./assets/morii-8.jpeg) center
+  background: var(--blend-color-1) url(./assets/backgrounds/morii-8.jpeg) center
     center/cover no-repeat;
   background-blend-mode: var(--blend-mode-1);
   height: calc(100% + var(--gap-vertical) * 2);
