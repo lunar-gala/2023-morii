@@ -143,43 +143,39 @@ body {
 
 @keyframes circle {
   from {
-    transform: rotate(0deg) translate(-30px) rotate(0deg);
+    transform: rotate(0deg) translate(-15px) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translate(-30px) rotate(-360deg);
+    transform: rotate(360deg) translate(-15px) rotate(-360deg);
   }
 }
 @keyframes circle2 {
   from {
-    transform: rotate(360deg) translate(-30px) rotate(-360deg);
+    transform: rotate(360deg) translate(-15px) rotate(-360deg);
   }
   to {
-    transform: rotate(0deg) translate(-30px) rotate(0deg);
+    transform: rotate(0deg) translate(-15px) rotate(0deg);
   }
 }
 
 @keyframes circle3 {
   from {
-    transform: rotate(0deg) translate(-60px) rotate(0deg);
+    transform: rotate(0deg) translate(-30px) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translate(-60px) rotate(-360deg);
+    transform: rotate(360deg) translate(-30px) rotate(-360deg);
   }
 }
 @keyframes circle4 {
   from {
-    transform: rotate(360deg) translate(-60px) rotate(-360deg);
+    transform: rotate(360deg) translate(-30px) rotate(-360deg);
   }
   to {
-    transform: rotate(0deg) translate(-60px) rotate(0deg);
+    transform: rotate(0deg) translate(-30px) rotate(0deg);
   }
 }
 
 /* glitch */
-.content {
-  display: none !important;
-}
-
 .contentFixed {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -194,7 +190,7 @@ body {
 }
 
 .logo {
-  height: 60px;
+  height: 30px;
 }
 
 #siteNav ul {
@@ -212,7 +208,7 @@ body {
 #siteNav ul li a {
   color: var(--color-link);
   font-size: 1rem;
-  line-height: 60px;
+  line-height: 30px;
   padding: 0;
   text-decoration: none;
   text-transform: uppercase;
@@ -224,13 +220,13 @@ body {
 }
 
 .content {
-  align-items: center;
-  display: grid;
-  justify-content: center;
   margin: 0 auto;
   min-height: 100vh;
   padding: 0 2rem;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
 }
 
 .glitch {
