@@ -1,4 +1,6 @@
-## Memory Blob Exporation
+## Memory "Blob" Exporation
+
+As you move your mouse over an image, there is a blob that "peeks" into another image overlayed under. The images are pre-paired together, and the image  pair that gets displayed is randomly selected.
 
 ### Demo
 
