@@ -39,7 +39,7 @@ body {
   --gap-vertical: 5px;
   --glitch-height: 100vh;
   --glitch-width: 100vw;
-  --time-anim: 2s;
+  --time-anim: 1.5s;
   font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
   min-height: 100vh;
 }
@@ -187,13 +187,13 @@ body {
   63% {
     clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
   }
-  70% {
+  95% {
     clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
   }
-  78.9% {
+  96% {
     transform: translate3d(var(--gap-horizontal), 0, 0);
   }
-  87%,
+  97%,
   100% {
     clip-path: polygon(0 0, 0 0, 0 0, 0 0);
     opacity: 0;
@@ -207,40 +207,40 @@ body {
     opacity: 1;
     transform: translate3d(calc(-1 * var(--gap-horizontal)), 0, 0);
   }
-  6% {
+  8% {
     clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
   }
-  12% {
+  14% {
     clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
   }
-  18% {
+  20% {
     clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
   }
-  24% {
+  28% {
     clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
   }
-  30% {
+  34% {
     clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
   }
-  36% {
+  42% {
     clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
   }
-  42% {
+  50% {
     clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
   }
-  48% {
+  57% {
     clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
   }
-  54% {
+  63% {
     clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
   }
-  60% {
+  78% {
     clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
   }
-  71.9% {
+  78.9% {
     transform: translate3d(calc(-1 * var(--gap-horizontal)), 0, 0);
   }
-  82%,
+  92%,
   100% {
     clip-path: polygon(0 0, 0 0, 0 0, 0 0);
     opacity: 0;
