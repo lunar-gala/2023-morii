@@ -1,7 +1,7 @@
 import random
 from PIL import Image
 
-BLOCKLEN = 20 # Adjust and be careful here.
+BLOCKLEN = 100 # Adjust and be careful here.
 
 def imageScramble(path, mode):
     #loads image 
@@ -23,6 +23,6 @@ def imageScramble(path, mode):
     for box, sbox in zip(blockmap, shuffle):
         c = img.crop(sbox)
         result.paste(c, box)
-    img = result.save('NEW.JPG')
+    img = result.save('New.JPG')
 
-imageScramble('/Users/ethanhuang/Desktop/2023-morii/pixel-scramble/Profile.jpeg', "RGB")
+imageScramble('/Users/ethanhuang/Desktop/2023-morii/pixel-scramble/Original.jpeg', "RGB")
