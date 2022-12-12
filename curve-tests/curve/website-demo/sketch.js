@@ -1,7 +1,11 @@
 let noiseX;
 let noiseY;
 let MAX = 50;
+let click = false;
 
+let pages = ["home", "about", "people", "lines", "livestream"]
+
+let active_num = 0;
 let active = "home";
 
 function setup() {
@@ -22,12 +26,14 @@ function setup() {
 function draw() {
   background(0, 20);
 
-  let noiseZ = map(mouseY, 0, height, 0, 1000 * 0.05);
+  active = pages[active_num];
+
+  let noiseZ = map(mouseY + mouseX, 0, height, 0, 1000 * 0.05);
   createCrossSection(noiseZ);
 
   switch(active){
     case ("home"):
-
+      displayButtonsHome();
       break;
 
     case ("about"):
@@ -42,6 +48,57 @@ function draw() {
     case ("livestream"):
       break;
 
+    default:
+      break;
+
+  }
+
+}
+
+function displayButtonsHome(){
+  textSize(48);
+  fill('white');
+  textFont("Times New Roman");
+
+  push();
+  translate(12, height - 50*5);
+
+  text("HOME", 0, 0);
+  text("ABOUT", 0, 50);
+  text("PEOPLE", 0, 50*2);
+  text("LINES", 0, 50*3);
+  text("LIVESTREAM", 0, 50*4);
+
+  pop();
+
+
+  if (click){
+    click = false;
+    active_num = 0;
+  }
+
+}
+
+function displayButtonsOther(){
+  textSize(48);
+  fill('white');
+  textFont("Georgia");
+
+  push();
+  translate(12, height - 50*5);
+
+  text("HOME", 0, 0);
+  text("ABOUT", 0, 50);
+  text("PEOPLE", 0, 50*2);
+  text("LINES", 0, 50*3);
+  text("LIVESTREAM", 0, 50*4);
+
+  pop();
+
+
+  if (click){
+    click = false;
+    active_num = 0;
   }
 
 }
@@ -67,4 +124,6 @@ function createCrossSection(noiseZ){
 function mousePressed(){
   background('white');
   noiseSeed(random(1000));
+
+  click = true;
 }
