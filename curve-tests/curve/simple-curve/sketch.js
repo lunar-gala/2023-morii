@@ -8,6 +8,8 @@ const palette = ["#E7E2AC", "#F5C220", "#05D5BA", "#EE039C", "#7D378B"];
 let noiseX;
 let noiseY;
 let MAX = 50;
+let noiseParam = 0;
+let noiseStep = 0.01;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -30,8 +32,10 @@ function draw() {
   background(0, 20);
 
   // pg.noFill();
-  let noiseZ = map(mouseY, 0, height, 0, 1000 * 0.05);
+  let noiseZ = map(mouseY, 0, height, 0, 1000 * 0.05) + noiseParam;
   createCrossSection(noiseZ);
+
+  noiseParam += noiseStep;
 
   // pg.erase(0, 80);
   // // let MAX = 500;
