@@ -1,6 +1,8 @@
 var brush;
 
 function setup() {
+  print("setup");
+
   createCanvas(windowWidth, windowHeight);
 
   var br = 40;
@@ -50,14 +52,14 @@ function brush_draw(){
   push();
   translate(this.x, this.y);
 
-  if (!brush_down) return;
+  if (!this.brush_down) return;
   
   for (var r = 0; r < this.r; r++){
     for (var theta = 0; theta < 360; theta++){
       var c = this.pixels[r][theta];
       c[3] = this.alpha;
       fill(c);
-      point(r * cos(theta), r * sin(theta));
+      rect(r * cos(theta), r * sin(theta), 1, 1);
     }
   }
 
