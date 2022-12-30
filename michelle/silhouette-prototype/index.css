@@ -1,0 +1,37 @@
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.images * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  width: 1000px;
+}
+
+.overlay {
+  filter: brightness(0) invert(1) drop-shadow(0px 0px 8px #fff)
+    drop-shadow(0px 1px 2px white) drop-shadow(0px -1px 2px white);
+  display: none;
+}
+
+.fading {
+  display: block;
+  animation: fadeIn 10s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
