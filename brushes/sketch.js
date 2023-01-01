@@ -65,3 +65,36 @@ function brush_draw(){
 
   pop();
 }
+
+const diameter = 30;
+const repeater = 100.0;
+let seed;
+
+function preload(){
+  seed = loadImage('model.jpg');
+}
+
+function setup() {
+	createCanvas(600, 720);
+	image(seed,0,0, width,height);
+}
+
+function draw() {
+	let from = seed.get(pmouseX, pmouseY);
+  let to = seed.get(mouseX, mouseY);
+	if (mouseIsPressed == true) {
+    gradiantLine( from, to, pmouseX, pmouseY, mouseX, mouseY);
+  }
+}
+
+function gradiantLine( f, t, lx, ly, fx, fy ) {
+  for ( i = 0; i < repeater; i ++ ) {
+    stroke(lerpColor( color(f), color(t), i/repeater));
+    strokeWeight(diameter);
+    line( ((repeater-i)*lx + i*fx)/repeater,
+      ((repeater-i)*ly + i*fy)/repeater,
+      ((repeater-i-1)*lx + (i+1)*fx)/repeater,
+      ((repeater-i-1)*ly + (i+1)*fy)/repeater
+      );
+  }
+}

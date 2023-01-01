@@ -1,17 +1,40 @@
+let cnv;
+
 let noiseX;
 let noiseY;
+let param = 0;
+let step = 0.05;
 let MAX = 50;
 let click = false;
 
 let pages = ["home", "about", "people", "lines", "livestream"]
-
 let active_num = 0;
 let active = "home";
 
+let img;
+
+// debugging images
+let black;
+let white;
+let cross;
+let morii_img;
+
+// unused
+let msk;
+let outline;
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  cnv = createCanvas(windowWidth, windowHeight, WEBGL);
+  cnv.parent("texture-map");
   angleMode(DEGREES);
   frameRate(60);
+
+  img = loadImage('000049.JPG');
+  black = loadImage('black.png');
+  white = loadImage('white.png');
+  cross = loadImage('cross.png');
+  morii_img = loadImage('morii-font.png')
+  
 
   noiseX = random(1000);
   noiseY = random(1000);
@@ -20,110 +43,70 @@ function setup() {
 
   print("with z: " + noise(noiseX, 1 * 0.005, 1 * 0.0111, 55));
   print("without z: " + noise(noiseX, 1 * 0.005, 1 * 0.0111, 0));
+
   // noLoop();
 }
 
 function draw() {
+  push();
+  translate(-width/2, -height/2);
   background(0, 20);
 
   active = pages[active_num];
 
-  let noiseZ = map(mouseY + mouseX, 0, height, 0, 1000 * 0.05);
-  createCrossSection(noiseZ);
+  let noiseZ = /*map(mouseY + mouseX, 0, height, 0, 1000 * 0.05) + */ param;
+  param += step;
+  createCrossSection(noiseZ + 1000, false);
+  createCrossSection(noiseZ, true);
 
-  switch(active){
-    case ("home"):
-      displayButtonsHome();
-      break;
-
-    case ("about"):
-      break;
-
-    case ("people"):
-      break;
-
-    case ("lines"):
-      break;
-
-    case ("livestream"):
-      break;
-
-    default:
-      break;
-
-  }
-
-}
-
-function displayButtonsHome(){
-  textSize(48);
-  fill('white');
-  textFont("Times New Roman");
-
-  push();
-  translate(12, height - 50*5);
-
-  text("HOME", 0, 0);
-  text("ABOUT", 0, 50);
-  text("PEOPLE", 0, 50*2);
-  text("LINES", 0, 50*3);
-  text("LIVESTREAM", 0, 50*4);
+  image(morii_img, 1800, 800);
 
   pop();
-
-
-  if (click){
-    click = false;
-    active_num = 0;
-  }
-
 }
 
-function displayButtonsOther(){
-  textSize(48);
-  fill('white');
-  textFont("Georgia");
 
-  push();
-  translate(12, height - 50*5);
+function createCrossSection(noiseZ, has_texture){
 
-  text("HOME", 0, 0);
-  text("ABOUT", 0, 50);
-  text("PEOPLE", 0, 50*2);
-  text("LINES", 0, 50*3);
-  text("LIVESTREAM", 0, 50*4);
-
-  pop();
-
-
-  if (click){
-    click = false;
-    active_num = 0;
+  if (has_texture){
+    img.resize(width, 0);
+    texture(img);
+    textureMode(IMAGE);
+  } else {
+    strokeWeight(3);
+    stroke('white');
+    noFill();
   }
 
-}
-
-function createCrossSection(noiseZ){
-  noFill();
-  stroke('white');
   erase(0, 80);
+
   beginShape();
+
+  let rand = 0;
+
   for (let k = 0; k < 1000; k++) {
 
-      let x = map(noise(noiseX, k * 0.005, noiseZ * 0.011), 0, 1, -width * 0.75, width * 1.75);
-      let y = map(noise(noiseY, k * 0.005, noiseZ * 0.0113), 0, 1, -height * 0.75, height * 1.75);
-      
-      vertex(x, y);
+    let x = map(noise(noiseX, k * 0.005, noiseZ * 0.011), 0, 1, -width * 0.75, width * 1.75);
+    let y = map(noise(noiseY, k * 0.005, noiseZ * 0.0113), 0, 1, -height * 0.75, height * 1.75);
+
+    // if (has_texture) rand = random(-5, 5);
+    
+    vertex(x + rand, y + rand, x + rand, y + rand);
     
   }
-  endShape();
+
+  if (has_texture){
+    endShape(CLOSE);
+  } else {
+    endShape();
+  }
   
   noErase();
+
 }
 
 function mousePressed(){
-  background('white');
-  noiseSeed(random(1000));
+  // background('white');
+  // noiseSeed(random(1000));
 
-  click = true;
+  // click = true;
 }
