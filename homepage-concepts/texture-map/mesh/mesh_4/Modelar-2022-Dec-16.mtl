@@ -1,0 +1,32 @@
+# Apple ModelI/O MTL File: Modelar-2022-Dec-16.mtl
+
+newmtl material_1
+	map_Kd texture_0_map_kd.jpg
+	Ka 0.2 0.2 0.2
+	Ks 0 0 0
+	ao 0
+	subsurface 0
+	metallic 0 0 0
+	specularTint 0
+	roughness 0.2 0.2 0.2
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
+newmtl material_2
+	map_Kd texture_1_map_kd.jpg
+	Ka 0.2 0.2 0.2
+	Ks 0 0 0
+	ao 0
+	subsurface 0
+	metallic 0 0 0
+	specularTint 0
+	roughness 0.2 0.2 0.2
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
