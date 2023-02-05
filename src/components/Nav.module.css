@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 99;
+  z-index: 1;
 }
 
 .border {
@@ -13,27 +13,32 @@
   backdrop-filter: blur(10px);
 }
 
+.borderTop,
+.borderBottom {
+  left: var(--n-b-left);
+  right: var(--n-b-right);
+}
 .borderTop {
-  height: 7vh;
+  height: var(--n-b-top);
   top: 0;
-  left: 0;
-  right: 0;
 }
 .borderBottom {
-  height: 5vh;
+  height: var(--n-b-bottom);
   left: 0;
   right: 0;
   bottom: 0;
 }
+
+.borderLeft,
+.borderRight {
+  bottom: 0;
+  top: 0;
+}
 .borderLeft {
-  width: 7vw;
+  width: var(--n-b-left);
   left: 0;
-  bottom: 5vh;
-  top: 7vh;
 }
 .borderRight {
-  width: 20vw;
+  width: var(--n-b-right);
   right: 0;
-  bottom: 5vh;
-  top: 7vh;
 }

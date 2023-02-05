@@ -1,3 +1,14 @@
+body {
+  cursor: none;
+}
+
+:root {
+  --n-b-top: 7vh;
+  --n-b-bottom: 5vh;
+  --n-b-left: 100px;
+  --n-b-right: 200px;
+}
+
 .App {
   text-align: center;
 }
