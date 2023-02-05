@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import styles from './Nav.module.css';
+import { NAV } from '../assets/constants';
 
 export default function Nav({ page, setPage }) {
   return (
@@ -12,11 +13,9 @@ export default function Nav({ page, setPage }) {
       <div className={cn(styles.border, styles.borderRight)}></div>
       <div className={styles.navContainer}>
         <ul className={styles.nav}>
-          <li>About</li>
-          <li>Lines</li>
-          <li>People</li>
-          <li>Watch</li>
-          <li>Tickets</li>
+          {NAV.map((nav) => (
+            <li onClick={setPage(nav)}>{nav}</li>
+          ))}
         </ul>
       </div>
     </div>
