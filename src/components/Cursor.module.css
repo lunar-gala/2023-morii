@@ -10,4 +10,5 @@
   mix-blend-mode: difference;
   z-index: 1000;
   position: fixed;
+  pointer-events: none;
 }

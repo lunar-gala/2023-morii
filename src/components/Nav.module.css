@@ -42,3 +42,36 @@
   width: var(--n-b-right);
   right: 0;
 }
+
+.navContainer {
+  width: var(--n-b-right);
+  position: fixed;
+  right: 0;
+  bottom: calc(var(--n-b-bottom) + 2vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  list-style-type: none;
+  text-transform: uppercase;
+  padding: 0;
+  /* TODO: Change to Cabinet Grotesk */
+  font-family: 'Helvetica Neue';
+  color: white;
+  font-size: 40px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.nav li {
+  padding: 0 1vw;
+  border: 2px solid transparent;
+}
+
+li:hover {
+  border-radius: 5px;
+  border: 2px solid black;
+}
