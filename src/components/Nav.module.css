@@ -17,8 +17,6 @@
 }
 .borderBottom {
   height: var(--n-b-bottom);
-  left: 0;
-  right: 0;
   bottom: 0;
 }
 
