@@ -4,14 +4,19 @@ import styles from './Cursor.module.css';
 
 export default function Cursor() {
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+  const [moved, setMoved] = useState(false);
 
   useEffect(() => {
     const mouseMoveHandler = (event) => {
+      if (!moved) {
+        document.getElementById('cursor').style.display = 'block';
+        setMoved(true);
+      }
       const { clientX, clientY } = event;
       setMousePosition({ x: clientX - 50, y: clientY - 50 });
       console.log(clientX, clientY);
     };
-    const mouseEnterHandler = () => {
+    const mouseOverHandler = () => {
       document.getElementById('cursor').style.display = 'none';
     };
     const mouseLeaveHandler = () => {
@@ -20,7 +25,7 @@ export default function Cursor() {
     document.addEventListener('mousemove', mouseMoveHandler);
     document
       .getElementById('viewport')
-      .addEventListener('mouseenter', mouseEnterHandler);
+      .addEventListener('mouseover', mouseOverHandler);
     document
       .getElementById('viewport')
       .addEventListener('mouseleave', mouseLeaveHandler);
