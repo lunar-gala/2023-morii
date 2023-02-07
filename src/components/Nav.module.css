@@ -70,3 +70,43 @@ li:hover {
   border-radius: 5px;
   border: 2px solid black;
 }
+
+.topBar {
+  pointer-events: none;
+  position: relative;
+  margin-left: auto;
+  margin-right: calc(var(--n-b-right) + 20px);
+  margin-top: calc(var(--n-b-top) + 20px);
+  padding: 0;
+
+  display: flex;
+  float: right;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+}
+
+.topBar p {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2em;
+  white-space: nowrap;
+  text-align: center;
+  font-family: monospace;
+  font-stretch: condensed;
+  margin-right: 10px;
+  /* padding: 1em 0; */
+
+  /* outline  */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.topBar img {
+  width: auto;
+  max-height: 100%;
+  height: 5em;
+  /* padding: 5em 0; */
+}
