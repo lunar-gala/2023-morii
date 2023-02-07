@@ -50,9 +50,5 @@
   position: fixed;
   top: 0;
   bottom: 0;
-}
-
-/* DELETE LATER— FOR PLACEHOLDER PURPOSES */
-.viewport img {
-  object-fit: cover;
+  cursor: none;
 }

@@ -11,7 +11,13 @@ function App() {
       <Nav page={page} setPage={setPage} />
       <div className="viewport" id="viewport">
         {/* placeolder for now :P */}
-        <img src="placeholder.png" alt="placeholder" />
+        <iframe
+          width="100%"
+          height="100%"
+          frameborder="0"
+          src="/lines/index.html"
+          title="Lines Page"
+        ></iframe>
       </div>
       <Cursor />
     </>
