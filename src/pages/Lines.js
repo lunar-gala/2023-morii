@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import styles from './Lines.css';
+import styles from './Lines.module.css';
 
 function Lines() {
   useEffect(() => {
