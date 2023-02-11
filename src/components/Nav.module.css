@@ -14,10 +14,12 @@
 .borderTop {
   height: var(--n-b-top);
   top: 0;
+  border-bottom: 1px solid black;
 }
 .borderBottom {
   height: var(--n-b-bottom);
   bottom: 0;
+  border-top: 1px solid black;
 }
 
 .borderLeft,
@@ -28,10 +30,12 @@
 .borderLeft {
   width: var(--n-b-left);
   left: 0;
+  border-right: 1px solid black;
 }
 .borderRight {
   width: var(--n-b-right);
   right: 0;
+  border-left: 1px solid black;
 }
 
 .navContainer {
