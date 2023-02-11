@@ -173,10 +173,6 @@ function draw() {
       noCursor();
       lines_page();
       break;
-    case 1:
-      cursor();
-      single_line_page();
-      break;
   }
 
   fill(255, global_alpha);
@@ -256,8 +252,13 @@ function lines_page() {
 }
 
 function single_line_page() {
-  experiri.resize(0.95 * width, 0.95 * height);
-  image(experiri, width / 2, height / 2);
+  console.log('parent!', window.parent);
+  var myCustomData = { line: 'experiri' };
+  var event = new CustomEvent('single_line', { detail: myCustomData });
+  window.parent.document.dispatchEvent(event);
+
+  // experiri.resize(0.95 * width, 0.95 * height);
+  // image(experiri, width / 2, height / 2);
 }
 
 function mousePressed() {
@@ -266,6 +267,7 @@ function mousePressed() {
       global_alpha = 255;
       active = 1;
     }
+    single_line_page();
   } else if (active == 1) {
     global_alpha = 255;
     active = 0;

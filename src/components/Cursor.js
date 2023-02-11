@@ -18,7 +18,7 @@ export default function Cursor() {
       }
       const { clientX, clientY } = event;
       setMousePosition({ x: clientX - 50, y: clientY - 50 });
-      console.log(clientX, clientY);
+      // console.log(clientX, clientY);
     };
     const mouseOverHandler = () => {
       $cursor.style.display = 'none';

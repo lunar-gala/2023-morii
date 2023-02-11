@@ -48,20 +48,24 @@
 }
 
 .nav {
-  list-style-type: none;
   text-transform: uppercase;
   padding: 0;
   /* TODO: Change to Cabinet Grotesk */
   font-family: 'Helvetica Neue';
-  color: white;
-  font-size: 40px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .nav a {
   padding: 0 1vw;
   border: 2px solid transparent;
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  cursor: none;
 }
 
 .nav a:hover {
