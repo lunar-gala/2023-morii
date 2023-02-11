@@ -5,7 +5,7 @@ import styles from './Landing.module.css';
 import { STORY } from '../assets/constants';
 
 function Landing() {
-  const [storyNum, setStoryNum] = useState(2);
+  const [storyNum, setStoryNum] = useState(3);
 
   return (
     <div className={styles.container}>

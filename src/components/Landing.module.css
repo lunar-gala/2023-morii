@@ -9,8 +9,8 @@
 
 .screen {
   /* placeholder color */
-  background-color: #fffbefa0;
-  backdrop-filter: blur(20px);
+  background: rgba(217, 217, 217, 0.39);
+  backdrop-filter: blur(15px);
 }
 
 .frame {

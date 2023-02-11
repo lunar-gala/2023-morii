@@ -5,9 +5,12 @@
   --n-b-right: 220px;
 }
 
+body {
+  cursor: none;
+}
+
 .App {
   text-align: center;
-  cursor: none;
 }
 
 .App-logo {
