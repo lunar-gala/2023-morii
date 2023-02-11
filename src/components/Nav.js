@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import styles from './Nav.module.css';
-import { NAV } from '../assets/constants';
 import battery from '../assets/icons/battery.png';
 
-export default function Nav({ page, setPage }) {
+export default function Nav() {
   const countDownDate = new Date('Mar 18, 2023 19:00:00').getTime();
 
   const getCountdown = () => {
@@ -53,13 +53,13 @@ export default function Nav({ page, setPage }) {
       <div className={cn(styles.border, styles.borderLeft)}></div>
       <div className={cn(styles.border, styles.borderRight)}></div>
       <div className={styles.navContainer}>
-        <ul className={styles.nav}>
-          {NAV.map((nav) => (
-            <li onClick={setPage(nav)}>{nav}</li>
-          ))}
-        </ul>
+        <div className={styles.nav}>
+          <Link to="/">About</Link>
+          <Link to="/lines">Lines</Link>
+          <Link to="/people">People</Link>
+        </div>
       </div>
-      <div class={styles.topBar}>
+      <div className={styles.topBar}>
         <p>24v</p>
         <p>RAW</p>
         <p id="countdown">{countdown}</p>

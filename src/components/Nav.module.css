@@ -59,12 +59,12 @@
   -webkit-text-stroke-color: black;
 }
 
-.nav li {
+.nav a {
   padding: 0 1vw;
   border: 2px solid transparent;
 }
 
-li:hover {
+.nav a:hover {
   border-radius: 5px;
   border: 2px solid black;
 }

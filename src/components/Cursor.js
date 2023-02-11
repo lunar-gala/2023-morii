@@ -7,9 +7,13 @@ export default function Cursor() {
   const [moved, setMoved] = useState(false);
 
   useEffect(() => {
+    const $cursor = document.getElementById('cursor');
+
+    if (!$cursor) return;
+
     const mouseMoveHandler = (event) => {
       if (!moved) {
-        document.getElementById('cursor').style.display = 'block';
+        $cursor.style.display = 'block';
         setMoved(true);
       }
       const { clientX, clientY } = event;
@@ -17,18 +21,18 @@ export default function Cursor() {
       console.log(clientX, clientY);
     };
     const mouseOverHandler = () => {
-      document.getElementById('cursor').style.display = 'none';
+      $cursor.style.display = 'none';
     };
     const mouseLeaveHandler = () => {
-      document.getElementById('cursor').style.display = 'block';
+      $cursor.style.display = 'block';
     };
     document.addEventListener('mousemove', mouseMoveHandler);
     document
       .getElementById('viewport')
-      .addEventListener('mouseover', mouseOverHandler);
+      ?.addEventListener('mouseover', mouseOverHandler);
     document
       .getElementById('viewport')
-      .addEventListener('mouseleave', mouseLeaveHandler);
+      ?.addEventListener('mouseleave', mouseLeaveHandler);
   }, []);
 
   return (
