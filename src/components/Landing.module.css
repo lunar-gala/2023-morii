@@ -1,0 +1,31 @@
+.container,
+.screen {
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.screen {
+  /* placeholder color */
+  background-color: #fffbefa0;
+  backdrop-filter: blur(20px);
+}
+
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.frame p {
+  font-size: 2rem;
+}
+
+.center {
+  text-align: center;
+}

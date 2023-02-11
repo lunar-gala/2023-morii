@@ -1,7 +1,9 @@
 // import styles from './Home.module.css';
 
+import Landing from '../components/Landing';
+
 function Home() {
-  return <></>;
+  return <Landing />;
 }
 
 export default Home;
