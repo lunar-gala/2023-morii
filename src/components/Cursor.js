@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import styles from './Cursor.module.css';
 
@@ -6,7 +7,10 @@ export default function Cursor() {
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
   const [moved, setMoved] = useState(false);
 
+  const location = useLocation();
+
   useEffect(() => {
+    console.log('start');
     const $cursor = document.getElementById('cursor');
 
     if (!$cursor) return;
@@ -33,7 +37,7 @@ export default function Cursor() {
     document
       .getElementById('viewport')
       ?.addEventListener('mouseleave', mouseLeaveHandler);
-  }, []);
+  }, [location]);
 
   return (
     <div
