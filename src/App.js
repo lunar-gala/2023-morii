@@ -13,11 +13,11 @@ function App() {
     const loaded = sessionStorage.getItem('loaded');
   }, []);
 
-  const [firstLoad, setFirstLoad] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   return (
     <HashRouter>
-      <Nav />
+      {!firstLoad && <Nav />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lines" element={<Lines />} />
