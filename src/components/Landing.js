@@ -13,6 +13,10 @@ const animationStates = {
     opacity: 1,
   },
 };
+const transition = {
+  duration: 1,
+  ease: 'easeOut',
+};
 
 function Landing() {
   const updateStoryCount = () => {
@@ -25,10 +29,10 @@ function Landing() {
 
   return (
     <div className={styles.container} onClick={updateStoryCount}>
-      {STORY.filter((_, index) => index <= storyNum).map((story, index) => {
+      {STORY.map((story, index) => {
         return (
           <AnimatePresence mode="wait">
-            <Frame story={story} key={index} />
+            <Frame story={story} key={index} display={index <= storyNum} />
           </AnimatePresence>
         );
       })}
@@ -36,7 +40,7 @@ function Landing() {
   );
 }
 
-function Frame({ story }) {
+function Frame({ story, display }) {
   const { text, classes, newScreen } = story;
   const inner = (
     <motion.div
@@ -45,21 +49,25 @@ function Frame({ story }) {
       animate="visible"
       exit="hidden"
       className={cn(...classes.map((c) => styles[c]))}
+      transition={transition}
     >
       <p>{text}</p>
     </motion.div>
   );
   console.log(story);
   return newScreen ? (
-    <motion.div
-      variants={animationStates}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-      className={styles.screen}
-    >
-      {inner}
-    </motion.div>
+    display && (
+      <motion.div
+        variants={animationStates}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        className={styles.screen}
+        transition={transition}
+      >
+        {inner}
+      </motion.div>
+    )
   ) : (
     <>{inner}</>
   );

@@ -16,12 +16,15 @@ export const STORY = [
   },
   {
     text: '"How do I know this is real?"',
-    classes: ['convo1'],
+    classes: ['convo1', 'positioned'],
     newScreen: true,
   },
-  { text: '"You built it."', classes: ['convo2'] },
-  { text: '"How will I know when to let go?"', classes: ['convo3'] },
-  { text: '"I don\'t think you will."', classes: ['convo4'] },
+  { text: '"You built it."', classes: ['convo2', 'positioned'] },
+  {
+    text: '"How will I know when to let go?"',
+    classes: ['convo3', 'positioned'],
+  },
+  { text: '"I don\'t think you will."', classes: ['convo4', 'positioned'] },
   {
     text: "We try to capture moments as if they'll escape, building a version of the world adherent to change. Can this memory be preserved, can this contour be casted?",
     classes: [],
@@ -32,5 +35,8 @@ export const STORY = [
     classes: [],
     newScreen: true,
   },
-  { text: '"What if we never had to leave?"', classes: ['convoUnder'] },
+  {
+    text: '"What if we never had to leave?"',
+    classes: ['convoUnder', 'positioned'],
+  },
 ];

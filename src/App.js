@@ -11,10 +11,13 @@ import People from './pages/People';
 function App() {
   useEffect(() => {
     const loaded = sessionStorage.getItem('loaded');
+    document.addEventListener('mousemove', () => {
+      setCursor(true);
+    });
   }, []);
 
   const [firstLoad, setFirstLoad] = useState(true);
-  const [cursor, setCursor] = useState(true);
+  const [cursor, setCursor] = useState(false);
 
   return (
     <HashRouter>

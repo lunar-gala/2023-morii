@@ -1,5 +1,4 @@
-.container,
-.screen {
+.container {
   width: 100vw;
   height: 100vw;
   position: fixed;
@@ -8,18 +7,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 .screen {
-  /* placeholder color */
-  background: rgba(217, 217, 217, 0.39);
-  backdrop-filter: blur(20px);
+  width: 100vw;
   height: 100vh;
+  /* placeholder color */
+  background: rgba(255, 251, 239, 0.5);
+  backdrop-filter: blur(20px);
   margin: 0 auto;
-  text-align: center;
 }
 
 .container p {
+  text-align: center;
+  margin: 0 auto;
   max-width: 60vw;
   font-size: 2rem;
 }
@@ -27,28 +30,26 @@
 .center {
   text-align: center;
 }
+.positioned {
+  position: absolute;
+}
 .convo1 {
-  position: fixed;
   top: 50px;
   left: 240px;
 }
 .convo2 {
-  position: fixed;
   top: 350px;
   right: 80px;
 }
 .convo3 {
-  position: fixed;
   top: 400px;
   left: 180px;
 }
 .convo4 {
-  position: fixed;
   bottom: 60px;
   right: 130px;
 }
 .convoUnder {
-  position: fixed;
   top: 50%;
   z-index: 1;
 }
