@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes, HashRouter } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import './App.css';
 import Cursor from './components/Cursor';
@@ -10,11 +11,23 @@ import People from './pages/People';
 
 function App() {
   const [firstLoad, setFirstLoad] = useState(false);
-  const [cursor, setCursor] = useState(true);
+  const [cursor, setCursor] = useState(false);
+
+  const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+
+  useEffect(() => {
+    const mouseMoveHandler = (event) => {
+      const { clientX, clientY } = event;
+      setMousePosition({ x: clientX - 50, y: clientY - 50 });
+      setCursor(true);
+      console.log(clientX, clientY);
+    };
+    document.addEventListener('mousemove', mouseMoveHandler);
+  }, []);
 
   return (
     <HashRouter>
-      {!firstLoad && <Nav />}
+      <AnimatePresence>{!firstLoad && <Nav />}</AnimatePresence>
       <Routes>
         <Route
           path="/"
@@ -23,7 +36,7 @@ function App() {
         <Route path="/lines" element={<Lines setCursor={setCursor} />} />
         <Route path="/people" element={<People />} />
       </Routes>
-      {cursor && <Cursor />}
+      {cursor && <Cursor mousePosition={mousePosition} />}
     </HashRouter>
   );
 }
