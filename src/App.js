@@ -10,7 +10,7 @@ import Lines from './pages/Lines';
 import People from './pages/People';
 
 function App() {
-  const [firstLoad, setFirstLoad] = useState(false);
+  const [about, setAbout] = useState(false);
   const [cursor, setCursor] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
@@ -20,19 +20,15 @@ function App() {
       const { clientX, clientY } = event;
       setMousePosition({ x: clientX - 50, y: clientY - 50 });
       setCursor(true);
-      console.log(clientX, clientY);
     };
     document.addEventListener('mousemove', mouseMoveHandler);
   }, []);
 
   return (
     <HashRouter>
-      <AnimatePresence>{!firstLoad && <Nav />}</AnimatePresence>
+      <AnimatePresence>{about && <Nav />}</AnimatePresence>
       <Routes>
-        <Route
-          path="/"
-          element={<Home firstLoad={firstLoad} setFirstLoad={setFirstLoad} />}
-        />
+        <Route path="/" element={<Home about={about} setAbout={setAbout} />} />
         <Route path="/lines" element={<Lines setCursor={setCursor} />} />
         <Route path="/people" element={<People />} />
       </Routes>

@@ -79,9 +79,9 @@
 
 .topBar {
   pointer-events: none;
-  position: relative;
-  margin-left: auto;
-  margin-right: calc(var(--n-b-right) + 20px);
+  position: fixed;
+  left: auto;
+  right: calc(var(--n-b-right) + 20px);
   margin-top: calc(var(--n-b-top) + 20px);
   padding: 0;
 

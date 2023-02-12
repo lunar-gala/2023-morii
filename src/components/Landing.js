@@ -18,7 +18,7 @@ const transition = {
   ease: 'easeOut',
 };
 
-function Landing() {
+function Landing({ about, setAbout, firstLoad, setFirstLoad }) {
   const [storyNum, setStoryNum] = useState(0);
 
   return (
@@ -34,6 +34,13 @@ function Landing() {
           />
         );
       })}
+      <motion.div
+        className={styles.screen}
+        onViewportEnter={() => {
+          console.log('viewport');
+          setAbout(true);
+        }}
+      ></motion.div>
     </div>
   );
 }

@@ -1,11 +1,16 @@
 // import styles from './Home.module.css';
-// import { useEffect } from 'react';
+import { useState } from 'react';
 
 import Landing from '../components/Landing';
 import About from '../components/About';
 
-function Home({ firstLoad, setFirstLoad }) {
-  return <About />;
+function Home({ about, setAbout }) {
+  return (
+    <>
+      <Landing about={about} setAbout={setAbout} />
+      {about && <About />}
+    </>
+  );
 }
 
 export default Home;
