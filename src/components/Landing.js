@@ -31,15 +31,13 @@ function Landing() {
     <div className={styles.container} onClick={updateStoryCount}>
       {STORY.map((story, index) => {
         return (
-          <AnimatePresence mode="wait">
-            <Frame
-              story={story}
-              key={index}
-              display={index <= storyNum}
-              index={index}
-              setStoryNum={setStoryNum}
-            />
-          </AnimatePresence>
+          <Frame
+            story={story}
+            key={index}
+            display={index <= storyNum}
+            index={index}
+            setStoryNum={setStoryNum}
+          />
         );
       })}
     </div>
@@ -53,24 +51,26 @@ function Frame({ story, display, setStoryNum, index }) {
     <>
       <motion.div
         className={styles.screen}
-        style={index === 0 && { height: '200vh' }}
+        style={index === 0 && { height: '150vh' }}
         onViewportEnter={() => setStoryNum(index)}
       ></motion.div>
-      {display && (
-        <motion.div
-          variants={animationStates}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          className={cn(
-            styles.step,
-            newScreen ? styles.newScreen : styles.sameScreen
-          )}
-          transition={transition}
-        >
-          <p className={cn(...classes.map((c) => styles[c]))}>{text}</p>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {display && (
+          <motion.div
+            variants={animationStates}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className={cn(
+              styles.step,
+              newScreen ? styles.newScreen : styles.sameScreen
+            )}
+            transition={transition}
+          >
+            <p className={cn(...classes.map((c) => styles[c]))}>{text}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

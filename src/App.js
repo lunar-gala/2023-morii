@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route, Routes, HashRouter } from 'react-router-dom';
 
 import './App.css';
@@ -9,13 +9,6 @@ import Lines from './pages/Lines';
 import People from './pages/People';
 
 function App() {
-  useEffect(() => {
-    const loaded = sessionStorage.getItem('loaded');
-    document.addEventListener('mousemove', () => {
-      setCursor(true);
-    });
-  }, []);
-
   const [firstLoad, setFirstLoad] = useState(true);
   const [cursor, setCursor] = useState(false);
 
@@ -23,7 +16,10 @@ function App() {
     <HashRouter>
       {!firstLoad && <Nav />}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home firstLoad={firstLoad} setFirstLoad={setFirstLoad} />}
+        />
         <Route path="/lines" element={<Lines setCursor={setCursor} />} />
         <Route path="/people" element={<People />} />
       </Routes>
