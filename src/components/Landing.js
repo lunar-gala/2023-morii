@@ -32,7 +32,13 @@ function Landing() {
       {STORY.map((story, index) => {
         return (
           <AnimatePresence mode="wait">
-            <Frame story={story} key={index} display={index <= storyNum} />
+            <Frame
+              story={story}
+              key={index}
+              display={index <= storyNum}
+              index={index}
+              setStoryNum={setStoryNum}
+            />
           </AnimatePresence>
         );
       })}
@@ -40,18 +46,15 @@ function Landing() {
   );
 }
 
-function Frame({ story, display }) {
+function Frame({ story, display, setStoryNum, index }) {
   const { text, classes, newScreen } = story;
   console.log(story);
   return (
     <>
       <motion.div
-        variants={animationStates}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
         className={styles.screen}
-        transition={transition}
+        style={index === 0 && { height: '200vh' }}
+        onViewportEnter={() => setStoryNum(index)}
       ></motion.div>
       {display && (
         <motion.div
