@@ -2,9 +2,10 @@
 // import { useEffect } from 'react';
 
 import Landing from '../components/Landing';
+import About from '../components/About';
 
 function Home({ firstLoad, setFirstLoad }) {
-  return <Landing />;
+  return <About />;
 }
 
 export default Home;

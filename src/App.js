@@ -9,8 +9,8 @@ import Lines from './pages/Lines';
 import People from './pages/People';
 
 function App() {
-  const [firstLoad, setFirstLoad] = useState(true);
-  const [cursor, setCursor] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(false);
+  const [cursor, setCursor] = useState(true);
 
   return (
     <HashRouter>

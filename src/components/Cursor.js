@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import styles from './Cursor.module.css';
 
@@ -10,7 +9,7 @@ export default function Cursor() {
     const mouseMoveHandler = (event) => {
       const { clientX, clientY } = event;
       setMousePosition({ x: clientX - 50, y: clientY - 50 });
-      // console.log(clientX, clientY);
+      console.log(clientX, clientY);
     };
     document.addEventListener('mousemove', mouseMoveHandler);
   }, []);

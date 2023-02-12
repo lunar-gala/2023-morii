@@ -25,7 +25,7 @@
 
 .newScreen {
   background: rgba(255, 251, 239, 0.5);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
 }
 .sameScreen {
   background: rgba(255, 251, 239, 0);
