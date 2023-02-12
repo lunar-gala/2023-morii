@@ -4,9 +4,6 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   overflow: auto;
 }
@@ -15,9 +12,27 @@
   width: 100vw;
   height: 100vh;
   /* placeholder color */
+  background: rgba(0, 0, 0, 0);
+  margin: 0 auto;
+}
+
+.step {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newScreen {
   background: rgba(255, 251, 239, 0.5);
   backdrop-filter: blur(20px);
-  margin: 0 auto;
+}
+.sameScreen {
+  background: rgba(255, 251, 239, 0);
 }
 
 .container p {
@@ -50,6 +65,6 @@
   right: 130px;
 }
 .convoUnder {
-  top: 50%;
+  top: calc(50% + 20px);
   z-index: 1;
 }

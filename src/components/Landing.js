@@ -42,21 +42,9 @@ function Landing() {
 
 function Frame({ story, display }) {
   const { text, classes, newScreen } = story;
-  const inner = (
-    <motion.div
-      variants={animationStates}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-      className={cn(...classes.map((c) => styles[c]))}
-      transition={transition}
-    >
-      <p>{text}</p>
-    </motion.div>
-  );
   console.log(story);
-  return newScreen ? (
-    display && (
+  return (
+    <>
       <motion.div
         variants={animationStates}
         initial="hidden"
@@ -64,12 +52,23 @@ function Frame({ story, display }) {
         exit="hidden"
         className={styles.screen}
         transition={transition}
-      >
-        {inner}
-      </motion.div>
-    )
-  ) : (
-    <>{inner}</>
+      ></motion.div>
+      {display && (
+        <motion.div
+          variants={animationStates}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          className={cn(
+            styles.step,
+            newScreen ? styles.newScreen : styles.sameScreen
+          )}
+          transition={transition}
+        >
+          <p className={cn(...classes.map((c) => styles[c]))}>{text}</p>
+        </motion.div>
+      )}
+    </>
   );
 }
 
