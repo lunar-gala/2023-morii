@@ -13,17 +13,18 @@ function App() {
     const loaded = sessionStorage.getItem('loaded');
   }, []);
 
-  const [firstLoad, setFirstLoad] = useState(true);
+  const [firstLoad, setFirstLoad] = useState(false);
+  const [cursor, setCursor] = useState(true);
 
   return (
     <HashRouter>
       {!firstLoad && <Nav />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/lines" element={<Lines />} />
+        <Route path="/lines" element={<Lines setCursor={setCursor} />} />
         <Route path="/people" element={<People />} />
       </Routes>
-      <Cursor />
+      {cursor && <Cursor />}
     </HashRouter>
   );
 }

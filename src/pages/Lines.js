@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styles from './Lines.module.css';
 
-function Lines() {
+function Lines({ setCursor }) {
   useEffect(() => {
     window.document.addEventListener('single_line', handleEvent, false);
     function handleEvent(e) {
@@ -10,7 +10,12 @@ function Lines() {
   }, []);
 
   return (
-    <div className={styles.viewport} id="viewport">
+    <div
+      className={styles.viewport}
+      id="viewport"
+      onMouseLeave={() => setCursor(true)}
+      onMouseOver={() => setCursor(false)}
+    >
       <iframe src="/camera/index.html" title="Lines Page"></iframe>
     </div>
   );
