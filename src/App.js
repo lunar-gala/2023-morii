@@ -13,7 +13,7 @@ function App() {
     const loaded = sessionStorage.getItem('loaded');
   }, []);
 
-  const [firstLoad, setFirstLoad] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
   const [cursor, setCursor] = useState(true);
 
   return (

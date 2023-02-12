@@ -1,8 +1,18 @@
 import { useState } from 'react';
 import cn from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import styles from './Landing.module.css';
 import { STORY } from '../assets/constants';
+
+const animationStates = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
 
 function Landing() {
   const updateStoryCount = () => {
@@ -16,7 +26,11 @@ function Landing() {
   return (
     <div className={styles.container} onClick={updateStoryCount}>
       {STORY.filter((_, index) => index <= storyNum).map((story, index) => {
-        return <Frame story={story} key={index} />;
+        return (
+          <AnimatePresence mode="wait">
+            <Frame story={story} key={index} />
+          </AnimatePresence>
+        );
       })}
     </div>
   );
@@ -25,13 +39,27 @@ function Landing() {
 function Frame({ story }) {
   const { text, classes, newScreen } = story;
   const inner = (
-    <div className={cn(...classes.map((c) => styles[c]))}>
+    <motion.div
+      variants={animationStates}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      className={cn(...classes.map((c) => styles[c]))}
+    >
       <p>{text}</p>
-    </div>
+    </motion.div>
   );
   console.log(story);
   return newScreen ? (
-    <div className={styles.screen}>{inner}</div>
+    <motion.div
+      variants={animationStates}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      className={styles.screen}
+    >
+      {inner}
+    </motion.div>
   ) : (
     <>{inner}</>
   );
