@@ -1,0 +1,118 @@
+.border {
+  z-index: 1;
+  position: fixed;
+  background-color: rgba(158, 169, 207, 0.2);
+  backdrop-filter: blur(10px);
+  cursor: none;
+}
+
+.borderTop,
+.borderBottom {
+  left: var(--n-b-left);
+  right: var(--n-b-right);
+}
+.borderTop {
+  height: var(--n-b-top);
+  top: 0;
+  border-bottom: 1px solid black;
+}
+.borderBottom {
+  height: var(--n-b-bottom);
+  bottom: 0;
+  border-top: 1px solid black;
+}
+
+.borderLeft,
+.borderRight {
+  bottom: 0;
+  top: 0;
+}
+.borderLeft {
+  width: var(--n-b-left);
+  left: 0;
+  border-right: 1px solid black;
+}
+.borderRight {
+  width: var(--n-b-right);
+  right: 0;
+  border-left: 1px solid black;
+}
+
+.navContainer {
+  width: var(--n-b-right);
+  position: fixed;
+  right: 0;
+  bottom: calc(var(--n-b-bottom) + 2vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  cursor: none;
+}
+
+.nav {
+  text-transform: uppercase;
+  padding: 0;
+  /* TODO: Change to Cabinet Grotesk */
+  font-family: 'Helvetica Neue';
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.nav a {
+  padding: 0 1vw;
+  border: 2px solid transparent;
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  cursor: none;
+}
+
+.nav a:hover {
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.topBar {
+  pointer-events: none;
+  position: relative;
+  margin-left: auto;
+  margin-right: calc(var(--n-b-right) + 20px);
+  margin-top: calc(var(--n-b-top) + 20px);
+  padding: 0;
+
+  display: flex;
+  float: right;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+}
+
+.topBar p {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2em;
+  white-space: nowrap;
+  text-align: center;
+  font-family: monospace;
+  font-stretch: condensed;
+  margin-right: 10px;
+  /* padding: 1em 0; */
+
+  /* outline  */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.topBar img {
+  width: auto;
+  max-height: 100%;
+  height: 5em;
+  /* padding: 5em 0; */
+}

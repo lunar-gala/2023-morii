@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import { Route, Routes, HashRouter } from 'react-router-dom';
+
 import './App.css';
+import Cursor from './components/Cursor';
+import Nav from './components/Nav';
+import Home from './pages/Home';
+import Lines from './pages/Lines';
+import People from './pages/People';
 
 function App() {
+  useEffect(() => {
+    const loaded = sessionStorage.getItem('loaded');
+  }, []);
+
+  const [firstLoad, setFirstLoad] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      {!firstLoad && <Nav />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/lines" element={<Lines />} />
+        <Route path="/people" element={<People />} />
+      </Routes>
+      <Cursor />
+    </HashRouter>
   );
 }
 
