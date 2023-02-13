@@ -40,3 +40,18 @@ export const STORY = [
     classes: ['convoUnder', 'positioned'],
   },
 ];
+
+export const animationStates = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 1, delayChildren: 3 },
+  },
+};
+export const transition = {
+  duration: 1,
+  ease: 'easeOut',
+  delay: 1,
+};

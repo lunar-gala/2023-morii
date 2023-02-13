@@ -4,19 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import styles from './Landing.module.css';
 import { STORY } from '../assets/constants';
-
-const animationStates = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-  },
-};
-const transition = {
-  duration: 1,
-  ease: 'easeOut',
-};
+import { animationStates, transition } from '../assets/constants';
 
 function Landing({ about, setAbout, firstLoad, setFirstLoad }) {
   const [storyNum, setStoryNum] = useState(0);
@@ -68,7 +56,16 @@ function Frame({ story, display, setStoryNum, index }) {
             )}
             transition={transition}
           >
-            <p className={cn(...classes.map((c) => styles[c]))}>{text}</p>
+            <motion.p
+              variants={animationStates}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              trasition={{ delay: 1 }}
+              className={cn(...classes.map((c) => styles[c]))}
+            >
+              {text}
+            </motion.p>
           </motion.div>
         )}
       </AnimatePresence>

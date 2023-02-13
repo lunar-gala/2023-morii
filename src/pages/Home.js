@@ -1,6 +1,4 @@
 // import styles from './Home.module.css';
-import { useState } from 'react';
-
 import Landing from '../components/Landing';
 import About from '../components/About';
 

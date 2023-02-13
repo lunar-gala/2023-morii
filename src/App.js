@@ -26,7 +26,7 @@ function App() {
 
   return (
     <HashRouter>
-      <AnimatePresence>{about && <Nav />}</AnimatePresence>
+      {about && <Nav />}
       <Routes>
         <Route path="/" element={<Home about={about} setAbout={setAbout} />} />
         <Route path="/lines" element={<Lines setCursor={setCursor} />} />
