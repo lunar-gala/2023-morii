@@ -27,3 +27,8 @@
 .view img {
   width: 50%;
 }
+
+.bunbun {
+  position: fixed;
+  z-index: -1;
+}

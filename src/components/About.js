@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 
 import styles from './About.module.css';
 import logo from '../assets/morii-logo.png';
+import bunny from '../assets/WHITE.png';
 
 function About() {
   return (
@@ -12,6 +13,7 @@ function About() {
         transition={{ duration: 2 }}
         className={styles.view}
       >
+        <img className={styles.bunbun} src={bunny} alt="year of the rabbit" />
         <p className={styles.welcome}>Welcome to</p>
         <img src={logo} alt="morii logo" />
         <p className={styles.welcome}>
