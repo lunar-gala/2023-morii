@@ -25,7 +25,6 @@ function Landing({ about, setAbout, firstLoad, setFirstLoad }) {
       <motion.div
         className={styles.screen}
         onViewportEnter={() => {
-          console.log('viewport');
           setAbout(true);
         }}
       ></motion.div>
@@ -35,7 +34,6 @@ function Landing({ about, setAbout, firstLoad, setFirstLoad }) {
 
 function Frame({ story, display, setStoryNum, index }) {
   const { text, classes, newScreen } = story;
-  console.log(story);
   return (
     <>
       <motion.div

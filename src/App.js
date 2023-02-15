@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, HashRouter } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
 
 import './App.css';
 import Cursor from './components/Cursor';
@@ -27,6 +26,7 @@ function App() {
   return (
     <HashRouter>
       {about && <Nav />}
+
       <Routes>
         <Route path="/" element={<Home about={about} setAbout={setAbout} />} />
         <Route path="/lines" element={<Lines setCursor={setCursor} />} />

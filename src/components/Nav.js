@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
-import { animationStates, transition } from '../assets/constants';
+import { motion } from 'framer-motion';
 
 import styles from './Nav.module.css';
 import battery from '../assets/icons/battery.png';
@@ -49,7 +48,12 @@ export default function Nav() {
   }, []);
 
   return (
-    <motion.div variants={animationStates} initial="hidden" animate="visible">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      style={{ zIndex: 999, position: 'fixed' }}
+    >
       <div className={cn(styles.border, styles.borderTop)}></div>
       <div className={cn(styles.border, styles.borderBottom)}></div>
       <div className={cn(styles.border, styles.borderLeft)}></div>

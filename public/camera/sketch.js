@@ -252,7 +252,6 @@ function lines_page() {
 }
 
 function single_line_page() {
-  console.log('parent!', window.parent);
   var myCustomData = { line: 'experiri' };
   var event = new CustomEvent('single_line', { detail: myCustomData });
   window.parent.document.dispatchEvent(event);
