@@ -25,6 +25,7 @@ function Landing({ about, setAbout, firstLoad, setFirstLoad }) {
       <motion.div
         className={styles.screen}
         onViewportEnter={() => {
+          window.sessionStorage.setItem('introViewed', 'true');
           setAbout(true);
         }}
       ></motion.div>

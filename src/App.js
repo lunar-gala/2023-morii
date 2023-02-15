@@ -21,11 +21,13 @@ function App() {
       setCursor(true);
     };
     document.addEventListener('mousemove', mouseMoveHandler);
+
+    setAbout(window.sessionStorage.getItem('introViewed') === 'true');
   }, []);
 
   return (
     <HashRouter>
-      {about && <Nav />}
+      <Nav about={about} />
 
       <Routes>
         <Route path="/" element={<Home about={about} setAbout={setAbout} />} />
