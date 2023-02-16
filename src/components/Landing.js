@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import debounce from 'lodash.debounce';
 import cn from 'classnames';
 import {
   AnimatePresence,
   motion,
   useScroll,
   useMotionValueEvent,
+  useVelocity,
   useSpring,
+  useTransform,
 } from 'framer-motion';
 
 import styles from './Landing.module.css';
@@ -16,10 +19,21 @@ import background from '../assets/landing-banner.png';
 function Landing({ about, setAbout }) {
   const [storyNum, setStoryNum] = useState(0);
   const [scroll, setScroll] = useState(0);
-  const { scrollYProgress } = useScroll();
+  const [velocity, setVelocity] = useState(0);
+  const { scrollYProgress, scrollY } = useScroll();
+
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false,
+  });
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Page scroll: ', latest);
+    console.log('Page scroll: ', smoothVelocity.get());
+    setVelocity(velocityFactor.get());
     setScroll(latest);
   });
 
@@ -32,6 +46,12 @@ function Landing({ about, setAbout }) {
         style={{ left: `-${scroll * 100}vw` }}
       />
       {STORY.map((story, index) => {
+        const waitAfterScroll = () => {
+          console.log(velocity);
+          if (Math.abs(velocity) < 1) setStoryNum(index);
+          else setTimeout(() => waitAfterScroll(velocity), 500);
+        };
+
         return (
           <Frame
             story={story}
@@ -39,6 +59,8 @@ function Landing({ about, setAbout }) {
             display={index <= storyNum}
             index={index}
             setStoryNum={setStoryNum}
+            velocity={velocity}
+            waitAfterScroll={waitAfterScroll}
           />
         );
       })}
@@ -53,14 +75,27 @@ function Landing({ about, setAbout }) {
   );
 }
 
-function Frame({ story, display, setStoryNum, index }) {
+function Frame({
+  story,
+  display,
+  setStoryNum,
+  index,
+  velocity,
+  waitAfterScroll,
+}) {
   const { text, classes, newScreen } = story;
+
+  const changeStory = debounce(() => {
+    if (velocity <= 50) setStoryNum(index);
+    else changeStory();
+  }, 1500);
+
   return (
     <>
       <motion.div
         className={styles.screen}
-        style={index === 0 && { height: '150vh' }}
-        onViewportEnter={() => setStoryNum(index)}
+        style={index === 0 && { height: '100vh' }}
+        onViewportEnter={changeStory}
       ></motion.div>
       <AnimatePresence>
         {display && (
