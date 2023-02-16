@@ -1,16 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import cn from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useMotionValueEvent,
+} from 'framer-motion';
 
 import styles from './Landing.module.css';
 import { STORY } from '../assets/constants';
 import { animationStates, transition } from '../assets/constants';
+import background from '../assets/landing-banner.png';
 
-function Landing({ about, setAbout, firstLoad, setFirstLoad }) {
+function Landing({ about, setAbout }) {
   const [storyNum, setStoryNum] = useState(0);
+  const [scroll, setScroll] = useState(0);
+  const { scrollYProgress } = useScroll();
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    setScroll(latest);
+  });
 
   return (
     <div className={styles.container}>
+      <img
+        src={background}
+        alt=""
+        className={styles.bg}
+        style={{ left: `-${scroll * 100}%` }}
+      />
       {STORY.map((story, index) => {
         return (
           <Frame

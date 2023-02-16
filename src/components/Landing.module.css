@@ -3,6 +3,11 @@
   height: 100vw;
 }
 
+.bg {
+  position: fixed;
+  height: 100vh;
+}
+
 .screen {
   width: 100vw;
   height: 100vh;
@@ -24,7 +29,7 @@
 }
 
 .newScreen {
-  background: rgba(255, 251, 239, 0.5);
+  background: rgba(255, 251, 239, 0.2);
   backdrop-filter: blur(10px);
 }
 .sameScreen {
