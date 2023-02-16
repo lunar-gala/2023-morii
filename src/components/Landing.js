@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import cn from 'classnames';
 import {
   AnimatePresence,
   motion,
   useScroll,
   useMotionValueEvent,
+  useSpring,
 } from 'framer-motion';
 
 import styles from './Landing.module.css';
@@ -16,17 +17,19 @@ function Landing({ about, setAbout }) {
   const [storyNum, setStoryNum] = useState(0);
   const [scroll, setScroll] = useState(0);
   const { scrollYProgress } = useScroll();
+
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    console.log('Page scroll: ', latest);
     setScroll(latest);
   });
 
   return (
     <div className={styles.container}>
-      <img
+      <motion.img
         src={background}
         alt=""
         className={styles.bg}
-        style={{ left: `-${scroll * 100}%` }}
+        style={{ left: `-${scroll * 100}vw` }}
       />
       {STORY.map((story, index) => {
         return (
