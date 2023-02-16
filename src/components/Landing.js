@@ -17,6 +17,8 @@ import { animationStates, transition } from '../assets/constants';
 import background from '../assets/landing-banner.png';
 
 function Landing({ about, setAbout }) {
+  const numSlides = STORY.length + 1;
+
   const [storyNum, setStoryNum] = useState(0);
   const [scroll, setScroll] = useState(0);
   const [velocity, setVelocity] = useState(0);
@@ -31,10 +33,21 @@ function Landing({ about, setAbout }) {
     clamp: false,
   });
 
+  const getSlide = (scroll) => {
+    const thresholds = STORY.map((_, index) => (1 / numSlides) * (index + 1));
+    return thresholds.findIndex((num) => num > scroll);
+  };
+
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Page scroll: ', smoothVelocity.get());
+    console.log('Page scroll: ', latest);
     setVelocity(velocityFactor.get());
     setScroll(latest);
+    const slide = getSlide(latest);
+    setStoryNum(slide);
+    if (slide === -1) {
+      window.sessionStorage.setItem('introViewed', 'true');
+      setAbout(true);
+    }
   });
 
   return (
@@ -64,13 +77,7 @@ function Landing({ about, setAbout }) {
           />
         );
       })}
-      <motion.div
-        className={styles.screen}
-        onViewportEnter={() => {
-          window.sessionStorage.setItem('introViewed', 'true');
-          setAbout(true);
-        }}
-      ></motion.div>
+      <motion.div className={styles.screen}></motion.div>
     </div>
   );
 }
@@ -85,16 +92,17 @@ function Frame({
 }) {
   const { text, classes, newScreen } = story;
 
-  const changeStory = debounce(() => {
-    if (velocity <= 50) setStoryNum(index);
-    else changeStory();
-  }, 1500);
+  // const changeStory = debounce(() => {
+  //   if (velocity <= 50) setStoryNum(index);
+  //   else changeStory();
+  // }, 1500);
+  const changeStory = () => setStoryNum(index);
 
   return (
     <>
       <motion.div
         className={styles.screen}
-        style={index === 0 && { height: '100vh' }}
+        style={index === 0 && { height: '200vh' }}
         onViewportEnter={changeStory}
       ></motion.div>
       <AnimatePresence>
