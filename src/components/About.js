@@ -10,7 +10,7 @@ function About() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 4 }}
         className={styles.view}
       >
         <img className={styles.bunbun} src={bunny} alt="year of the rabbit" />
