@@ -77,45 +77,44 @@
   border: 2px solid black;
 }
 
-.topBar {
+.corners {
+  font-family: 'Gangster Grotesk';
+
   pointer-events: none;
-  position: fixed;
-  left: auto;
-  right: calc(var(--n-b-right) + 20px);
-  margin-top: calc(var(--n-b-top));
   padding: 0;
   text-transform: uppercase;
-  font-family: 'Gangster Grotesk' !important;
-
-  display: flex;
-  float: right;
-
   z-index: 2;
 
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  left: var(--n-b-left);
+  right: var(--n-b-right);
+  top: var(--n-b-top);
+  bottom: var(--n-b-bottom);
 }
 
-.topBar p {
+.corners p {
   color: #ffffff;
   text-decoration: none;
   font-size: 2em;
   white-space: nowrap;
   text-align: center;
   font-stretch: condensed;
-  margin-right: 10px;
-  letter-spacing: 3px;
-
-  /* padding: 1em 0; */
+  margin: 10px 20px;
+  letter-spacing: 2px;
 
   /* outline  */
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
 
-.topBar img {
-  width: auto;
-  max-height: 100%;
-  height: 5em;
-  /* padding: 5em 0; */
+.countdown {
+  float: right;
+  letter-spacing: 2px;
+}
+
+.countdown1 {
+  float: left;
 }

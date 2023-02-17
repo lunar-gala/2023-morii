@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { motion } from 'framer-motion';
 
 import styles from './Nav.module.css';
-import battery from '../assets/icons/battery.png';
 
 export default function Nav({ about }) {
   const location = useLocation();
@@ -72,8 +71,13 @@ export default function Nav({ about }) {
             <Link to="/people">People</Link>
           </div>
         </div>
-        <div className={styles.topBar}>
-          <p>{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}H:${countdown.seconds}S`}</p>
+        <div className={styles.corners}>
+          <p
+            className={styles.countdown}
+          >{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}H:${countdown.seconds}S`}</p>
+          <p
+            className={styles.countdown1}
+          >{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}H:${countdown.seconds}S`}</p>
         </div>
       </motion.div>
     )
