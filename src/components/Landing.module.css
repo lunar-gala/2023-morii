@@ -34,7 +34,7 @@
 .newScreen {
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 251, 239, 0.1);
+  background: rgba(255, 251, 239, 0.2);
 }
 .sameScreen {
   background: transparent;

@@ -16,6 +16,7 @@ import background from '../assets/landing-banner.png';
 function Landing({ setAbout }) {
   const numSlides = STORY.length + 1;
 
+  const [screenNum, setScreenNum] = useState(0);
   const [storyNum, setStoryNum] = useState(0);
   const [scroll, setScroll] = useState(0);
   const { scrollYProgress } = useScroll();
@@ -31,6 +32,8 @@ function Landing({ setAbout }) {
     setScroll(latest);
     const slide = getSlide(latest);
     setStoryNum(slide);
+    if (slide >= 0 && STORY[slide].newScreen) setScreenNum(slide);
+    console.log(screenNum);
     if (slide === -1) {
       window.sessionStorage.setItem('introViewed', 'true');
       setAbout(true);
@@ -52,7 +55,7 @@ function Landing({ setAbout }) {
               story={story}
               key={index}
               display={index <= storyNum}
-              blur={index < storyNum}
+              blur={index < screenNum}
             />
           );
         })}
