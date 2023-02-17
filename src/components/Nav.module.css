@@ -82,8 +82,10 @@
   position: fixed;
   left: auto;
   right: calc(var(--n-b-right) + 20px);
-  margin-top: calc(var(--n-b-top) + 20px);
+  margin-top: calc(var(--n-b-top));
   padding: 0;
+  text-transform: uppercase;
+  font-family: 'Gangster Grotesk' !important;
 
   display: flex;
   float: right;
@@ -100,9 +102,10 @@
   font-size: 2em;
   white-space: nowrap;
   text-align: center;
-  font-family: monospace;
   font-stretch: condensed;
   margin-right: 10px;
+  letter-spacing: 3px;
+
   /* padding: 1em 0; */
 
   /* outline  */

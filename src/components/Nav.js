@@ -25,10 +25,16 @@ export default function Nav({ about }) {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Output the result in an element with id="demo"
-    return `${days}D ${hours}H ${minutes}H ${seconds}S`;
+    return {
+      days,
+      hours,
+      minutes,
+      seconds,
+    };
   };
 
-  const [countdown, setCountdown] = useState(getCountdown());
+  const initial = getCountdown();
+  const [countdown, setCountdown] = useState(initial);
 
   useEffect(() => {
     let x = setInterval(function () {
@@ -41,7 +47,6 @@ export default function Nav({ about }) {
       // If the count down is over, write some text
       if (distance < 0) {
         clearInterval(x);
-        setCountdown('THE MOMENT HAS FLAD');
       } else {
         setCountdown(getCountdown());
       }
@@ -68,11 +73,7 @@ export default function Nav({ about }) {
           </div>
         </div>
         <div className={styles.topBar}>
-          <p>24v</p>
-          <p>RAW</p>
-          <p id="countdown">{countdown}</p>
-          <img src={battery} alt="battery icon" />
-          <p>72%</p>
+          <p>{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}H:${countdown.seconds}S`}</p>
         </div>
       </motion.div>
     )
