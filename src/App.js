@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, HashRouter } from 'react-router-dom';
 
+import './typography.css';
 import './App.css';
 import Cursor from './components/Cursor';
 import Nav from './components/Nav';

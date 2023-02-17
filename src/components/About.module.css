@@ -29,11 +29,24 @@
 }
 
 .view p {
-  width: 70%;
+  width: 85%;
+  font-size: 24px;
+  margin: 0.5vh;
 }
 
 .logo {
   align-self: center;
-  width: 60%;
-  padding-left: calc(var(--n-b-left) / 2);
+  width: 80%;
+  padding-left: calc((var(--n-b-left) + var(--n-b-right)) / 2);
+  margin: 2vh auto;
+}
+
+.view .welcome {
+  font-size: 36px;
+}
+
+.lastLook {
+  text-transform: uppercase;
+  font-family: Isenheim, 'Times New Roman';
+  margin-top: 3vh !important;
 }

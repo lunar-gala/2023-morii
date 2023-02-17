@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Gangster Grotesk';
+  src: url('./assets/fonts/GangsterGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Isenheim';
+  src: url('./assets/fonts/Isenheim_Regulier.otf') format('otf');
+  font-weight: 400;
+  font-style: normal;
+}
