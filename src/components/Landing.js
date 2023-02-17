@@ -28,12 +28,10 @@ function Landing({ setAbout }) {
   };
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Page scroll: ', latest);
     setScroll(latest);
     const slide = getSlide(latest);
     setStoryNum(slide);
     if (slide >= 0 && STORY[slide].newScreen) setScreenNum(slide);
-    console.log(screenNum);
     if (slide === -1) {
       window.sessionStorage.setItem('introViewed', 'true');
       setAbout(true);
@@ -67,7 +65,6 @@ function Landing({ setAbout }) {
 
 function Frame({ story, display, blur }) {
   const { text, classes, newScreen } = story;
-  console.log(blur);
   return (
     <AnimatePresence>
       {display && (

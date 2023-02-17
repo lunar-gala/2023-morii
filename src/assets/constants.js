@@ -50,8 +50,19 @@ export const animationStates = {
     transition: { staggerChildren: 1, delayChildren: 3 },
   },
 };
+
 export const transition = {
   duration: 1,
   ease: 'easeOut',
   delay: 1,
+};
+
+export const aboutAnimation = {
+  visible: (i) => ({
+    opacity: 1,
+    transition: {
+      delay: i * 2,
+    },
+  }),
+  hidden: { opacity: 0 },
 };
