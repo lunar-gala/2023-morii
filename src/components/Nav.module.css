@@ -42,7 +42,7 @@
   width: var(--n-b-right);
   position: fixed;
   right: 0;
-  bottom: calc(var(--n-b-bottom) + 2vh);
+  bottom: calc(var(--n-b-bottom) + 14vh);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,27 +54,28 @@
 .nav {
   text-transform: uppercase;
   padding: 0;
-  /* TODO: Change to Cabinet Grotesk */
-  font-family: 'Helvetica Neue';
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .nav a {
-  padding: 0 1vw;
+  font-family: 'Isenheim', Arial;
+  padding: 0 0.5vw;
   border: 2px solid transparent;
   text-decoration: none;
-  color: white;
-  font-size: 40px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  color: black;
+  font-size: 36px;
   cursor: none;
+  font-weight: 200;
+  padding-top: 0.7rem;
+  margin: 0.1rem 0;
 }
 
-.nav a:hover {
+.nav a:hover,
+.active {
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid black !important;
 }
 
 .corners {

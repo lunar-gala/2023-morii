@@ -66,9 +66,27 @@ export default function Nav({ about }) {
         <div className={cn(styles.border, styles.borderRight)}></div>
         <div className={styles.navContainer}>
           <div className={styles.nav}>
-            <Link to="/">About</Link>
-            <Link to="/lines">Lines</Link>
-            <Link to="/people">People</Link>
+            <Link className={location.pathname === '/' && styles.active} to="/">
+              About
+            </Link>
+            <Link
+              className={location.pathname === '/lines' && styles.active}
+              to="/lines"
+            >
+              Lines
+            </Link>
+            <Link
+              className={location.pathname === '/people' && styles.active}
+              to="/people"
+            >
+              People
+            </Link>
+            <Link
+              className={location.pathname === '/tickets' && styles.active}
+              to="/tickets"
+            >
+              Tickets
+            </Link>
           </div>
         </div>
         <div className={styles.corners}>
