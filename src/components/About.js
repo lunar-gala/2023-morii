@@ -15,7 +15,7 @@ function About() {
       >
         <img className={styles.bunbun} src={bunny} alt="year of the rabbit" />
         <p className={styles.welcome}>Welcome to</p>
-        <img src={logo} alt="morii logo" />
+        <img className={styles.logo} src={logo} alt="morii logo" />
         <p className={styles.welcome}>
           For this year's show, we would like to bring you along to witness how
           current student and alumni designers weave this otherwise
