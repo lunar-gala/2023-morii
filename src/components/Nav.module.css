@@ -108,13 +108,20 @@
   /* outline  */
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+  position: absolute;
 }
 
 .countdown {
   float: right;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
+  bottom: 0;
 }
 
-.countdown1 {
-  float: left;
+.morii {
+  bottom: 0;
+  right: 0;
+}
+
+.date {
+  right: 0;
 }

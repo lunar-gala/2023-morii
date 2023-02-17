@@ -36,13 +36,13 @@
 
 .logo {
   align-self: center;
-  width: 80%;
+  width: 70%;
   padding-left: calc((var(--n-b-left) + var(--n-b-right)) / 2);
   margin: 2vh auto;
 }
 
 .view .welcome {
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .lastLook {

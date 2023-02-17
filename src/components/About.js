@@ -22,7 +22,7 @@ function About() {
           indescribable feeling into wearable fashion.
         </p>
         <p className={styles.lastLook}>TAKE ONE LAST LOOK.</p>
-        <p>Carnegie Music Hall. March 20, YEAR OF THE RABBIT. 7:30PM EST.</p>
+        <p>Carnegie Music Hall. March 18, YEAR OF THE RABBIT. 7:30PM EST.</p>
       </motion.div>
     </div>
   );
