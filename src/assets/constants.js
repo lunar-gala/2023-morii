@@ -61,7 +61,8 @@ export const aboutAnimation = {
   visible: (i) => ({
     opacity: 1,
     transition: {
-      delay: i * 2,
+      delay: i * 1,
+      duration: 1.5,
     },
   }),
   hidden: { opacity: 0 },

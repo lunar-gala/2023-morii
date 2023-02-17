@@ -14,20 +14,19 @@ function About() {
           animate="visible"
           initial="hidden"
           className={styles.welcome}
-          custom={1}
+          custom={0.3}
         >
           Welcome to
         </motion.p>
-        <motion.img
+        <motion.div
           initial="hidden"
-          onLoad={() => console.log('logo loaded')}
-          className={styles.logo}
-          src={logo}
-          alt="morii logo"
           variants={aboutAnimation}
           animate="visible"
-          custom={2}
-        />
+          custom={1.5}
+          className={styles.logo}
+        >
+          <motion.img src={logo} alt="morii logo" />
+        </motion.div>
         <motion.p
           initial="hidden"
           variants={aboutAnimation}

@@ -57,7 +57,7 @@ export default function Nav({ about }) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 3, delay: 2 }}
+        transition={{ duration: 3, delay: 4 }}
         style={{ zIndex: 999, position: 'fixed' }}
       >
         <div className={cn(styles.border, styles.borderTop)}></div>

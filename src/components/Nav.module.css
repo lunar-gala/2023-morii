@@ -96,7 +96,7 @@
 }
 
 .corners p {
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: none;
   font-size: 2em;
   white-space: nowrap;

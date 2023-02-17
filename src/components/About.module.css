@@ -36,9 +36,13 @@
 
 .logo {
   align-self: center;
-  width: 70%;
+  height: 20vh;
   padding-left: calc((var(--n-b-left) + var(--n-b-right)) / 2);
   margin: 2vh auto;
+}
+
+.logo img {
+  height: 100%;
 }
 
 .view .welcome {
