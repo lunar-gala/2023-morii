@@ -13,6 +13,7 @@ let global_alpha = 0;
 let experiri;
 let active = 0;
 let hover = false;
+let curr_line = -1;
 
 // line object //
 function create_line(limg, lnum) {
@@ -74,7 +75,6 @@ function update_hover(lines_arr) {
       hover = true;
 
       cursor.active = true;
-      print(true);
       return i;
     }
   }
@@ -109,10 +109,11 @@ function preload() {
   focus = loadImage('icons/focus.png');
 
   for (var i = 1; i <= 15; i++) {
-    print('assets/lines' + i.toString() + '.png');
     let curr_img = loadImage('assets/lines' + i.toString() + '.png');
     lines.push(create_line(curr_img, i));
   }
+
+  print(lines);
 
   experiri = loadImage('assets/experiri.png');
 
@@ -166,14 +167,8 @@ function draw() {
   cnv.parent('viewport');
   background(BG);
 
-  // print(active);
-
-  switch (active) {
-    case 0:
-      noCursor();
-      lines_page();
-      break;
-  }
+  noCursor();
+  lines_page();
 
   fill(255, global_alpha);
   noStroke();
@@ -211,8 +206,6 @@ function lines_page() {
 
   cursor.move();
   cursor.draw();
-  print(cursor.active);
-  print(hover);
 
   // // focus
   // push();
@@ -221,7 +214,7 @@ function lines_page() {
   // strokeWeight(2);
   // stroke('black');
 
-  let curr_line = update_hover(lines);
+  curr_line = update_hover(lines);
   // if (hover){
   //   stroke('black');
   //   fill('white');
@@ -252,7 +245,8 @@ function lines_page() {
 }
 
 function single_line_page() {
-  var myCustomData = { line: 'experiri' };
+  if (!curr_line || curr_line <= 0) return;
+  var myCustomData = { line: curr_line };
   var event = new CustomEvent('single_line', { detail: myCustomData });
   window.parent.document.dispatchEvent(event);
 
@@ -263,12 +257,10 @@ function single_line_page() {
 function mousePressed() {
   if (active == 0) {
     if (hover) {
-      global_alpha = 255;
       active = 1;
     }
     single_line_page();
   } else if (active == 1) {
-    global_alpha = 255;
     active = 0;
   }
 }

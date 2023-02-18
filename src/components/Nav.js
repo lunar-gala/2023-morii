@@ -57,8 +57,10 @@ export default function Nav({ about }) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 3, delay: 4 }}
-        style={{ zIndex: 999, position: 'fixed' }}
+        transition={
+          location.pathname === '/' ? { duration: 3, delay: 4 } : { delay: 0 }
+        }
+        style={{ zIndex: 99, position: 'fixed' }}
       >
         <div className={cn(styles.border, styles.borderTop)}></div>
         <div className={cn(styles.border, styles.borderBottom)}></div>
@@ -66,23 +68,26 @@ export default function Nav({ about }) {
         <div className={cn(styles.border, styles.borderRight)}></div>
         <div className={styles.navContainer}>
           <div className={styles.nav}>
-            <Link className={location.pathname === '/' && styles.active} to="/">
+            <Link
+              className={location.pathname === '/' ? styles.active : ''}
+              to="/"
+            >
               About
             </Link>
             <Link
-              className={location.pathname === '/lines' && styles.active}
+              className={location.pathname === '/lines' ? styles.active : ''}
               to="/lines"
             >
               Lines
             </Link>
             <Link
-              className={location.pathname === '/people' && styles.active}
+              className={location.pathname === '/people' ? styles.active : ''}
               to="/people"
             >
               People
             </Link>
             <Link
-              className={location.pathname === '/tickets' && styles.active}
+              className={location.pathname === '/tickets' ? styles.active : ''}
               to="/tickets"
             >
               Tickets
