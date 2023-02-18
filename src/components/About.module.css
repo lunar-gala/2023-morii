@@ -37,7 +37,7 @@
 .logo {
   align-self: center;
   height: 20vh;
-  padding-left: calc((var(--n-b-left) + var(--n-b-right)) / 2);
+  padding-left: calc((var(--n-b-left)) / 2);
   margin: 2vh auto;
 }
 

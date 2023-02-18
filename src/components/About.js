@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 import styles from './About.module.css';
-import logo from '../assets/morii-logo.png';
+import logo from '../assets/morii-logo-big.png';
 import bunny from '../assets/WHITE.png';
 import { aboutAnimation } from '../assets/constants';
 
