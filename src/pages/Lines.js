@@ -21,13 +21,17 @@ function Lines({ setCursor }) {
       >
         <iframe src="/camera/index.html" title="Lines Page"></iframe>
       </div>
-      {line >= 0 && <Line num={line} />}
+      {line >= 0 && <Line num={line} setLine={setLine} />}
     </>
   );
 }
 
-function Line({ num }) {
-  return <div className={styles.linesContainer}>{num}</div>;
+function Line({ num, setLine }) {
+  return (
+    <div onClick={() => setLine(-1)} className={styles.linesContainer}>
+      {num}
+    </div>
+  );
 }
 
 export default Lines;

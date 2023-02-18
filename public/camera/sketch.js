@@ -255,12 +255,6 @@ function single_line_page() {
 }
 
 function mousePressed() {
-  if (active == 0) {
-    if (hover) {
-      active = 1;
-    }
-    single_line_page();
-  } else if (active == 1) {
-    active = 0;
-  }
+  print('pressed');
+  single_line_page();
 }
