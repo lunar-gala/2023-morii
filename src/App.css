@@ -3,6 +3,8 @@
   --n-b-bottom: 5vh;
   --n-b-left: 100px;
   --n-b-right: 225px;
+  --n-b-top_mobile: 50px;
+  --n-b-bottom_mobile: 150px;
 }
 
 body {

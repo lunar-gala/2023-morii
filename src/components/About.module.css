@@ -54,3 +54,12 @@
   font-family: Isenheim, 'Times New Roman';
   margin-top: 3vh !important;
 }
+
+@media only screen and (max-width: 767px) {
+  .view {
+    top: var(--n-b-top_mobile);
+    bottom: var(--n-b-bottom_mobile);
+    left: 0;
+    right: 0;
+  }
+}
