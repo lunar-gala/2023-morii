@@ -51,6 +51,19 @@ export const animationStates = {
   },
 };
 
+export const screenStates = {
+  hidden: {
+    opacity: 0,
+    filter: 'blur(5px)',
+    transition: { duration: 2 },
+  },
+  visible: (i) => ({
+    filter: 'blur(0px)',
+    transition: { duration: i === 0 ? 0 : 2 },
+    opacity: 1,
+  }),
+};
+
 export const transition = {
   duration: 1,
   ease: 'easeOut',

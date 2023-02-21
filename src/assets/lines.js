@@ -1,0 +1,80 @@
+export const LINE_INFO = [
+  {
+    name: 'Doodles',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Arriba',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Rewind',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Paper Dolls',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Limbic',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Atrophy',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'La Pinata',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Wei Lai',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Delicacy',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Selcouth',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Nox Memoria',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Kalopsia',
+    designers: [],
+    images: [],
+    description: '',
+  },
+  {
+    name: 'Xiao Shi',
+    designers: [],
+    images: [],
+    description: '',
+  },
+];

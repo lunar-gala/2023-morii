@@ -19,6 +19,6 @@ iframe,
 }
 
 .linesContainer {
-  z-index: 999;
+  z-index: 90;
   background-color: #fffbef;
 }

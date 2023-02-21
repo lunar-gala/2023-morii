@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import debounce from 'lodash.debounce';
 import cn from 'classnames';
 import {
   AnimatePresence,
@@ -10,7 +9,7 @@ import {
 
 import styles from './Landing.module.css';
 import { STORY } from '../assets/constants';
-import { animationStates, transition } from '../assets/constants';
+import { screenStates, transition } from '../assets/constants';
 import background from '../assets/landing-banner.png';
 
 function Landing({ setAbout }) {
@@ -52,8 +51,8 @@ function Landing({ setAbout }) {
             <Frame
               story={story}
               key={index}
-              display={index <= storyNum}
-              blur={index < screenNum}
+              display={index === screenNum}
+              index={index}
             />
           );
         })}
@@ -63,30 +62,31 @@ function Landing({ setAbout }) {
   );
 }
 
-function Frame({ story, display, blur }) {
+function Frame({ story, display, index }) {
   const { text, classes, newScreen } = story;
   return (
     <AnimatePresence>
       {display && (
         <motion.div
-          variants={animationStates}
+          variants={screenStates}
           initial="hidden"
           animate="visible"
           exit="hidden"
           className={cn(
             styles.step,
-            newScreen ? styles.newScreen : styles.sameScreen,
-            blur ? styles.blurText : ''
+            newScreen ? styles.newScreen : styles.sameScreen
           )}
           transition={transition}
+          custom={index}
         >
           <motion.p
-            variants={animationStates}
+            variants={screenStates}
             initial="hidden"
             animate="visible"
             exit="hidden"
             trasition={{ delay: 1 }}
             className={cn(...classes.map((c) => styles[c]))}
+            custom={index}
           >
             {text}
           </motion.p>
