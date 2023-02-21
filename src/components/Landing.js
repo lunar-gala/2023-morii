@@ -51,7 +51,7 @@ function Landing({ setAbout }) {
             <Frame
               story={story}
               key={index}
-              display={index === screenNum}
+              display={index >= screenNum && index <= storyNum}
               index={index}
             />
           );
