@@ -55,11 +55,11 @@ export const screenStates = {
   hidden: {
     opacity: 0,
     filter: 'blur(5px)',
-    transition: { duration: 2 },
+    transition: { duration: 1 },
   },
   visible: (i) => ({
     filter: 'blur(0px)',
-    transition: { duration: i === 0 ? 0 : 2 },
+    transition: { duration: i === 0 ? 0 : 1 },
     opacity: 1,
   }),
 };
