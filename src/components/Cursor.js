@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import styles from './Cursor.module.css';
 
 export default function Cursor({ mousePosition }) {

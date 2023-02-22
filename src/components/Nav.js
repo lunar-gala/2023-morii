@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
+import { NAV } from '../assets/constants';
 
 import styles from './Nav.module.css';
 
 export default function Nav({ about }) {
+  const activeRef = useRef();
   const location = useLocation();
   const countDownDate = new Date('Mar 18, 2023 19:00:00').getTime();
 
@@ -34,6 +36,7 @@ export default function Nav({ about }) {
 
   const initial = getCountdown();
   const [countdown, setCountdown] = useState(initial);
+  const [navTranslation, setNavTranslation] = useState(0);
 
   useEffect(() => {
     let x = setInterval(function () {
@@ -52,14 +55,18 @@ export default function Nav({ about }) {
     }, 1000);
   }, []);
 
+  useEffect(() => {
+    setNavTranslation(activeRef.current.offsetLeft);
+  }, [activeRef.current]);
+
+  const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
+
   return (
-    (about || location.pathname !== '/') && (
+    (about || curIndex === 0) && (
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={
-          location.pathname === '/' ? { duration: 3, delay: 4 } : { delay: 0 }
-        }
+        transition={curIndex === 0 ? { duration: 3, delay: 4 } : { delay: 0 }}
         style={{ zIndex: 99, position: 'fixed' }}
       >
         <div className={cn(styles.border, styles.borderTop)}></div>
@@ -67,31 +74,26 @@ export default function Nav({ about }) {
         <div className={cn(styles.border, styles.borderLeft)}></div>
         <div className={cn(styles.border, styles.borderRight)}></div>
         <div className={styles.navContainer}>
-          <div className={styles.nav}>
-            <Link
-              className={location.pathname === '/' ? styles.active : ''}
-              to="/"
-            >
-              About
-            </Link>
-            <Link
-              className={location.pathname === '/lines' ? styles.active : ''}
-              to="/lines"
-            >
-              Lines
-            </Link>
-            <Link
-              className={location.pathname === '/people' ? styles.active : ''}
-              to="/people"
-            >
-              People
-            </Link>
-            <Link
-              className={location.pathname === '/tickets' ? styles.active : ''}
-              to="/tickets"
-            >
-              Tickets
-            </Link>
+          <div
+            className={styles.nav}
+            style={{ transform: `translateX(-${navTranslation}px)` }}
+          >
+            {NAV.map(({ path, title }, index) =>
+              index === curIndex ? (
+                <Link
+                  key={path}
+                  className={styles.active}
+                  to={path}
+                  ref={activeRef}
+                >
+                  {title}
+                </Link>
+              ) : (
+                <Link key={path} to={path}>
+                  {title}
+                </Link>
+              )
+            )}
           </div>
         </div>
         <div className={styles.corners}>

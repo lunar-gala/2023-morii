@@ -127,6 +127,12 @@
   right: 0;
 }
 
+@media only screen and (min-width: 768px) {
+  .nav {
+    transform: none !important;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .borderLeft,
   .borderRight {
@@ -148,12 +154,14 @@
   }
   .nav {
     flex-direction: row;
+    position: absolute;
   }
   .nav a:hover,
   .active {
     color: white !important;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
+    border: none !important;
   }
   .nav a {
     font-family: 'Gangster Grotesk', Arial, Helvetica, sans-serif;
@@ -164,7 +172,12 @@
   }
   .navContainer {
     left: 0;
-    bottom: calc(var(--n-b-bottom_mobile) - 5vh);
+    bottom: var(--n-b-bottom_mobile);
     width: auto;
+    display: block;
+  }
+  .nav {
+    position: absolute;
+    left: 50%;
   }
 }

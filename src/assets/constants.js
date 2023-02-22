@@ -80,3 +80,22 @@ export const aboutAnimation = {
   }),
   hidden: { opacity: 0 },
 };
+
+export const NAV = [
+  {
+    path: '/',
+    title: 'About',
+  },
+  {
+    path: '/lines',
+    title: 'Lines',
+  },
+  {
+    path: '/people',
+    title: 'People',
+  },
+  {
+    path: '/ticket',
+    title: 'Ticket',
+  },
+];
