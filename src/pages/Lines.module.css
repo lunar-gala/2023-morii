@@ -22,3 +22,12 @@ iframe,
   z-index: 90;
   background-color: #fffbef;
 }
+
+.linesImg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
