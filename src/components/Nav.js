@@ -74,9 +74,11 @@ export default function Nav({ about }) {
         <div className={cn(styles.border, styles.borderLeft)}></div>
         <div className={cn(styles.border, styles.borderRight)}></div>
         <div className={styles.navContainer}>
-          <div
+          <motion.div
             className={styles.nav}
             style={{ transform: `translateX(-${navTranslation}px)` }}
+            transition={{ duration: 0.2 }}
+            animate={{ transform: `translateX(-${navTranslation}px)` }}
           >
             {NAV.map(({ path, title }, index) =>
               index === curIndex ? (
@@ -94,7 +96,7 @@ export default function Nav({ about }) {
                 </Link>
               )
             )}
-          </div>
+          </motion.div>
         </div>
         <div className={styles.corners}>
           <p
