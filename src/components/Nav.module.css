@@ -143,4 +143,28 @@
   .borderBottom {
     height: var(--n-b-bottom_mobile);
   }
+  .corners {
+    display: none;
+  }
+  .nav {
+    flex-direction: row;
+  }
+  .nav a:hover,
+  .active {
+    color: white !important;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
+  .nav a {
+    font-family: 'Gangster Grotesk', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border: none !important;
+    font-weight: 600;
+    padding-right: 4vw;
+  }
+  .navContainer {
+    left: 0;
+    bottom: calc(var(--n-b-bottom_mobile) - 5vh);
+    width: auto;
+  }
 }
