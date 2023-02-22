@@ -56,13 +56,13 @@ export default function Nav({ about }) {
   }, []);
 
   useEffect(() => {
-    setNavTranslation(activeRef.current.offsetLeft);
+    setNavTranslation(activeRef?.current?.offsetLeft);
   }, [activeRef.current]);
 
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
 
   return (
-    (about || curIndex === 0) && (
+    (about || curIndex !== 0) && (
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
