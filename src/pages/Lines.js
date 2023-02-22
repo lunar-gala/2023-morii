@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './Lines.module.css';
 import { LINE_INFO } from '../assets/lines';
+import { animationStates } from '../assets/constants';
+import { motion } from 'framer-motion';
 
 function Lines({ setCursor }) {
   const [line, setLine] = useState(-1);
@@ -30,10 +32,16 @@ function Lines({ setCursor }) {
 function Line({ num, setLine }) {
   const line = LINE_INFO[num];
   return (
-    <div onClick={() => setLine(-1)} className={styles.linesContainer}>
+    <motion.div
+      variants={animationStates}
+      initial="hidden"
+      animate="visible"
+      onClick={() => setLine(-1)}
+      className={styles.linesContainer}
+    >
       <img src={line?.image} className={styles.linesImg} alt={line?.name} />
       {num}
-    </div>
+    </motion.div>
   );
 }
 
