@@ -77,3 +77,10 @@
   top: calc(50% + 20px);
   z-index: 1;
 }
+
+@media only screen and (max-width: 767px) {
+  .center {
+    max-width: 80vw !important;
+    font-size: 1.2rem;
+  }
+}

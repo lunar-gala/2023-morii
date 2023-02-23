@@ -37,6 +37,7 @@ export default function Nav({ about }) {
   const initial = getCountdown();
   const [countdown, setCountdown] = useState(initial);
   const [navTranslation, setNavTranslation] = useState(0);
+  const [details, setDetails] = useState(false);
 
   useEffect(() => {
     let x = setInterval(function () {
@@ -60,52 +61,85 @@ export default function Nav({ about }) {
   }, [activeRef.current]);
 
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
+  const transition = curIndex === 0 ? { duration: 3, delay: 4 } : { delay: 0 };
 
   return (
     (about || curIndex !== 0) && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={curIndex === 0 ? { duration: 3, delay: 4 } : { delay: 0 }}
-        style={{ zIndex: 99, position: 'fixed' }}
-      >
-        <div className={cn(styles.border, styles.borderTop)}></div>
-        <div className={cn(styles.border, styles.borderBottom)}></div>
-        <div className={cn(styles.border, styles.borderLeft)}></div>
-        <div className={cn(styles.border, styles.borderRight)}></div>
-        <div className={styles.navContainer}>
+      <motion.div style={{ zIndex: 99, position: 'fixed' }}>
+        <motion.div
+          initial={{ top: '-100px', left: 0, right: 0 }}
+          animate={{ top: '0px', left: '100px', right: '225px' }}
+          transition={transition}
+          className={cn(styles.border, styles.borderTop)}
+          onAnimationComplete={() => {
+            setDetails(true);
+          }}
+        ></motion.div>
+        <motion.div
+          initial={{ bottom: '-100px', left: 0, right: 0 }}
+          animate={{ bottom: '0px', left: '100px', right: '225px' }}
+          transition={transition}
+          className={cn(styles.border, styles.borderBottom)}
+        ></motion.div>
+        <motion.div
+          initial={{ left: '-100px' }}
+          animate={{ left: '0px' }}
+          transition={transition}
+          className={cn(styles.border, styles.borderLeft)}
+        ></motion.div>
+        <motion.div
+          initial={{ right: '-226px' }}
+          animate={{ right: '0px' }}
+          transition={transition}
+          className={cn(styles.border, styles.borderRight)}
+        ></motion.div>
+        {details && (
           <motion.div
-            className={styles.nav}
-            style={{ transform: `translateX(-${navTranslation}px)` }}
-            transition={{ duration: 0.2 }}
-            animate={{ transform: `translateX(-${navTranslation}px)` }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className={styles.navContainer}
           >
-            {NAV.map(({ path, title }, index) =>
-              index === curIndex ? (
-                <Link
-                  key={path}
-                  className={styles.active}
-                  to={path}
-                  ref={activeRef}
-                >
-                  {title}
-                </Link>
-              ) : (
-                <Link key={path} to={path}>
-                  {title}
-                </Link>
-              )
-            )}
+            <motion.div
+              className={styles.nav}
+              style={{ transform: `translateX(-${navTranslation}px)` }}
+              transition={{ duration: 0.2 }}
+              animate={{ transform: `translateX(-${navTranslation}px)` }}
+            >
+              {NAV.map(({ path, title }, index) =>
+                index === curIndex ? (
+                  <Link
+                    key={path}
+                    className={styles.active}
+                    to={path}
+                    ref={activeRef}
+                  >
+                    {title}
+                  </Link>
+                ) : (
+                  <Link key={path} to={path}>
+                    {title}
+                  </Link>
+                )
+              )}
+            </motion.div>
           </motion.div>
-        </div>
-        <div className={styles.corners}>
-          <p
-            className={styles.countdown}
-          >{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}H:${countdown.seconds}S`}</p>
-          <p>40.44362, -79.94158</p>
-          <p className={styles.morii}>Lunar Gala - Morii</p>
-          <p className={styles.date}>3 - 18&nbsp;&nbsp;YR 2023</p>
-        </div>
+        )}
+        {details && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className={styles.corners}
+          >
+            <p>40.44362, -79.94158</p>
+            <p className={styles.date}>3 - 18&nbsp;&nbsp;YR 2023</p>
+            <p
+              className={styles.countdown}
+            >{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}H:${countdown.seconds}S`}</p>
+            <p className={styles.morii}>Lunar Gala - Morii</p>
+          </motion.div>
+        )}
       </motion.div>
     )
   );
