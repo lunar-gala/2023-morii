@@ -140,8 +140,8 @@
   }
   .borderTop,
   .borderBottom {
-    left: 0;
-    right: 0;
+    left: 0 !important;
+    right: 0 !important;
   }
   .borderTop {
     height: var(--n-b-top_mobile);
@@ -158,16 +158,13 @@
   }
   .nav a:hover,
   .active {
-    color: white !important;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-      1px 1px 0 #000;
+    text-decoration: underline !important;
     border: none !important;
   }
   .nav a {
-    font-family: 'Gangster Grotesk', Arial, Helvetica, sans-serif;
     font-size: 18px;
     border: none !important;
-    font-weight: 600;
+    font-weight: 400;
     padding-right: 4vw;
   }
   .navContainer {

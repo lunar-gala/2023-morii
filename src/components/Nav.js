@@ -5,10 +5,14 @@ import { motion } from 'framer-motion';
 import { NAV } from '../assets/constants';
 
 import styles from './Nav.module.css';
+import useWindowSize from '../assets/useWindowSize';
 
 export default function Nav({ about }) {
   const activeRef = useRef();
   const location = useLocation();
+  const windowSize = useWindowSize();
+  const isMobile = windowSize?.width < 768;
+
   const countDownDate = new Date('Mar 18, 2023 19:00:00').getTime();
 
   const getCountdown = () => {
@@ -67,7 +71,7 @@ export default function Nav({ about }) {
     (about || curIndex !== 0) && (
       <motion.div style={{ zIndex: 99, position: 'fixed' }}>
         <motion.div
-          initial={{ top: '-100px', left: 0, right: 0 }}
+          initial={{ top: isMobile ? '-51px' : '-100px', left: 0, right: 0 }}
           animate={{ top: '0px', left: '100px', right: '225px' }}
           transition={transition}
           className={cn(styles.border, styles.borderTop)}
@@ -76,7 +80,11 @@ export default function Nav({ about }) {
           }}
         ></motion.div>
         <motion.div
-          initial={{ bottom: '-100px', left: 0, right: 0 }}
+          initial={{
+            bottom: isMobile ? '-151px' : '-100px',
+            left: 0,
+            right: 0,
+          }}
           animate={{ bottom: '0px', left: '100px', right: '225px' }}
           transition={transition}
           className={cn(styles.border, styles.borderBottom)}
