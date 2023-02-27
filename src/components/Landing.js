@@ -64,7 +64,8 @@ function Landing({ setAbout }) {
       vid.pause();
     } else if (pos > 0.5) {
       vid.play();
-      vid.playbackRate = velocityFactor.get() / 5 + 0.07;
+      const playback = pos / 5 + 0.07;
+      vid.playbackRate = playback >= 10 ? 10 : playback;
     } else {
       // console.log(scroll * vid?.duration);
       // vid.playbackRate = 0.07;
