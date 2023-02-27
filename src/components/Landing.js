@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import cn from 'classnames';
 import {
   AnimatePresence,
   motion,
   useScroll,
   useMotionValueEvent,
+  useVelocity,
+  useSpring,
+  useTransform,
 } from 'framer-motion';
 
 import styles from './Landing.module.css';
 import { STORY } from '../assets/constants';
 import { screenStates, transition } from '../assets/constants';
-import background from '../assets/landing-banner.png';
+import background from '../assets/backdrop.mp4';
+import useIdle from '../hooks/useIdle';
 
 function Landing({ setAbout }) {
   const numSlides = STORY.length + 1;
@@ -18,7 +22,19 @@ function Landing({ setAbout }) {
   const [screenNum, setScreenNum] = useState(0);
   const [storyNum, setStoryNum] = useState(0);
   const [scroll, setScroll] = useState(0);
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress, scrollY } = useScroll();
+
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false,
+  });
+
+  const vidRef = useRef();
+  const isIdle = useIdle({ timeToIdle: 200 });
 
   const thresholds = STORY.map((_, index) => (1 / numSlides) * (1 + index));
 
@@ -37,14 +53,30 @@ function Landing({ setAbout }) {
     }
   });
 
+  useEffect(() => {
+    const vid = vidRef?.current;
+    if (!(vid && vid?.duration)) {
+      return;
+    }
+    const pos = Math.abs(velocityFactor.get());
+    console.log(pos);
+    if (isIdle) {
+      vid.pause();
+    } else if (pos > 0.5) {
+      vid.play();
+      vid.playbackRate = velocityFactor.get() / 5 + 0.07;
+    } else {
+      // console.log(scroll * vid?.duration);
+      // vid.playbackRate = 0.07;
+      vid.pause();
+    }
+  });
+
   return (
     <div className={styles.container}>
-      <motion.img
-        src={background}
-        alt=""
-        className={styles.bg}
-        style={{ left: `-${scroll * 100}vw` }}
-      />
+      <video ref={vidRef} className={styles.bg} playsInline muted loop>
+        <source src={background} type="video/mp4" />
+      </video>
       <div className={styles.body}>
         {STORY.map((story, index) => {
           return (

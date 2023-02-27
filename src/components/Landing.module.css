@@ -1,16 +1,19 @@
 .body {
   height: 1000vh;
+  color: white;
 }
 
 .container {
   width: 100vw;
   height: 100vw;
-  background: rgba(255, 251, 239, 0.2);
+  /* background: rgba(255, 251, 239, 0.2); */
 }
 
 .bg {
   position: fixed;
   height: 100vh;
+  width: 100vw;
+  object-fit: cover;
 }
 
 .screen {
@@ -34,7 +37,7 @@
 .newScreen {
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 251, 239, 0.2);
+  background: rgba(0, 0, 0, 0.3);
 }
 .sameScreen {
   background: transparent;

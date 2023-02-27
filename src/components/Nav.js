@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { NAV } from '../assets/constants';
 
 import styles from './Nav.module.css';
-import useWindowSize from '../assets/useWindowSize';
+import useWindowSize from '../hooks/useWindowSize';
 
 export default function Nav({ about }) {
   const activeRef = useRef();
@@ -61,7 +61,9 @@ export default function Nav({ about }) {
   }, []);
 
   useEffect(() => {
-    setNavTranslation(activeRef?.current?.offsetLeft);
+    const cur = activeRef?.current;
+    console.log(activeRef?.current?.getBoundingClientRect(), cur?.offsetWidth);
+    setNavTranslation(cur?.offsetLeft + cur?.offsetWidth / 2);
   }, [activeRef.current]);
 
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
