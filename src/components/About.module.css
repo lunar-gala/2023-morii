@@ -61,5 +61,19 @@
     bottom: var(--n-b-bottom_mobile);
     left: 0;
     right: 0;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .view p {
+    font-size: 16px;
+  }
+  .logo {
+    padding: 0px;
+  }
+  .logo img {
+    height: auto;
+    width: 100%;
   }
 }

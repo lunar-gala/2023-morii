@@ -63,7 +63,7 @@ export default function Nav({ about }) {
   useEffect(() => {
     const cur = activeRef?.current;
     console.log(activeRef?.current?.getBoundingClientRect(), cur?.offsetWidth);
-    setNavTranslation(cur?.offsetLeft + cur?.offsetWidth / 2);
+    setNavTranslation(cur?.offsetLeft);
   }, [activeRef.current]);
 
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);

@@ -7,7 +7,12 @@ import { aboutAnimation } from '../assets/constants';
 
 function About() {
   return (
-    <div className={styles.container}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2.5 }}
+      className={styles.container}
+    >
       <motion.div className={styles.view}>
         <motion.p
           variants={aboutAnimation}
@@ -55,7 +60,7 @@ function About() {
           Carnegie Music Hall. March 18, YEAR OF THE RABBIT. 7:30PM EST.
         </motion.p>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
