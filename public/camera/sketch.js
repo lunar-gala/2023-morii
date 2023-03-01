@@ -108,7 +108,7 @@ function preload() {
   bgImg = loadImage('assets/lines-bg.png');
   focus = loadImage('icons/focus.png');
 
-  for (var i = 1; i <= 15; i++) {
+  for (var i = 1; i <= 13; i++) {
     let curr_img = loadImage('assets/lines' + i.toString() + '.png');
     lines.push(create_line(curr_img, i));
   }
@@ -134,7 +134,7 @@ function setup() {
   angleMode(DEGREES);
   textAlign(RIGHT, BOTTOM);
 
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i < 13; i++) {
     lines[i].resize(0.8, 0);
   }
 
@@ -151,8 +151,8 @@ function setup() {
   lines[10].place(700, 400);
   lines[11].place(750, 500);
   lines[12].place(840, 120);
-  lines[13].place(900, 300);
-  lines[14].place(1000, 580);
+  // lines[13].place(900, 300);
+  // lines[14].place(1000, 580);
 
   for (var i = 0; i < 4; i++) {
     let theta = 45 + i * 90;
@@ -199,8 +199,8 @@ function lines_page() {
   lines[10].draw();
   lines[11].draw();
   lines[12].draw();
-  lines[13].draw();
-  lines[14].draw();
+  // lines[13].draw();
+  // lines[14].draw();
 
   pop();
 
