@@ -11,6 +11,7 @@ import People from './pages/People';
 
 function App() {
   const [about, setAbout] = useState(false);
+  const [initialView, setInitialView] = useState(false);
   const [cursor, setCursor] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
@@ -24,6 +25,7 @@ function App() {
     document.addEventListener('mousemove', mouseMoveHandler);
 
     setAbout(window.sessionStorage.getItem('introViewed') === 'true');
+    setInitialView(window.sessionStorage.getItem('introViewed') === 'true');
   }, []);
 
   return (
@@ -31,7 +33,12 @@ function App() {
       <Nav about={about} />
 
       <Routes>
-        <Route path="/" element={<Home about={about} setAbout={setAbout} />} />
+        <Route
+          path="/"
+          element={
+            <Home initialView={initialView} about={about} setAbout={setAbout} />
+          }
+        />
         <Route path="/lines" element={<Lines setCursor={setCursor} />} />
         <Route path="/people" element={<People />} />
       </Routes>

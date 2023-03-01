@@ -2,11 +2,11 @@
 import Landing from '../components/Landing';
 import About from '../components/About';
 
-function Home({ about, setAbout }) {
+function Home({ initialView, about, setAbout }) {
   return (
     <>
       <Landing about={about} setAbout={setAbout} />
-      {about && <About />}
+      {about && <About firstLoad={initialView} />}
     </>
   );
 }

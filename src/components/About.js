@@ -5,10 +5,10 @@ import logo from '../assets/morii-logo-big.png';
 import bunny from '../assets/WHITE.png';
 import { aboutAnimation } from '../assets/constants';
 
-function About() {
+function About({ firstLoad }) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={firstLoad ? {} : { opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2.5 }}
       className={styles.container}
