@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 import styles from './About.module.css';
 import logo from '../assets/morii-logo-big.png';
-import bunny from '../assets/WHITE.png';
+import bunny from '../assets/bunny.gif';
 import { aboutAnimation } from '../assets/constants';
 
 function About({ firstLoad }) {
@@ -60,6 +60,7 @@ function About({ firstLoad }) {
           Carnegie Music Hall. March 18, YEAR OF THE RABBIT. 7:30PM EST.
         </motion.p>
       </motion.div>
+      <img className={styles.bunbun} src={bunny} alt="bunny jumping" />
     </motion.div>
   );
 }

@@ -5,6 +5,9 @@
   top: 0;
   left: 0;
   background: rgba(255, 251, 239, 1);
+  background-image: url('../assets/landing_backdrop.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .view {
@@ -26,6 +29,8 @@
 .bunbun {
   position: fixed;
   z-index: -1;
+  width: 100vw;
+  bottom: 0;
 }
 
 .view p {

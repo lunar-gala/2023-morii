@@ -105,3 +105,28 @@ export const NAV = [
     coming: '03/17',
   },
 ];
+
+export const TIERS = [
+  {
+    tier: 'VIP 1',
+    price: 65,
+    bonus: 'Includes VIP gift bag',
+  },
+  {
+    tier: 'VIP 2',
+    price: 65,
+    bonus: 'Includes VIP gift bag',
+  },
+  {
+    tier: 'Preferred',
+    price: 55,
+  },
+  {
+    tier: 'Plus',
+    price: 35,
+  },
+  {
+    tier: 'General',
+    price: 25,
+  },
+];

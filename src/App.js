@@ -6,8 +6,8 @@ import './App.css';
 import Cursor from './components/Cursor';
 import Nav from './components/Nav';
 import Home from './pages/Home';
-import Lines from './pages/Lines';
-import People from './pages/People';
+// import Lines from './pages/Lines';
+// import People from './pages/People';
 import Tickets from './pages/Tickets';
 
 function App() {

@@ -11,7 +11,7 @@ import {
 } from 'framer-motion';
 
 import styles from './Landing.module.css';
-import { STORY } from '../assets/constants';
+import { STORY, TIERS } from '../assets/constants';
 import { screenStates, transition } from '../assets/constants';
 import background from '../assets/backdrop.mp4';
 import useIdle from '../hooks/useIdle';

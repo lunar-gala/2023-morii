@@ -27,4 +27,30 @@
   font-family: Isenheim, 'Times New Roman';
   text-transform: uppercase;
   font-size: 70px;
+  margin-bottom: 0px;
+}
+
+.pricing {
+  list-style-type: none;
+  width: 70%;
+}
+
+.pricing li {
+  display: flex;
+  justify-content: space-between;
+  font-family: Isenheim, 'Times New Roman';
+  font-size: 1.5rem;
+  margin-bottom: 2vw;
+}
+
+.tier,
+.price {
+  white-space: nowrap;
+  margin: 0px;
+}
+
+.dot {
+  border-bottom: dotted 3px black;
+  width: 100%;
+  margin: 6px 2vw;
 }
