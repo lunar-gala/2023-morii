@@ -42,9 +42,9 @@ export default function Nav({ about }) {
 
   const initial = getCountdown();
   const [countdown, setCountdown] = useState(initial);
-  const [navTranslation, setNavTranslation] = useState(0);
   const [details, setDetails] = useState(false);
   const [left, setLeft] = useState(0);
+  const [hovered, setHovered] = useState(NAV.map((_) => false));
 
   useEffect(() => {
     let x = setInterval(function () {
@@ -66,11 +66,6 @@ export default function Nav({ about }) {
   useEffect(() => {
     const cur = activeRef?.current;
     const ghost = ghostRef?.current;
-    setNavTranslation(
-      -cur?.offsetLeft +
-        ghost?.getBoundingClientRect().left -
-        cur?.getBoundingClientRect().left
-    );
     if (!cur || !ghost) return;
     const diff =
       ghost?.getBoundingClientRect().left - cur?.getBoundingClientRect().left;
@@ -128,7 +123,7 @@ export default function Nav({ about }) {
                 initial={{ left: 0 }}
                 animate={{ left: `${left}px` }}
               >
-                {NAV.map(({ path, title }, index) =>
+                {NAV.map(({ path, title, coming }, index) =>
                   index === curIndex ? (
                     <Link
                       key={path}
@@ -139,8 +134,27 @@ export default function Nav({ about }) {
                       {title}
                     </Link>
                   ) : (
-                    <Link key={path} to={path}>
-                      {title}
+                    <Link
+                      key={path}
+                      to={path}
+                      onMouseEnter={() =>
+                        setHovered((hovered) => {
+                          hovered[index] = true;
+                          return hovered;
+                        })
+                      }
+                      onMouseOut={() =>
+                        setHovered((hovered) => {
+                          hovered[index] = false;
+                          return hovered;
+                        })
+                      }
+                      className={cn(
+                        coming && styles.coming,
+                        hovered[index] && coming && styles.comingSoon
+                      )}
+                    >
+                      {hovered[index] && coming ? `Coming ${coming}` : title}
                     </Link>
                   )
                 )}

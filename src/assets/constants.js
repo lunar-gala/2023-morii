@@ -91,15 +91,17 @@ export const NAV = [
     title: 'About',
   },
   {
-    path: '/lines',
-    title: 'Lines',
+    path: '/tickets',
+    title: 'Tickets',
   },
   {
     path: '/people',
     title: 'People',
+    coming: '03/10',
   },
   {
-    path: '/ticket',
-    title: 'Ticket',
+    path: '/lines',
+    title: 'Lines',
+    coming: '03/17',
   },
 ];

@@ -5,7 +5,12 @@
   backdrop-filter: blur(10px);
   cursor: none;
 }
-
+.coming:active {
+  pointer-events: none;
+}
+.comingSoon {
+  font-size: 22px !important;
+}
 .borderTop,
 .borderBottom {
   left: var(--n-b-left);
@@ -71,6 +76,7 @@
   font-weight: 200;
   padding-top: 0.7rem;
   margin: 0.1rem 0;
+  height: 45px;
 }
 
 .nav a:hover,
@@ -135,6 +141,7 @@
 .ghost {
   display: none;
   text-transform: uppercase;
+  height: auto;
 }
 
 @media only screen and (min-width: 768px) {
@@ -179,7 +186,7 @@
   }
   .nav a,
   .ghost {
-    font-size: 18px;
+    font-size: 1.1rem;
     border: none !important;
     font-weight: 400;
     margin-right: 17px;
