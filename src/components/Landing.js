@@ -11,7 +11,7 @@ import {
 } from 'framer-motion';
 
 import styles from './Landing.module.css';
-import { STORY, TIERS } from '../assets/constants';
+import { STORY } from '../assets/constants';
 import { screenStates, transition } from '../assets/constants';
 import background from '../assets/backdrop.mp4';
 import useIdle from '../hooks/useIdle';
@@ -59,7 +59,7 @@ function Landing({ setAbout }) {
       return;
     }
     const pos = Math.abs(velocityFactor.get());
-    console.log(pos);
+
     if (isIdle) {
       vid.pause();
     } else if (pos > 0.5) {
@@ -67,8 +67,6 @@ function Landing({ setAbout }) {
       const playback = pos / 5 + 0.07;
       vid.playbackRate = playback >= 10 ? 10 : playback;
     } else {
-      // console.log(scroll * vid?.duration);
-      // vid.playbackRate = 0.07;
       vid.pause();
     }
   });

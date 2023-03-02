@@ -12,7 +12,7 @@ import Tickets from './pages/Tickets';
 
 function App() {
   const [about, setAbout] = useState(false);
-  const [initialView, setInitialView] = useState(false);
+  const [initialView, setInitialView] = useState(true);
   const [cursor, setCursor] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <HashRouter>
-      <Nav about={about} />
+      <Nav about={about} setInitialView={setInitialView} />
 
       <Routes>
         <Route

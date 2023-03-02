@@ -8,7 +8,7 @@ import mobile_btn from '../assets/mobile_btn.png';
 import styles from './Nav.module.css';
 import useWindowSize from '../hooks/useWindowSize';
 
-export default function Nav({ about }) {
+export default function Nav({ about, setInitialView }) {
   const activeRef = useRef();
   const ghostRef = useRef();
   const location = useLocation();
@@ -74,6 +74,8 @@ export default function Nav({ about }) {
 
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
   const transition = curIndex === 0 ? { duration: 3, delay: 4 } : { delay: 0 };
+
+  if (curIndex !== 0) setInitialView(true);
 
   return (
     (about || curIndex !== 0) && (

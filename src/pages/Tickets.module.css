@@ -5,10 +5,19 @@
   top: 0;
   left: 0;
   background: rgba(255, 251, 239, 1);
+}
+
+.bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
   background-image: url('../assets/tickets_backdrop.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 65%;
+  opacity: 50%;
 }
 
 .view {
@@ -32,6 +41,7 @@
   text-transform: uppercase;
   font-size: 70px;
   margin-bottom: 0px;
+  filter: blur(1.5px);
 }
 
 .pricing {
@@ -69,8 +79,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .container {
-    background-image: url('../assets/tickets_backdrop.png');
+  .bg {
     background-size: 180%;
     background-repeat: no-repeat;
     background-position-y: 95%;
