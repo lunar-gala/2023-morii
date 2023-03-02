@@ -15,14 +15,17 @@ import { STORY } from '../assets/constants';
 import { screenStates, transition } from '../assets/constants';
 import background from '../assets/backdrop.mp4';
 import useIdle from '../hooks/useIdle';
+import useWindowSize from '../hooks/useWindowSize';
 
-function Landing({ setAbout }) {
+function Landing({ setAbout, about }) {
   const numSlides = STORY.length + 1;
 
   const [screenNum, setScreenNum] = useState(0);
   const [storyNum, setStoryNum] = useState(0);
   const [scroll, setScroll] = useState(0);
   const { scrollYProgress, scrollY } = useScroll();
+  const windowSize = useWindowSize();
+  const isMobile = windowSize?.width < 768;
 
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
@@ -81,7 +84,10 @@ function Landing({ setAbout }) {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={about && isMobile ? { overflowY: 'hidden' } : {}}
+    >
       <video ref={vidRef} className={styles.bg} playsInline muted loop>
         <source src={background} type="video/mp4" />
       </video>
