@@ -173,8 +173,8 @@ function draw() {
 function lines_page() {
   push();
   translate(mouseX - width / 2, mouseY - height / 2);
-  bgImg.resize(width * (5567/2671), 0);
-  image(bgImg, width * ((-513+5567/2)/5567), height * ((-470+3122/2)/3122));
+  bgImg.resize(2 * width, 2 * height);
+  image(bgImg, width / 2, height / 2);
 
   image(lines[0].img, lines[0].x, lines[0].y);
 
