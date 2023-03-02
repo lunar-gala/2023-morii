@@ -135,7 +135,7 @@ function setup() {
   textAlign(RIGHT, BOTTOM);
 
   for (var i = 0; i < 13; i++) {
-    lines[i].resize(0.8, 0);
+    lines[i].resize(0.5, 0);
   }
 
   lines[0].place(40, 30);
@@ -181,7 +181,7 @@ function draw() {
 function lines_page() {
   push();
   translate(mouseX - width / 2, mouseY - height / 2);
-  bgImg.resize(2 * width, 2 * height);
+  bgImg.resize(2* width, 2*height);
   image(bgImg, width / 2, height / 2);
 
   image(lines[0].img, lines[0].x, lines[0].y);
