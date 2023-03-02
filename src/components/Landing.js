@@ -53,7 +53,7 @@ function Landing({ setAbout }) {
     }
   });
 
-  useEffect(() => {
+  const handlePlay = () => {
     const vid = vidRef?.current;
     if (!(vid && vid?.duration)) {
       return;
@@ -69,7 +69,16 @@ function Landing({ setAbout }) {
     } else {
       vid.pause();
     }
-  });
+  };
+
+  // useEffect(() => {
+  //   handlePlay();
+  // });
+
+  useEffect(() => {
+    window.addEventListener('scroll', handlePlay);
+    window.addEventListener('touchmove', handlePlay);
+  }, []);
 
   return (
     <div className={styles.container}>

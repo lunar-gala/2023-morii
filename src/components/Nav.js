@@ -95,10 +95,14 @@ export default function Nav({ about, setInitialView }) {
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
     console.log('swipe', isLeftSwipe ? 'left' : 'right');
-    if (isLeftSwipe && curIndex > 0) {
+    if (isLeftSwipe && curIndex > 0 && !NAV[curIndex - 1]?.coming) {
       console.log('left');
       navigate(NAV[curIndex - 1].path.replace('/', ''));
-    } else if (isRightSwipe && curIndex < NAV.length - 1) {
+    } else if (
+      isRightSwipe &&
+      curIndex < NAV.length - 1 &&
+      !NAV[curIndex + 1]?.coming
+    ) {
       console.log('right');
       navigate(NAV[curIndex + 1].path.replace('/', ''));
     }

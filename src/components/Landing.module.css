@@ -5,8 +5,7 @@
 
 .container {
   width: 100vw;
-  height: 100vw;
-  /* background: rgba(255, 251, 239, 0.2); */
+  height: 100vh;
 }
 
 .bg {
