@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 import styles from './About.module.css';
 import logo from '../assets/morii-logo-big.png';
@@ -6,6 +7,7 @@ import bunny from '../assets/bunny.gif';
 import { aboutAnimation } from '../assets/constants';
 
 function About({ firstLoad }) {
+  const [bun, setBun] = useState(false);
   return (
     <motion.div
       initial={firstLoad ? {} : { opacity: 0 }}
@@ -56,11 +58,20 @@ function About({ firstLoad }) {
           custom={3}
           variants={aboutAnimation}
           animate="visible"
+          onAnimationComplete={() => setBun(true)}
         >
           Carnegie Music Hall. March 18, YEAR OF THE RABBIT. 7:30PM EST.
         </motion.p>
       </motion.div>
-      <img className={styles.bunbun} src={bunny} alt="bunny jumping" />
+      {bun && (
+        <motion.img
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className={styles.bunbun}
+          src={bunny}
+          alt="bunny jumping"
+        />
+      )}
     </motion.div>
   );
 }
