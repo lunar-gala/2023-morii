@@ -45,7 +45,7 @@
   justify-content: space-between;
   font-family: Isenheim, 'Times New Roman';
   font-size: 1.5rem;
-  margin-bottom: 5vw;
+  margin-bottom: 8vh;
   position: relative;
 }
 
@@ -66,4 +66,35 @@
   position: absolute;
   left: 2vw;
   top: 2vh;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    background-image: url('../assets/tickets_backdrop.png');
+    background-size: 180%;
+    background-repeat: no-repeat;
+    background-position-y: 95%;
+  }
+
+  .view {
+    top: var(--n-b-top_mobile);
+    bottom: var(--n-b-bottom_mobile);
+    left: 0;
+    right: 0;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pricing {
+    width: 90%;
+  }
+
+  .title {
+    font-family: Isenheim, 'Times New Roman';
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-bottom: 0px;
+  }
 }
