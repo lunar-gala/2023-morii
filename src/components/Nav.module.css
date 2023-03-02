@@ -5,6 +5,9 @@
   backdrop-filter: blur(10px);
   cursor: none;
 }
+.coming:hover {
+  cursor: not-allowed;
+}
 .coming:active {
   pointer-events: none;
 }

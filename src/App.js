@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import Lines from './pages/Lines';
 import People from './pages/People';
+import Tickets from './pages/Tickets';
 
 function App() {
   const [about, setAbout] = useState(false);
@@ -39,8 +40,9 @@ function App() {
             <Home initialView={initialView} about={about} setAbout={setAbout} />
           }
         />
-        <Route path="/lines" element={<Lines setCursor={setCursor} />} />
-        <Route path="/people" element={<People />} />
+        <Route path="/tickets" element={<Tickets />} />
+        {/* <Route path="/lines" element={<Lines setCursor={setCursor} />} />
+        <Route path="/people" element={<People />} /> */}
       </Routes>
       {cursor && <Cursor mousePosition={mousePosition} />}
     </HashRouter>
