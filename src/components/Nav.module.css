@@ -169,7 +169,7 @@
   .borderBottom {
     height: var(--n-b-bottom_mobile);
   }
-  .corners {
+  .corners * {
     display: none;
   }
   .nav {
@@ -212,5 +212,13 @@
   .ghost {
     opacity: 0;
     display: block;
+  }
+  .countdown {
+    position: fixed !important;
+    display: block !important;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
   }
 }
