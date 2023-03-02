@@ -6,6 +6,8 @@ export const STORY = [
   },
   {
     text: "Dancing in the shadows, whispering in the wind. A story that can't be contained is lost as one that can't be told.",
+    mobileText:
+      "Dancing in the shadows, whispering in the wind.<br /><br />A story that can't be contained is lost as one that can't be told.",
     classes: ['center'],
     newScreen: true,
   },
@@ -27,6 +29,8 @@ export const STORY = [
   { text: '"I don\'t think you will."', classes: ['convo4', 'positioned'] },
   {
     text: "We try to capture moments as if they'll escape, building a version of the world adherent to change. Can this memory be preserved, can this contour be casted?",
+    mobileText:
+      "We try to capture moments as if they'll escape, building a version of the world adherent to change.<br /><br />Can this memory be preserved, can this contour be casted?",
     classes: [],
     newScreen: true,
   },

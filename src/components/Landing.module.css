@@ -83,7 +83,37 @@
 
 @media only screen and (max-width: 767px) {
   .center {
-    max-width: 80vw !important;
-    font-size: 1.2rem;
+    max-width: 78vw !important;
+  }
+
+  .container p {
+    font-size: 1.6rem;
+    max-width: 70vw;
+  }
+  .convo1,
+  .convo2,
+  .convo3,
+  .convo4 {
+    text-align: left !important;
+  }
+  .convo1 {
+    top: 70px;
+    left: 30px;
+  }
+  .convo2 {
+    top: 320px;
+    right: 50px;
+  }
+  .convo3 {
+    top: 460px;
+    left: 30px;
+  }
+  .convo4 {
+    bottom: 60px;
+    right: 50px;
+  }
+  .convoUnder {
+    top: calc(50% + 40px);
+    z-index: 1;
   }
 }

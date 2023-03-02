@@ -96,7 +96,7 @@ function Landing({ setAbout }) {
 }
 
 function Frame({ story, display, index }) {
-  const { text, classes, newScreen } = story;
+  const { mobileText, text, classes, newScreen } = story;
   return (
     <AnimatePresence>
       {display && (
@@ -120,9 +120,8 @@ function Frame({ story, display, index }) {
             trasition={{ delay: 1 }}
             className={cn(...classes.map((c) => styles[c]))}
             custom={index}
-          >
-            {text}
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: mobileText ?? text }}
+          ></motion.p>
         </motion.div>
       )}
     </AnimatePresence>

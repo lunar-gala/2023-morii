@@ -125,7 +125,7 @@ export default function Nav({ about }) {
               <motion.div
                 className={styles.nav}
                 transition={{ duration: 0.2 }}
-                // initial={{ left: 0 }}
+                initial={{ left: 0 }}
                 animate={{ left: `${left}px` }}
               >
                 {NAV.map(({ path, title }, index) =>
