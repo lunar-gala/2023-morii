@@ -1,6 +1,6 @@
 .body {
   height: 1000vh;
-  color: white;
+  color: black;
 }
 
 .container {
@@ -37,7 +37,7 @@
 .newScreen {
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
+  /* background: rgba(0, 0, 0, 0.3); */
 }
 .sameScreen {
   background: transparent;
