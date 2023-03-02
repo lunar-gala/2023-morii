@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { NAV } from '../assets/constants';
@@ -9,6 +9,7 @@ import styles from './Nav.module.css';
 import useWindowSize from '../hooks/useWindowSize';
 
 export default function Nav({ about, setInitialView }) {
+  const navigate = useNavigate();
   const activeRef = useRef();
   const ghostRef = useRef();
   const location = useLocation();
@@ -46,6 +47,12 @@ export default function Nav({ about, setInitialView }) {
   const [left, setLeft] = useState(0);
   const [hovered, setHovered] = useState(NAV.map((_) => false));
 
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 50;
+
   useEffect(() => {
     let x = setInterval(function () {
       // Get today's date and time
@@ -75,6 +82,28 @@ export default function Nav({ about, setInitialView }) {
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
   const transition = curIndex === 0 ? { duration: 3, delay: 4 } : { delay: 0 };
 
+  const onTouchStart = (e) => {
+    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    console.log('swipe', isLeftSwipe ? 'left' : 'right');
+    if (isLeftSwipe && curIndex > 0) {
+      console.log('left');
+      navigate(NAV[curIndex - 1].path.replace('/', ''));
+    } else if (isRightSwipe && curIndex < NAV.length - 1) {
+      console.log('right');
+      navigate(NAV[curIndex + 1].path.replace('/', ''));
+    }
+  };
+
   if (curIndex !== 0) setInitialView(true);
 
   return (
@@ -98,6 +127,9 @@ export default function Nav({ about, setInitialView }) {
           animate={{ bottom: '0px', left: '100px', right: '225px' }}
           transition={transition}
           className={cn(styles.border, styles.borderBottom)}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+          onTouchMove={onTouchMove}
         ></motion.div>
         <motion.div
           initial={{ left: '-100px' }}

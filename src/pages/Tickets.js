@@ -9,7 +9,7 @@ function Tickets() {
         <h1 className={styles.title}>Tickets</h1>
         <ul className={styles.pricing}>
           {TIERS.map(({ tier, price, bonus }) => (
-            <li>
+            <li key={tier}>
               <p className={styles.tier}>{tier}</p>
               <div className={styles.dot}></div>
               <p className={styles.price}>${price}</p>
