@@ -3,12 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { NAV } from '../assets/constants';
+import mobile_btn from '../assets/mobile_btn.png';
 
 import styles from './Nav.module.css';
 import useWindowSize from '../hooks/useWindowSize';
 
 export default function Nav({ about }) {
   const activeRef = useRef();
+  const ghostRef = useRef();
   const location = useLocation();
   const windowSize = useWindowSize();
   const isMobile = windowSize?.width < 768;
@@ -42,6 +44,7 @@ export default function Nav({ about }) {
   const [countdown, setCountdown] = useState(initial);
   const [navTranslation, setNavTranslation] = useState(0);
   const [details, setDetails] = useState(false);
+  const [left, setLeft] = useState(0);
 
   useEffect(() => {
     let x = setInterval(function () {
@@ -62,9 +65,17 @@ export default function Nav({ about }) {
 
   useEffect(() => {
     const cur = activeRef?.current;
-    console.log(activeRef?.current?.getBoundingClientRect(), cur?.offsetWidth);
-    setNavTranslation(cur?.offsetLeft);
-  }, [activeRef.current]);
+    const ghost = ghostRef?.current;
+    setNavTranslation(
+      -cur?.offsetLeft +
+        ghost?.getBoundingClientRect().left -
+        cur?.getBoundingClientRect().left
+    );
+    if (!cur || !ghost) return;
+    const diff =
+      ghost?.getBoundingClientRect().left - cur?.getBoundingClientRect().left;
+    if (diff) setLeft(left + diff + 17 / 2);
+  }, [activeRef.current, ghostRef.current]);
 
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
   const transition = curIndex === 0 ? { duration: 3, delay: 4 } : { delay: 0 };
@@ -110,29 +121,39 @@ export default function Nav({ about }) {
             transition={{ duration: 1 }}
             className={styles.navContainer}
           >
-            <motion.div
-              className={styles.nav}
-              style={{ transform: `translateX(-${navTranslation}px)` }}
-              transition={{ duration: 0.2 }}
-              animate={{ transform: `translateX(-${navTranslation}px)` }}
-            >
-              {NAV.map(({ path, title }, index) =>
-                index === curIndex ? (
-                  <Link
-                    key={path}
-                    className={styles.active}
-                    to={path}
-                    ref={activeRef}
-                  >
-                    {title}
-                  </Link>
-                ) : (
-                  <Link key={path} to={path}>
-                    {title}
-                  </Link>
-                )
-              )}
-            </motion.div>
+            <div className={styles.navWrapper}>
+              <motion.div
+                className={styles.nav}
+                transition={{ duration: 0.2 }}
+                // initial={{ left: 0 }}
+                animate={{ left: `${left}px` }}
+              >
+                {NAV.map(({ path, title }, index) =>
+                  index === curIndex ? (
+                    <Link
+                      key={path}
+                      className={styles.active}
+                      to={path}
+                      ref={activeRef}
+                    >
+                      {title}
+                    </Link>
+                  ) : (
+                    <Link key={path} to={path}>
+                      {title}
+                    </Link>
+                  )
+                )}
+              </motion.div>
+              <p ref={ghostRef} className={styles.ghost}>
+                {NAV[curIndex].title}
+              </p>
+            </div>
+            <img
+              className={styles.mobileBtn}
+              src={mobile_btn}
+              alt="morii mobile home button"
+            />
           </motion.div>
         )}
         {details && (
