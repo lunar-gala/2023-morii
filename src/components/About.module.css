@@ -81,4 +81,10 @@
     height: auto;
     width: 100%;
   }
+  .bunbun {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    right: 0;
+  }
 }

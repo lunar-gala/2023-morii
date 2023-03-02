@@ -5,6 +5,10 @@
   top: 0;
   left: 0;
   background: rgba(255, 251, 239, 1);
+  background-image: url('../assets/tickets_backdrop.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 65%;
 }
 
 .view {
@@ -33,6 +37,7 @@
 .pricing {
   list-style-type: none;
   width: 70%;
+  padding: 0px;
 }
 
 .pricing li {
@@ -40,7 +45,8 @@
   justify-content: space-between;
   font-family: Isenheim, 'Times New Roman';
   font-size: 1.5rem;
-  margin-bottom: 4vw;
+  margin-bottom: 5vw;
+  position: relative;
 }
 
 .tier,
@@ -53,4 +59,11 @@
   border-bottom: dotted 3px black;
   width: 100%;
   margin: 6px 2vw;
+}
+
+.bonus {
+  font-size: 20px !important;
+  position: absolute;
+  left: 2vw;
+  top: 2vh;
 }

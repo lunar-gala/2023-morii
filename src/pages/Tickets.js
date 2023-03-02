@@ -12,6 +12,7 @@ function Tickets() {
               <p className={styles.tier}>{tier}</p>
               <div className={styles.dot}></div>
               <p className={styles.price}>${price}</p>
+              {bonus && <p className={styles.bonus}>{bonus}</p>}
             </li>
           ))}
         </ul>
