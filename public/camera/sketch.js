@@ -3,7 +3,7 @@ let viewport = document.getElementById('viewport');
 let VIEWWIDTH = viewport.clientWidth;
 let VIEWHEIGHT = viewport.clientHeight;
 
-let BG = '#F7F8F2';
+let BG = '#C9C8C3';
 let bgImg;
 let focus;
 let lines = [];
@@ -74,21 +74,19 @@ function update_hover(lines_arr) {
     if (lines_arr[i].overlap()) {
       hover = true;
 
-      cursor.active = true;
+      CURSOR.active = true;
       return i;
     }
   }
 
-  cursor.active = false;
+  CURSOR.active = false;
   hover = false;
 }
 
 // CURSOR //
 
-let tl, tr, bl, br;
-let corner_images;
-let corners = [];
-let cursor;
+let IMAGES = [];
+let CURSOR;
 
 // API
 
@@ -118,12 +116,9 @@ function preload() {
   experiri = loadImage('assets/experiri.png');
 
   // cursor
-  tl = loadImage('cursor/assets/tl.png');
-  tr = loadImage('cursor/assets/tr.png');
-  bl = loadImage('cursor/assets/bl.png');
-  br = loadImage('cursor/assets/br.png');
-
-  corner_images = [br, bl, tl, tr];
+  let inner = loadImage('cursor/assets/moR_inner.png');
+  let outer = loadImage('cursor/assets/moR_outer.png');
+  IMAGES = [inner, outer];
 }
 
 function setup() {
@@ -135,32 +130,29 @@ function setup() {
   textAlign(RIGHT, BOTTOM);
 
   for (var i = 0; i < 13; i++) {
-    lines[i].resize(0.8, 0);
+    lines[i].resize(0.6, 0);
   }
 
-  lines[0].place(40, 30);
-  lines[1].place(50, 240);
-  lines[2].place(30, 500);
-  lines[3].place(260, 80);
-  lines[4].place(250, 300);
-  lines[5].place(270, 600);
-  lines[6].place(500, 100);
-  lines[7].place(550, 380);
-  lines[8].place(400, 550);
-  lines[9].place(650, 50);
-  lines[10].place(700, 400);
-  lines[11].place(750, 500);
-  lines[12].place(840, 120);
+  let xc = width/2671;
+  let yc = height/1728;
+
+  lines[0].place(xc*131, yc*386);
+  lines[1].place(xc*386, yc*213);
+  lines[2].place(xc*456, yc*586);
+  lines[3].place(xc*168, yc*1200);
+  lines[4].place(xc*903, yc*70);
+  lines[5].place(xc*888, yc*375);
+  lines[6].place(xc*833, yc*927);
+  lines[7].place(xc*1243, yc*1005);
+  lines[8].place(xc*1381, yc*1333);
+  lines[9].place(xc*1935, yc*98);
+  lines[10].place(xc*1599, yc*277);
+  lines[11].place(xc*1739, yc*685);
+  lines[12].place(xc*2090, yc*1009);
   // lines[13].place(900, 300);
   // lines[14].place(1000, 580);
 
-  for (var i = 0; i < 4; i++) {
-    let theta = 45 + i * 90;
-    let r = 50;
-    corners[i] = make_corner(r * cos(theta), r * sin(theta), corner_images[i]);
-  }
-
-  cursor = make_cursor(width / 2, height / 2, 50, 7, -45, 70, corners);
+  CURSOR = make_cursor(width/2, height/2, IMAGES);
 }
 
 function draw() {
@@ -181,8 +173,8 @@ function draw() {
 function lines_page() {
   push();
   translate(mouseX - width / 2, mouseY - height / 2);
-  bgImg.resize(2 * width, 2 * height);
-  image(bgImg, width / 2, height / 2);
+  bgImg.resize(width * (5567/2671), 0);
+  image(bgImg, width * ((-513+5567/2)/5567), height * ((-470+3122/2)/3122));
 
   image(lines[0].img, lines[0].x, lines[0].y);
 
@@ -204,8 +196,8 @@ function lines_page() {
 
   pop();
 
-  cursor.move();
-  cursor.draw();
+  CURSOR.move();
+  CURSOR.draw();
 
   // // focus
   // push();
@@ -237,11 +229,6 @@ function lines_page() {
 
   // pop();
 
-  push();
-  fill(255);
-  blendMode(DIFFERENCE);
-  ellipse(mouseX, mouseY, 80);
-  pop();
 }
 
 function single_line_page() {
