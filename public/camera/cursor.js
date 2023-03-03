@@ -5,7 +5,7 @@ function make_cursor(cx, cy, cimgs) {
     imgs: cimgs,
     draw: cursor_draw,
     move: cursor_move,
-    speed: 0.07,
+    speed: 0.06,
     active: false
   }
 
