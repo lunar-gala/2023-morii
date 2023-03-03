@@ -74,12 +74,12 @@ function Landing({ setAbout, about }) {
     }
   };
 
-  // useEffect(() => {
-  //   handlePlay();
-  // });
+  useEffect(() => {
+    handlePlay();
+  });
 
   useEffect(() => {
-    window.addEventListener('scroll', handlePlay);
+    // window.addEventListener('scroll', handlePlay);
     window.addEventListener('touchmove', handlePlay);
   }, []);
 

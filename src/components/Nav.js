@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { NAV } from '../assets/constants';
 import mobile_btn from '../assets/mobile_btn.png';
 
@@ -49,6 +49,7 @@ export default function Nav({ about, setInitialView }) {
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [flash, setFlash] = useState(false);
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
   const minSwipeDistance = 50;
@@ -113,6 +114,17 @@ export default function Nav({ about, setInitialView }) {
   return (
     (about || curIndex !== 0) && (
       <motion.div style={{ zIndex: 99, position: 'fixed' }}>
+        <AnimatePresence>
+          {flash && (
+            <motion.div
+              key="flash"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={styles.flash}
+            ></motion.div>
+          )}
+        </AnimatePresence>
         <motion.div
           initial={{ top: isMobile ? '-51px' : '-100px', left: 0, right: 0 }}
           animate={{ top: '0px', left: '100px', right: '225px' }}
@@ -201,11 +213,17 @@ export default function Nav({ about, setInitialView }) {
                 {NAV[curIndex].title}
               </p>
             </div>
-            <img
-              className={styles.mobileBtn}
-              src={mobile_btn}
-              alt="morii mobile home button"
-            />
+            <Link to="/">
+              <img
+                className={styles.mobileBtn}
+                src={mobile_btn}
+                alt="morii mobile home button"
+                onClick={() => {
+                  setFlash(true);
+                  setTimeout(() => setFlash(false), 300);
+                }}
+              />
+            </Link>
           </motion.div>
         )}
         {details && (
