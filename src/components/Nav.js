@@ -54,6 +54,38 @@ export default function Nav({ about, setInitialView }) {
   // the required distance between touchStart and touchEnd to be detected as a swipe
   const minSwipeDistance = 50;
 
+  const onTouchStart = (e) => {
+    console.log('touchstart!');
+    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    console.log('move', e.targetTouches[0].clientX, touchEnd);
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = (e) => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    console.log('touchend', touchStart, touchEnd, distance);
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    console.log('swipe', isLeftSwipe ? 'left' : 'right');
+
+    if (isRightSwipe && curIndex > 0 && !NAV[curIndex - 1]?.coming) {
+      console.log('left');
+      navigate(NAV[curIndex - 1].path.replace('/', ''));
+    } else if (
+      isLeftSwipe &&
+      curIndex < NAV.length - 1 &&
+      !NAV[curIndex + 1]?.coming
+    ) {
+      console.log('right');
+      navigate(NAV[curIndex + 1].path.replace('/', ''));
+    }
+  };
+
   useEffect(() => {
     let x = setInterval(function () {
       // Get today's date and time
@@ -69,6 +101,10 @@ export default function Nav({ about, setInitialView }) {
         setCountdown(getCountdown());
       }
     }, 1000);
+
+    // window.addEventListener('touchstart', onTouchStart);
+    // window.addEventListener('touchend', () => console.log(touchEnd));
+    // window.addEventListener('touchmove', onTouchMove);
   }, []);
 
   useEffect(() => {
@@ -83,37 +119,16 @@ export default function Nav({ about, setInitialView }) {
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
   const transition = curIndex === 0 ? { duration: 3, delay: 4 } : { delay: 0 };
 
-  const onTouchStart = (e) => {
-    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    console.log('swipe', isLeftSwipe ? 'left' : 'right');
-    if (isLeftSwipe && curIndex > 0 && !NAV[curIndex - 1]?.coming) {
-      console.log('left');
-      navigate(NAV[curIndex - 1].path.replace('/', ''));
-    } else if (
-      isRightSwipe &&
-      curIndex < NAV.length - 1 &&
-      !NAV[curIndex + 1]?.coming
-    ) {
-      console.log('right');
-      navigate(NAV[curIndex + 1].path.replace('/', ''));
-    }
-  };
-
   if (curIndex !== 0) setInitialView(true);
 
   return (
     (about || curIndex !== 0) && (
-      <motion.div style={{ zIndex: 99, position: 'fixed' }}>
+      <motion.div
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        style={{ zIndex: 99, position: 'fixed' }}
+      >
         <AnimatePresence>
           {flash && (
             <motion.div
@@ -143,9 +158,6 @@ export default function Nav({ about, setInitialView }) {
           animate={{ bottom: '0px', left: '100px', right: '225px' }}
           transition={transition}
           className={cn(styles.border, styles.borderBottom)}
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-          onTouchMove={onTouchMove}
         ></motion.div>
         <motion.div
           initial={{ left: '-100px' }}
