@@ -9,6 +9,7 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion';
+import { browserName } from 'react-device-detect';
 
 import styles from './Landing.module.css';
 import { STORY } from '../assets/constants';
@@ -19,6 +20,7 @@ import useWindowSize from '../hooks/useWindowSize';
 
 function Landing({ setAbout, about }) {
   const numSlides = STORY.length + 1;
+  const isSafari = browserName === 'Safari';
 
   const [screenNum, setScreenNum] = useState(0);
   const [storyNum, setStoryNum] = useState(0);
@@ -63,7 +65,7 @@ function Landing({ setAbout, about }) {
     }
     const pos = Math.abs(velocityFactor.get());
 
-    if (isIdle) {
+    if (isIdle && !isSafari) {
       vid.pause();
     } else if (pos > 0.5) {
       vid.play();
@@ -75,11 +77,11 @@ function Landing({ setAbout, about }) {
   };
 
   useEffect(() => {
-    handlePlay();
+    if (!isSafari) handlePlay();
   });
 
   useEffect(() => {
-    // window.addEventListener('scroll', handlePlay);
+    if (isSafari) window.addEventListener('scroll', handlePlay);
     window.addEventListener('touchmove', handlePlay);
   }, []);
 
