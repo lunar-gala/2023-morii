@@ -9,12 +9,18 @@ import { aboutAnimation } from '../assets/constants';
 function About({ firstLoad }) {
   const [bun, setBun] = useState(false);
   return (
-    <motion.div
-      initial={firstLoad ? {} : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2.5 }}
-      className={styles.container}
-    >
+    <motion.div className={styles.container}>
+      {firstLoad ? (
+        <div className={styles.backdrop}></div>
+      ) : (
+        <motion.div
+          variants={aboutAnimation}
+          animate="visible"
+          initial="hidden"
+          custom={1.5}
+          className={styles.backdrop}
+        ></motion.div>
+      )}
       <motion.div className={styles.view}>
         <motion.p
           variants={aboutAnimation}
