@@ -12,22 +12,23 @@ import {
 import { browserName } from 'react-device-detect';
 
 import styles from './Landing.module.css';
-import { STORY } from '../assets/constants';
+import { STORY, MOBILE_STORY, MOBILE_BACKDROPS } from '../assets/constants';
 import { screenStates, transition } from '../assets/constants';
 import background from '../assets/backdrop.mp4';
 import useIdle from '../hooks/useIdle';
 import useWindowSize from '../hooks/useWindowSize';
 
 function Landing({ setAbout, about }) {
-  const numSlides = STORY.length + 1;
   const isSafari = browserName === 'Safari';
+  const windowSize = useWindowSize();
+  const isMobile = windowSize?.width < 768;
+  const story = isMobile ? MOBILE_STORY : STORY;
+  const numSlides = story.length + 1;
 
   const [screenNum, setScreenNum] = useState(0);
   const [storyNum, setStoryNum] = useState(0);
   const [scroll, setScroll] = useState(0);
   const { scrollYProgress, scrollY } = useScroll();
-  const windowSize = useWindowSize();
-  const isMobile = windowSize?.width < 768;
 
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
@@ -41,7 +42,7 @@ function Landing({ setAbout, about }) {
   const vidRef = useRef();
   const isIdle = useIdle({ timeToIdle: 200 });
 
-  const thresholds = STORY.map((_, index) => (1 / numSlides) * (1 + index));
+  const thresholds = story.map((_, index) => (1 / numSlides) * (1 + index));
 
   const getSlide = (scroll) => {
     return thresholds.findIndex((num) => num > scroll);
@@ -51,7 +52,7 @@ function Landing({ setAbout, about }) {
     setScroll(latest);
     const slide = getSlide(latest);
     setStoryNum(slide);
-    if (slide >= 0 && STORY[slide].newScreen) setScreenNum(slide);
+    if (slide >= 0 && story[slide].newScreen) setScreenNum(slide);
     if (slide === -1) {
       window.sessionStorage.setItem('introViewed', 'true');
       setAbout(true);
@@ -90,28 +91,86 @@ function Landing({ setAbout, about }) {
       className={styles.container}
       style={about && isMobile ? { overflowY: 'hidden' } : {}}
     >
-      <video ref={vidRef} className={styles.bg} playsInline muted loop>
-        <source src={background} type="video/mp4" />
-      </video>
+      {!isMobile && (
+        <video ref={vidRef} className={styles.bg} playsInline muted loop>
+          <source src={background} type="video/mp4" />
+        </video>
+      )}
       <div className={styles.body}>
-        {STORY.map((story, index) => {
-          return (
-            <Frame
-              story={story}
-              key={index}
-              display={index >= screenNum && index <= storyNum}
-              index={index}
-            />
-          );
-        })}
+        {isMobile &&
+          MOBILE_STORY.map((_, index) => {
+            return (
+              <AnimatePresence>
+                {index === storyNum && (
+                  // what's "mobile baby girl" - nandini kuppa-apte
+                  <motion.div
+                    key="backdrop"
+                    variants={screenStates}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    className={styles.mobileBg}
+                    style={{
+                      backgroundImage: `url(${MOBILE_BACKDROPS[index]})`,
+                    }}
+                  ></motion.div>
+                )}
+              </AnimatePresence>
+            );
+          })}
+        {isMobile
+          ? MOBILE_STORY.map((story, index) => {
+              const display = index >= screenNum && index <= storyNum;
+              return (
+                // what's "mobile baby girl" - nandini kuppa-apte
+                <motion.div key={index} className={styles.mobileBg}>
+                  <MobileFrame
+                    story={story}
+                    display={display}
+                    index={index}
+                    bg={index === storyNum}
+                  />
+                </motion.div>
+              );
+            })
+          : STORY.map((story, index) => {
+              return (
+                <Frame
+                  story={story}
+                  key={index}
+                  display={index >= screenNum && index <= storyNum}
+                  index={index}
+                />
+              );
+            })}
       </div>
       <motion.div className={styles.screen}></motion.div>
     </div>
   );
 }
 
+function MobileFrame({ story, display, index }) {
+  const { text, classes, newScreen } = story;
+  console.log(display, index);
+  return (
+    <AnimatePresence>
+      {display && (
+        <motion.p
+          variants={screenStates}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          transition={{ delay: 1 }}
+          custom={index}
+          dangerouslySetInnerHTML={{ __html: text }}
+        ></motion.p>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function Frame({ story, display, index }) {
-  const { mobileText, text, classes, newScreen } = story;
+  const { text, classes, newScreen } = story;
   return (
     <AnimatePresence>
       {display && (
@@ -135,8 +194,9 @@ function Frame({ story, display, index }) {
             trasition={{ delay: 1 }}
             className={cn(...classes.map((c) => styles[c]))}
             custom={index}
-            dangerouslySetInnerHTML={{ __html: mobileText ?? text }}
-          ></motion.p>
+          >
+            {text}
+          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>
