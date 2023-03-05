@@ -59,6 +59,10 @@
   position: relative;
 }
 
+.pricing li:last-child {
+  margin-bottom: 0px;
+}
+
 .tier,
 .price {
   white-space: nowrap;
@@ -76,6 +80,18 @@
   position: absolute;
   left: 2vw;
   top: 2vh;
+}
+
+.purchase {
+  font-size: 36px;
+  margin: 0 !important;
+}
+
+.purchase a {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 767px) {

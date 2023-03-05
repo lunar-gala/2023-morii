@@ -17,6 +17,11 @@ function Tickets() {
             </li>
           ))}
         </ul>
+        <div className={styles.purchase}>
+          <a target="_blank" href="tickets.com">
+            PURCHASE
+          </a>
+        </div>
       </div>
     </div>
   );
