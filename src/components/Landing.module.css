@@ -95,8 +95,7 @@
   font-family: Isenheim, 'Times New Roman';
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 50% !important;
   padding: 2vh 0px;
   animation: bounce 1s linear infinite;
 }
@@ -106,13 +105,13 @@
 
 @keyframes bounce {
   0% {
-    transform: translateY(-3px);
+    transform: translate(-50%, -3px);
   }
   50% {
-    transform: translateY(3px);
+    transform: translate(-50%, 3px);
   }
   100% {
-    transform: translateY(-3px);
+    transform: translate(-50%, -3px);
   }
 }
 
