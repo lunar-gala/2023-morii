@@ -104,7 +104,11 @@ function Landing({ setAbout, about }) {
       <div className={styles.body}>
         {isMobile && (
           <img
-            src={MOBILE_BACKDROPS[storyNum]}
+            src={
+              MOBILE_BACKDROPS[
+                storyNum === -1 ? MOBILE_BACKDROPS.length - 1 : storyNum
+              ]
+            }
             className={styles.bg}
             alt="mobile backdrop"
           />
@@ -156,15 +160,12 @@ function Landing({ setAbout, about }) {
 
 function MobileFrame({ story, display }) {
   const { text, classes } = story;
-  console.log(text, display ? 1 : 0);
   return (
-    <AnimatePresence>
-      <motion.p
-        dangerouslySetInnerHTML={{ __html: text }}
-        className={cn(...classes.map((c) => styles[c]))}
-        style={{ opacity: display ? 1 : 0 }}
-      ></motion.p>
-    </AnimatePresence>
+    <motion.p
+      dangerouslySetInnerHTML={{ __html: text }}
+      className={cn(...classes.map((c) => styles[c]))}
+      style={{ opacity: display ? 1 : 0 }}
+    ></motion.p>
   );
 }
 
