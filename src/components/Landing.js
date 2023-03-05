@@ -34,6 +34,10 @@ function Landing({ setAbout, about }) {
   const [storyNum, setStoryNum] = useState(0);
   const { scrollYProgress, scrollY } = useScroll();
 
+  const screenNumIndex = MOBILE_NEW_SCREENS.map(
+    ({ startIndex }) => startIndex === screenNum
+  ).indexOf(true);
+
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
@@ -122,26 +126,33 @@ function Landing({ setAbout, about }) {
             );
           })}
         {isMobile
-          ? MOBILE_NEW_SCREENS.map(({ startIndex, stories }) => {
-              // what's "mobile baby girl" - nandini kuppa-apte
+          ? MOBILE_NEW_SCREENS.map(({ startIndex, stories }, screenIndex) => {
+              console.log(screenIndex);
               return (
-                <motion.div key={startIndex} className={styles.mobileBg}>
-                  {stories.map((story, index) => {
-                    const story_index = startIndex + index;
-                    const display =
-                      story_index >= screenNum && story_index <= storyNum;
-                    return (
-                      <motion.div key={index}>
-                        <MobileFrame
-                          story={story}
-                          display={display}
-                          index={index}
-                          bg={index === storyNum}
-                        />
-                      </motion.div>
-                    );
-                  })}
-                </motion.div>
+                <>
+                  {screenNumIndex === screenIndex && (
+                    // what's "mobile baby girl" - nandini kuppa-apte
+                    <motion.div key={startIndex} className={styles.mobileBg}>
+                      {stories.map((story, index) => {
+                        const storyIndex = startIndex + index;
+                        const display = storyIndex <= storyNum;
+                        // console.log(
+                        //   'displayed',
+                        //   startIndex,
+                        //   index,
+                        //   storyIndex,
+                        //   storyNum
+                        // );
+                        // const display = storyIndex >= index && story;
+                        return (
+                          <motion.div key={index}>
+                            <MobileFrame story={story} display={display} />
+                          </motion.div>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </>
               );
             })
           : STORY.map((story, index) => {
@@ -160,22 +171,21 @@ function Landing({ setAbout, about }) {
   );
 }
 
-function MobileFrame({ story, display, index }) {
-  const { text, classes, newScreen } = story;
-  console.log(display, index);
+function MobileFrame({ story, display }) {
+  const { text, classes } = story;
+  console.log(text, display ? 1 : 0);
   return (
     <AnimatePresence>
-      {display && (
-        <motion.p
-          variants={screenStates}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          transition={{ delay: 1 }}
-          custom={index}
-          dangerouslySetInnerHTML={{ __html: text }}
-        ></motion.p>
-      )}
+      <motion.p
+        variants={screenStates}
+        initial="hidden"
+        animate={display && 'visible'}
+        exit="hidden"
+        transition={{ delay: 1 }}
+        dangerouslySetInnerHTML={{ __html: text }}
+        className={cn(...classes.map((c) => styles[c]))}
+        style={{ opacity: display ? 1 : 0 }}
+      ></motion.p>
     </AnimatePresence>
   );
 }

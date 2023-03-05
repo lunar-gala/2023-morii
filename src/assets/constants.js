@@ -141,7 +141,10 @@ const newScreens = MOBILE_STORY.map(({ newScreen }, index) =>
 export const MOBILE_NEW_SCREENS = newScreens.map((index, i) => {
   const end =
     i === newScreens.length - 1 ? MOBILE_STORY.length : newScreens[i + 1];
-  return { startIndex: index, stories: MOBILE_STORY.slice(index, end) };
+  return {
+    startIndex: index,
+    stories: MOBILE_STORY.slice(index, end),
+  };
 });
 
 export const animationStates = {

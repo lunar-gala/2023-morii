@@ -55,33 +55,27 @@ export default function Nav({ about, setInitialView }) {
   const minSwipeDistance = 50;
 
   const onTouchStart = (e) => {
-    console.log('touchstart!');
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
     setTouchStart(e.targetTouches[0].clientX);
   };
 
   const onTouchMove = (e) => {
-    console.log('move', e.targetTouches[0].clientX, touchEnd);
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
   const onTouchEnd = (e) => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
-    console.log('touchend', touchStart, touchEnd, distance);
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    console.log('swipe', isLeftSwipe ? 'left' : 'right');
 
     if (isRightSwipe && curIndex > 0 && !NAV[curIndex - 1]?.coming) {
-      console.log('left');
       navigate(NAV[curIndex - 1].path.replace('/', ''));
     } else if (
       isLeftSwipe &&
       curIndex < NAV.length - 1 &&
       !NAV[curIndex + 1]?.coming
     ) {
-      console.log('right');
       navigate(NAV[curIndex + 1].path.replace('/', ''));
     }
   };
@@ -101,10 +95,6 @@ export default function Nav({ about, setInitialView }) {
         setCountdown(getCountdown());
       }
     }, 1000);
-
-    // window.addEventListener('touchstart', onTouchStart);
-    // window.addEventListener('touchend', () => console.log(touchEnd));
-    // window.addEventListener('touchmove', onTouchMove);
   }, []);
 
   useEffect(() => {
