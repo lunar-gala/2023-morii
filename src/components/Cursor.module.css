@@ -1,0 +1,20 @@
+.cursor {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #ffefb6 38.54%,
+    rgba(255, 238, 180, 0.559322) 61.37%,
+    rgba(217, 217, 217, 0) 100%
+  );
+  mix-blend-mode: difference;
+  z-index: 1000;
+  position: fixed;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .cursor {
+    display: none;
+  }
+}

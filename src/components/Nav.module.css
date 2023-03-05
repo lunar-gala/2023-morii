@@ -1,0 +1,235 @@
+.border {
+  z-index: 1;
+  position: fixed;
+  background-color: rgba(158, 169, 207, 0.2);
+  backdrop-filter: blur(10px);
+  cursor: none;
+}
+.coming:hover {
+  cursor: not-allowed;
+}
+.coming:active {
+  pointer-events: none;
+}
+.comingSoon {
+  font-size: 22px !important;
+}
+.borderTop,
+.borderBottom {
+  left: var(--n-b-left);
+  right: var(--n-b-right);
+}
+.borderTop {
+  height: var(--n-b-top);
+  top: 0;
+  border-bottom: 1px solid black;
+}
+.borderBottom {
+  height: var(--n-b-bottom);
+  bottom: 0;
+  border-top: 1px solid black;
+}
+
+.borderLeft,
+.borderRight {
+  bottom: 0;
+  top: 0;
+}
+.borderLeft {
+  width: var(--n-b-left);
+  left: 0;
+  border-right: 1px solid black;
+}
+.borderRight {
+  width: var(--n-b-right);
+  right: 0;
+  border-left: 1px solid black;
+}
+
+.navContainer {
+  width: var(--n-b-right);
+  position: fixed;
+  right: 0;
+  bottom: calc(var(--n-b-bottom) + 14vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  cursor: none;
+}
+
+.nav {
+  text-transform: uppercase;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.nav a,
+.ghost {
+  font-family: 'Isenheim', Arial;
+  padding: 0 0.5vw;
+  border: 2px solid transparent;
+  text-decoration: none;
+  color: black;
+  font-size: 36px;
+  cursor: none;
+  font-weight: 200;
+  padding-top: 0.7rem;
+  margin: 0.1rem 0;
+  height: 45px;
+}
+
+.nav a:hover,
+.active {
+  border-radius: 5px;
+  border: 2px solid black !important;
+}
+
+.corners {
+  font-family: 'Gangster Grotesk';
+
+  pointer-events: none;
+  padding: 0;
+  text-transform: uppercase;
+  z-index: 2;
+
+  display: flex;
+  justify-content: space-between;
+
+  position: fixed;
+  left: var(--n-b-left);
+  right: var(--n-b-right);
+  top: var(--n-b-top);
+  bottom: var(--n-b-bottom);
+}
+
+.corners p {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 2em;
+  white-space: nowrap;
+  text-align: center;
+  font-stretch: condensed;
+  margin: 10px 20px;
+  letter-spacing: 2px;
+
+  /* outline  */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  position: absolute;
+}
+
+.countdown {
+  float: right;
+  letter-spacing: 5px;
+  bottom: 0;
+}
+
+.morii {
+  bottom: 0;
+  right: 0;
+}
+
+.date {
+  right: 0;
+}
+
+.mobileBtn {
+  display: none;
+}
+
+.ghost {
+  display: none;
+  text-transform: uppercase;
+  height: auto;
+}
+
+.flash {
+  z-index: 999;
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  left: 0px !important;
+  top: 0px !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav {
+    transform: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .borderLeft,
+  .borderRight {
+    display: none;
+  }
+  .borderTop,
+  .borderBottom {
+    left: 0 !important;
+    right: 0 !important;
+  }
+  .borderTop {
+    height: var(--n-b-top_mobile);
+  }
+  .borderBottom {
+    height: var(--n-b-bottom_mobile);
+  }
+  .corners * {
+    display: none;
+  }
+  .nav {
+    flex-direction: row;
+    position: absolute;
+  }
+  .navWrapper {
+    margin-bottom: 1vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .nav a:hover,
+  .active {
+    text-decoration: underline !important;
+    border: none !important;
+  }
+  .nav a,
+  .ghost {
+    font-size: 1.1rem;
+    border: none !important;
+    font-weight: 400;
+    margin-right: 17px;
+  }
+  .navContainer {
+    left: 0;
+    bottom: 0;
+    height: var(--n-b-bottom_mobile);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .mobileBtn {
+    /* position: absolute; */
+    /* left: 50%; */
+    display: block;
+    /* transform: translateX(-50%); */
+  }
+  .ghost {
+    opacity: 0;
+    display: block;
+  }
+  .countdown {
+    position: fixed !important;
+    display: block !important;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

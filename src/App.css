@@ -1,3 +1,16 @@
+:root {
+  --n-b-top: 7vh;
+  --n-b-bottom: 5vh;
+  --n-b-left: 100px;
+  --n-b-right: 225px;
+  --n-b-top_mobile: 50px;
+  --n-b-bottom_mobile: 130px;
+}
+
+body {
+  cursor: none !important;
+}
+
 .App {
   text-align: center;
 }

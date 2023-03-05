@@ -1,0 +1,159 @@
+.body {
+  height: 1000vh;
+  color: black;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg,
+.mobileBg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.mobileBg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+}
+
+.step {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newScreen {
+  width: 100vw;
+  height: 100vh;
+  /* background: rgba(0, 0, 0, 0.3); */
+}
+.sameScreen {
+  background: transparent;
+}
+
+.blurText {
+  filter: blur(5px);
+}
+
+.container p {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 60vw;
+  font-size: 2rem;
+}
+
+.center {
+  text-align: center;
+}
+.positioned {
+  position: absolute;
+}
+.convo1 {
+  top: 50px;
+  left: 240px;
+}
+.convo2 {
+  top: 350px;
+  right: 80px;
+}
+.convo3 {
+  top: 400px;
+  left: 180px;
+}
+.convo4 {
+  bottom: 60px;
+  right: 130px;
+}
+.convoUnder {
+  top: calc(50% + 20px);
+  z-index: 1;
+}
+
+.scrollIndicator {
+  font-family: Isenheim, 'Times New Roman';
+  position: fixed;
+  bottom: 0;
+  left: 50% !important;
+  padding: 2vh 0px;
+  animation: bounce 1s linear infinite;
+}
+.scrollIndicator p {
+  font-size: 20px;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, -3px);
+  }
+  50% {
+    transform: translate(-50%, 3px);
+  }
+  100% {
+    transform: translate(-50%, -3px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .center {
+    max-width: 78vw !important;
+  }
+
+  .container p {
+    font-size: 1.6rem;
+    max-width: 70vw;
+  }
+  .convo1,
+  .convo2,
+  .convo3,
+  .convo4 {
+    text-align: left !important;
+  }
+  .convo1 {
+    top: 70px;
+    left: 30px;
+  }
+  .convo2 {
+    top: 320px;
+    right: 50px;
+  }
+  .convo3 {
+    top: 460px;
+    left: 30px;
+  }
+  .convo4 {
+    bottom: 60px;
+    right: 50px;
+  }
+  .convoUnder {
+    top: calc(50% + 40px);
+    z-index: 1;
+  }
+  .center {
+    padding-bottom: 2vh;
+  }
+  .noPaddingUnder {
+    padding-bottom: 0px;
+  }
+}
