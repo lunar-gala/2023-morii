@@ -124,8 +124,16 @@
     text-align: center;
   }
 
+  .bonus {
+    font-size: 16px !important;
+  }
+
   .pricing {
     width: 90%;
+  }
+
+  .pricing li {
+    margin-bottom: 6vh;
   }
 
   .title {
