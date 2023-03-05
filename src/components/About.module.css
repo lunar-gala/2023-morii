@@ -60,7 +60,8 @@
 }
 
 .view .welcome {
-  font-size: 32px;
+  /* font-size: 32px; */
+  font-size: auto;
 }
 
 .lastLook {
@@ -82,6 +83,9 @@
   }
   .view p {
     font-size: 16px;
+  }
+  .view .welcome {
+    display: none;
   }
   .logo {
     padding: 0px;
