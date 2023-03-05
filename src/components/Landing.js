@@ -154,6 +154,17 @@ function Landing({ setAbout, about }) {
             })}
       </div>
       <motion.div className={styles.screen}></motion.div>
+      <AnimatePresence>
+        {screenNum === 0 && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={styles.scrollIndicator}
+          >
+            <motion.p>SCROLL</motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
