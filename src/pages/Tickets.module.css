@@ -87,13 +87,23 @@
   margin: 0 !important;
 }
 
-.purchase a {
+.purchaseLink {
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   text-decoration: none;
   padding-bottom: 2px;
   border-bottom: 2px solid black;
+  display: flex;
+  align-items: flex-end;
+}
+.purchaseLink p {
+  padding-right: 1vw;
+  margin: 0px;
+}
+.purchaseLink img {
+  height: 30px;
+  padding-bottom: 2px;
 }
 
 @media only screen and (max-width: 767px) {

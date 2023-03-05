@@ -1,5 +1,6 @@
 import styles from './Tickets.module.css';
 import { TIERS } from '../assets/constants';
+import arrow from '../assets/tickets_arrow.svg';
 
 function Tickets() {
   return (
@@ -21,8 +22,10 @@ function Tickets() {
           <a
             target="_blank"
             href="https://carnegiemellontickets.universitytickets.com"
+            className={styles.purchaseLink}
           >
-            PURCHASE
+            <p>PURCHASE</p>
+            <img className={styles.arrow} alt="scroll down icon" src={arrow} />
           </a>
         </div>
       </div>
