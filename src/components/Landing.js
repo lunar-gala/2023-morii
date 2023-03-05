@@ -8,6 +8,7 @@ import {
   useVelocity,
   useSpring,
   useTransform,
+  useAnimationControls,
 } from 'framer-motion';
 import { browserName } from 'react-device-detect';
 
@@ -116,7 +117,6 @@ function Landing({ setAbout, about }) {
         )}
         {isMobile
           ? MOBILE_NEW_SCREENS.map(({ startIndex, stories }, screenIndex) => {
-              console.log(screenIndex);
               return (
                 <>
                   {screenNumIndex === screenIndex && (
@@ -173,8 +173,31 @@ function Landing({ setAbout, about }) {
 
 function MobileFrame({ story, display }) {
   const { text, classes } = story;
+  const controls = useAnimationControls();
+  useEffect(() => {
+    if (display) {
+      console.log('display');
+      controls.start({ filter: 'blur(5px)', opacity: 0 });
+      setTimeout(
+        () =>
+          controls.start({
+            filter: 'blur(0px)',
+            opacity: 1,
+            transition: { duration: 0.5 },
+          }),
+        100
+      );
+    } else {
+      controls.start({
+        filter: 'blur(5px)',
+        opacity: 0,
+        transition: { duration: 0.5 },
+      });
+    }
+  }, [display]);
   return (
     <motion.p
+      animate={controls}
       dangerouslySetInnerHTML={{ __html: text }}
       className={cn(...classes.map((c) => styles[c]))}
       style={{ opacity: display ? 1 : 0 }}
