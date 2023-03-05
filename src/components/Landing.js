@@ -73,14 +73,12 @@ function Landing({ setAbout, about }) {
     }
     const pos = Math.abs(velocityFactor.get());
 
-    if (isIdle && !isSafari) {
+    if ((isIdle && !isSafari) || (isSafari && pos <= 0.2)) {
       vid.pause();
-    } else if (pos > 0.5) {
+    } else {
       vid.play();
       const playback = pos / 5 + 0.07;
       vid.playbackRate = playback >= 10 ? 10 : playback;
-    } else {
-      vid.pause();
     }
   };
 
@@ -104,27 +102,13 @@ function Landing({ setAbout, about }) {
         </video>
       )}
       <div className={styles.body}>
-        {isMobile &&
-          MOBILE_STORY.map((_, index) => {
-            return (
-              <AnimatePresence>
-                {index === storyNum && (
-                  // what's "mobile baby girl" - nandini kuppa-apte
-                  <motion.div
-                    key="backdrop"
-                    variants={screenStates}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    className={styles.mobileBg}
-                    style={{
-                      backgroundImage: `url(${MOBILE_BACKDROPS[index]})`,
-                    }}
-                  ></motion.div>
-                )}
-              </AnimatePresence>
-            );
-          })}
+        {isMobile && (
+          <img
+            src={MOBILE_BACKDROPS[storyNum]}
+            className={styles.bg}
+            alt="mobile backdrop"
+          />
+        )}
         {isMobile
           ? MOBILE_NEW_SCREENS.map(({ startIndex, stories }, screenIndex) => {
               console.log(screenIndex);
@@ -132,7 +116,14 @@ function Landing({ setAbout, about }) {
                 <>
                   {screenNumIndex === screenIndex && (
                     // what's "mobile baby girl" - nandini kuppa-apte
-                    <motion.div key={startIndex} className={styles.mobileBg}>
+                    <motion.div
+                      variants={screenStates}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      key={startIndex}
+                      className={styles.mobileBg}
+                    >
                       {stories.map((story, index) => {
                         const storyIndex = startIndex + index;
                         const display = storyIndex <= storyNum;
@@ -169,11 +160,6 @@ function MobileFrame({ story, display }) {
   return (
     <AnimatePresence>
       <motion.p
-        variants={screenStates}
-        initial="hidden"
-        animate={display && 'visible'}
-        exit="hidden"
-        transition={{ delay: 1 }}
         dangerouslySetInnerHTML={{ __html: text }}
         className={cn(...classes.map((c) => styles[c]))}
         style={{ opacity: display ? 1 : 0 }}
