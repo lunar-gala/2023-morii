@@ -101,7 +101,7 @@ export const MOBILE_STORY = [
   },
   {
     text: 'Try to remember.',
-    classes: ['center'],
+    classes: ['center', 'noPaddingUnder'],
   },
   {
     text: 'Try to keep me close.',
@@ -125,12 +125,12 @@ export const MOBILE_STORY = [
   },
   {
     text: '"What if we could just stay a little longer?"',
-    classes: [],
+    classes: ['center'],
     newScreen: true,
   },
   {
     text: '"What if we never had to leave?"',
-    classes: ['convoUnder', 'positioned'],
+    classes: ['center'],
   },
 ];
 

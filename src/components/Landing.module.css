@@ -126,4 +126,10 @@
     top: calc(50% + 40px);
     z-index: 1;
   }
+  .center {
+    padding-bottom: 2vh;
+  }
+  .noPaddingUnder {
+    padding-bottom: 0px;
+  }
 }

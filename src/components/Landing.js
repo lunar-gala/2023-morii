@@ -136,14 +136,6 @@ function Landing({ setAbout, about }) {
                       {stories.map((story, index) => {
                         const storyIndex = startIndex + index;
                         const display = storyIndex <= storyNum;
-                        // console.log(
-                        //   'displayed',
-                        //   startIndex,
-                        //   index,
-                        //   storyIndex,
-                        //   storyNum
-                        // );
-                        // const display = storyIndex >= index && story;
                         return (
                           <motion.div key={index}>
                             <MobileFrame story={story} display={display} />
