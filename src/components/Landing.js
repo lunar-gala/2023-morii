@@ -12,7 +12,12 @@ import {
 import { browserName } from 'react-device-detect';
 
 import styles from './Landing.module.css';
-import { STORY, MOBILE_STORY, MOBILE_BACKDROPS } from '../assets/constants';
+import {
+  STORY,
+  MOBILE_STORY,
+  MOBILE_BACKDROPS,
+  MOBILE_NEW_SCREENS,
+} from '../assets/constants';
 import { screenStates, transition } from '../assets/constants';
 import background from '../assets/backdrop.mp4';
 import useIdle from '../hooks/useIdle';
@@ -27,7 +32,6 @@ function Landing({ setAbout, about }) {
 
   const [screenNum, setScreenNum] = useState(0);
   const [storyNum, setStoryNum] = useState(0);
-  const [scroll, setScroll] = useState(0);
   const { scrollYProgress, scrollY } = useScroll();
 
   const scrollVelocity = useVelocity(scrollY);
@@ -49,7 +53,6 @@ function Landing({ setAbout, about }) {
   };
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    setScroll(latest);
     const slide = getSlide(latest);
     setStoryNum(slide);
     if (slide >= 0 && story[slide].newScreen) setScreenNum(slide);
@@ -119,17 +122,25 @@ function Landing({ setAbout, about }) {
             );
           })}
         {isMobile
-          ? MOBILE_STORY.map((story, index) => {
-              const display = index >= screenNum && index <= storyNum;
+          ? MOBILE_NEW_SCREENS.map(({ startIndex, stories }) => {
+              // what's "mobile baby girl" - nandini kuppa-apte
               return (
-                // what's "mobile baby girl" - nandini kuppa-apte
-                <motion.div key={index} className={styles.mobileBg}>
-                  <MobileFrame
-                    story={story}
-                    display={display}
-                    index={index}
-                    bg={index === storyNum}
-                  />
+                <motion.div key={startIndex} className={styles.mobileBg}>
+                  {stories.map((story, index) => {
+                    const story_index = startIndex + index;
+                    const display =
+                      story_index >= screenNum && story_index <= storyNum;
+                    return (
+                      <motion.div key={index}>
+                        <MobileFrame
+                          story={story}
+                          display={display}
+                          index={index}
+                          bg={index === storyNum}
+                        />
+                      </motion.div>
+                    );
+                  })}
                 </motion.div>
               );
             })

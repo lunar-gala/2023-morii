@@ -100,7 +100,11 @@ export const MOBILE_STORY = [
     classes: ['center'],
   },
   {
-    text: 'Try to remember. Try to keep me close.',
+    text: 'Try to remember.',
+    classes: ['center'],
+  },
+  {
+    text: 'Try to keep me close.',
     classes: ['center'],
   },
   {
@@ -129,6 +133,16 @@ export const MOBILE_STORY = [
     classes: ['convoUnder', 'positioned'],
   },
 ];
+
+const newScreens = MOBILE_STORY.map(({ newScreen }, index) =>
+  newScreen ? index : -1
+).filter((i) => i !== -1);
+
+export const MOBILE_NEW_SCREENS = newScreens.map((index, i) => {
+  const end =
+    i === newScreens.length - 1 ? MOBILE_STORY.length : newScreens[i + 1];
+  return { startIndex: index, stories: MOBILE_STORY.slice(index, end) };
+});
 
 export const animationStates = {
   hidden: {
