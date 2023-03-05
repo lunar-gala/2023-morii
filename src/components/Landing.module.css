@@ -98,9 +98,15 @@
   left: 50% !important;
   padding: 2vh 0px;
   animation: bounce 1s linear infinite;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .scrollIndicator p {
   font-size: 20px;
+}
+.arrow {
+  margin: 0px auto;
 }
 
 @keyframes bounce {

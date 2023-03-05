@@ -92,6 +92,8 @@
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid black;
 }
 
 @media only screen and (max-width: 767px) {

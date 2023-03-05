@@ -18,6 +18,7 @@ import {
   MOBILE_BACKDROPS,
   MOBILE_NEW_SCREENS,
 } from '../assets/constants';
+import arrow from '../assets/arrow_down.svg';
 import { screenStates, transition } from '../assets/constants';
 import background from '../assets/backdrop.mp4';
 import useIdle from '../hooks/useIdle';
@@ -162,6 +163,7 @@ function Landing({ setAbout, about }) {
             className={styles.scrollIndicator}
           >
             <motion.p>SCROLL</motion.p>
+            <img className={styles.arrow} alt="scroll down icon" src={arrow} />
           </motion.div>
         )}
       </AnimatePresence>
