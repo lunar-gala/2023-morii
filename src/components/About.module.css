@@ -36,7 +36,7 @@
 
 .bunbun {
   position: fixed;
-  z-index: -1;
+  z-index: 1;
   width: 100vw;
   bottom: 0;
 }
@@ -89,6 +89,7 @@
   }
   .logo {
     padding: 0px;
+    margin: 2vh 2vh;
   }
   .logo img {
     height: auto;
