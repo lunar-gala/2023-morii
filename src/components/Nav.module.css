@@ -216,6 +216,7 @@
   .mobileBtn {
     /* position: absolute; */
     /* left: 50%; */
+    max-width: 70px;
     display: block;
     /* transform: translateX(-50%); */
   }
