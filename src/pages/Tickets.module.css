@@ -115,6 +115,7 @@
 
   .pricing {
     width: 90%;
+    margin-bottom: 3vh;
   }
   .pricing li {
     /* width: 90%; */
