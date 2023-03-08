@@ -37,11 +37,12 @@
 }
 
 .title {
-  font-family: Isenheim, 'Times New Roman';
+  font-family: Isenheim, 'Times New Roman'; 
+  font-weight: lighter;
   text-transform: uppercase;
   font-size: 70px;
   margin-bottom: 0px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
 }
 
 .pricing {
