@@ -83,6 +83,7 @@
   }
   .view p {
     font-size: 16px;
+    white-space: pre-line;
   }
   .view .welcome {
     display: none;
