@@ -239,7 +239,7 @@ export default function Nav({ about, setInitialView }) {
             <p className={styles.date}>3 - 18&nbsp;&nbsp;YR 2023</p>
             <p
               className={styles.countdown}
-            >{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}H:${countdown.seconds}S`}</p>
+            >{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}M:${countdown.seconds}S`}</p>
             <p className={styles.morii}>Lunar Gala - Morii</p>
           </motion.div>
         )}

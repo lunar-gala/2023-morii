@@ -109,7 +109,7 @@
 
 @media only screen and (max-width: 767px) {
   .bg {
-    background-size: 180%;
+    background-size: 130%;
     background-repeat: no-repeat;
     background-position-y: 95%;
   }
@@ -131,6 +131,11 @@
 
   .pricing {
     width: 90%;
+    margin-bottom: 2vh;
+  }
+  .pricing li {
+    /* width: 90%; */
+    margin-bottom: 5vh;
   }
 
   .pricing li {
@@ -142,5 +147,6 @@
     text-transform: uppercase;
     font-size: 50px;
     margin-bottom: 0px;
+    margin-top: 4vh;
   }
 }

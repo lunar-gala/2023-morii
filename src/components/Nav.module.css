@@ -232,7 +232,11 @@
     transform: translateX(-50%);
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+  p.countdown{
     font-family: 'Space Grotesk';
+    letter-spacing: 8px;
     font-size: 24px;
+    -webkit-text-fill-color: rgb(229, 229, 228);
   }
 }

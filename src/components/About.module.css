@@ -37,7 +37,7 @@
 .bunbun {
   position: fixed;
   z-index: 1;
-  width: 100vw;
+  width: 120vw;
   bottom: 0;
 }
 
@@ -83,6 +83,7 @@
   }
   .view p {
     font-size: 16px;
+    white-space: pre-line;
   }
   .view .welcome {
     display: none;
