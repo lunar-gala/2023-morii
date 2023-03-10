@@ -60,8 +60,7 @@ function Landing({ setAbout, about }) {
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     const slide = getSlide(latest);
-    console.log(slide);
-    setStoryNum(slide);
+    if (!about) setStoryNum(slide);
     if (slide >= 0 && story[slide].newScreen) setScreenNum(slide);
     if (slide === -1) {
       window.sessionStorage.setItem('introViewed', 'true');
@@ -177,8 +176,6 @@ function MobileFrame({ story, display }) {
   const controls = useAnimationControls();
   useEffect(() => {
     if (display) {
-      console.log('display');
-      controls.start({ filter: 'blur(5px)', opacity: 0 });
       setTimeout(
         () =>
           controls.start({
