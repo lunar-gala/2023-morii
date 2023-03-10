@@ -61,7 +61,7 @@ function Landing({ setAbout, about }) {
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     const slide = getSlide(latest);
     if (!about) setStoryNum(slide);
-    if (slide >= 0 && story[slide].newScreen && !about) setScreenNum(slide);
+    if (slide >= 0 && story[slide].newScreen) setScreenNum(slide);
     if (slide === -1) {
       window.sessionStorage.setItem('introViewed', 'true');
       setAbout(true);
