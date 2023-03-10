@@ -60,6 +60,7 @@ function Landing({ setAbout, about }) {
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     const slide = getSlide(latest);
+    console.log(slide);
     setStoryNum(slide);
     if (slide >= 0 && story[slide].newScreen) setScreenNum(slide);
     if (slide === -1) {
