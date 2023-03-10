@@ -204,6 +204,9 @@
     font-weight: 400;
     margin-right: 17px;
   }
+  .ghost {
+    margin-right: 0px;
+  }
   .navContainer {
     left: 0;
     bottom: 0;

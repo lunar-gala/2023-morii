@@ -103,7 +103,7 @@ export default function Nav({ about, setInitialView }) {
     if (!cur || !ghost) return;
     const diff =
       ghost?.getBoundingClientRect().left - cur?.getBoundingClientRect().left;
-    if (diff) setLeft(left + diff + 17 / 2);
+    if (diff) setLeft(left + diff);
   }, [activeRef.current, ghostRef.current]);
 
   const curIndex = NAV.findIndex(({ path }) => path === location.pathname);
