@@ -217,7 +217,6 @@ export const TIERS = [
   {
     tier: 'VIP 2',
     price: 60,
-    bonus: 'Includes VIP gift bag',
   },
   {
     tier: 'Preferred',
