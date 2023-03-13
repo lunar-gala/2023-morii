@@ -148,13 +148,15 @@ export const LINE_INFO = [
 
 export const FILTERS = {
   doodles:
-    'https://www.instagram.com/ar/211207521430948/?ch=MjNmYTdjNjE1NzQzZTI3ZTM4NmMzMGNjOGU5YmIzYTY%3D',
+    'https://www.instagram.com/ar/601634935151893/?ch=YTBmNzM4NzAwN2VjY2M5NjNkMjA4YjI1ODYzMmE5OWY%3D',
   arriba: '',
   rewind: '',
   paper_dolls: '',
   limbic: '',
-  atrophy: '',
-  la_pinata: '',
+  atrophy:
+    'https://www.instagram.com/ar/211207521430948/?ch=MjNmYTdjNjE1NzQzZTI3ZTM4NmMzMGNjOGU5YmIzYTY%3D',
+  la_pinata:
+    'https://www.instagram.com/ar/528406916107921/?ch=YjY3NDgxMGU5MWIyODFlOWM2MWEwNjJhZTZjMmIwODg%3D',
   wei_lai: '',
   delicacy: '',
   selcouth: '',
