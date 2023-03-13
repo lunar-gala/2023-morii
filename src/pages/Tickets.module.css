@@ -17,7 +17,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 65%;
-  opacity: 50%;
+  opacity: 80%;
 }
 
 .view {
@@ -109,7 +109,6 @@
 
 @media only screen and (max-width: 767px) {
   .bg {
-    background-size: 130%;
     background-repeat: no-repeat;
     background-position-y: 95%;
   }
