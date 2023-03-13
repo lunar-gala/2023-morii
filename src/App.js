@@ -9,6 +9,7 @@ import Home from './pages/Home';
 // import Lines from './pages/Lines';
 // import People from './pages/People';
 import Tickets from './pages/Tickets';
+import Filter from './pages/Filter';
 
 function App() {
   const [about, setAbout] = useState(false);
@@ -41,6 +42,7 @@ function App() {
           }
         />
         <Route path="/tickets" element={<Tickets />} />
+        <Route path="/filter/:id" element={<Filter />} />
         {/* <Route path="/lines" element={<Lines setCursor={setCursor} />} />
         <Route path="/people" element={<People />} /> */}
       </Routes>

@@ -112,7 +112,8 @@ export default function Nav({ about, setInitialView }) {
   if (curIndex !== 0) setInitialView(true);
 
   return (
-    (about || curIndex !== 0) && (
+    (about || curIndex !== 0) &&
+    curIndex !== -1 && (
       <motion.div
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}

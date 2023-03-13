@@ -145,3 +145,20 @@ export const LINE_INFO = [
     },
   },
 ];
+
+export const FILTERS = {
+  doodles:
+    'https://www.instagram.com/ar/211207521430948/?ch=MjNmYTdjNjE1NzQzZTI3ZTM4NmMzMGNjOGU5YmIzYTY%3D',
+  arriba: '',
+  rewind: '',
+  paper_dolls: '',
+  limbic: '',
+  atrophy: '',
+  la_pinata: '',
+  wei_lai: '',
+  delicacy: '',
+  selcouth: '',
+  nox_memoria: '',
+  kalopsia: '',
+  xiao_shi: '',
+};
