@@ -150,7 +150,8 @@ export const FILTERS = {
   doodles:
     'https://www.instagram.com/ar/601634935151893/?ch=YTBmNzM4NzAwN2VjY2M5NjNkMjA4YjI1ODYzMmE5OWY%3D',
   arriba: '',
-  rewind: '',
+  rewind:
+    'https://www.instagram.com/ar/135523399212936/?ch=OTMzZDcxZjA1OTQxOWM5N2JiYjE1MzhmNWY0ZDRhYzc%3D',
   paper_dolls: '',
   limbic: '',
   atrophy:
