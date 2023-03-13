@@ -16,13 +16,15 @@ export default function Nav({ about, setInitialView }) {
   const windowSize = useWindowSize();
   const isMobile = windowSize?.width < 768;
 
-  const countDownDate = new Date('Mar 18, 2023 19:00:00').getTime();
+  const countDownDate = new Date('Mar 18, 2023 20:00:00').getTime();
 
   const getCountdown = () => {
     const now = new Date().getTime();
 
     // Find the distance between now and the count down date
     const distance = countDownDate - now;
+
+    if (distance < 0) return undefined;
 
     // Time calculations for days, hours, minutes and seconds
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -238,9 +240,11 @@ export default function Nav({ about, setInitialView }) {
           >
             <p>40.44362, -79.94158</p>
             <p className={styles.date}>3 - 18&nbsp;&nbsp;YR 2023</p>
-            <p
-              className={styles.countdown}
-            >{`${countdown.days}D:${countdown.hours}H:${countdown.minutes}M:${countdown.seconds}S`}</p>
+            <p className={styles.countdown}>
+              {countdown
+                ? `${countdown.days}D:${countdown.hours}H:${countdown.minutes}M:${countdown.seconds}S`
+                : 'THE MOMENT HAS FLED'}
+            </p>
             <p className={styles.morii}>Lunar Gala - Morii</p>
           </motion.div>
         )}
