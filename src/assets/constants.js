@@ -199,7 +199,7 @@ export const NAV = [
   {
     path: '/people',
     title: 'People',
-    coming: '03/10',
+    coming: '03/17',
   },
   {
     path: '/lines',
@@ -216,7 +216,7 @@ export const TIERS = [
   },
   {
     tier: 'VIP 2',
-    price: 65,
+    price: 60,
     bonus: 'Includes VIP gift bag',
   },
   {
