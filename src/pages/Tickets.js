@@ -23,6 +23,7 @@ function Tickets() {
             target="_blank"
             href="https://carnegiemellontickets.universitytickets.com"
             className={styles.purchaseLink}
+            rel="noreferrer"
           >
             <p>PURCHASE</p>
             <img className={styles.arrow} alt="scroll down icon" src={arrow} />
