@@ -24,13 +24,14 @@ function Lines({ setCursor }) {
       >
         <iframe src="/camera/index.html" title="Lines Page"></iframe>
       </div>
-      {line && <Line name={line} setLine={setLine} />}
+      {line && <Line lineName={line} setLine={setLine} />}
     </>
   );
 }
 
-function Line({ name, setLine }) {
-  const line = LINE_INFO[name];
+function Line({ lineName, setLine }) {
+  const line = LINE_INFO[lineName];
+  const { name, designers, description, positioning } = line;
   return (
     <motion.div
       variants={animationStates}
@@ -40,7 +41,16 @@ function Line({ name, setLine }) {
       className={styles.linesContainer}
     >
       <img src={line?.image} className={styles.linesImg} alt={line?.name} />
-      {name}
+      <div className={styles.content}>
+        <p className={styles.name} style={positioning?.name}>
+          {name}
+        </p>
+        <p
+          className={styles.description}
+          style={positioning?.description}
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></p>
+      </div>
     </motion.div>
   );
 }

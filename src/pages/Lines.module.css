@@ -23,11 +23,32 @@ iframe,
   background-color: #fffbef;
 }
 
-.linesImg {
+.linesImg,
+.content {
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.linesImg {
   object-fit: cover;
+}
+
+.name {
+  font-family: Isenheim;
+  font-size: 4.5rem;
+  position: fixed;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.description {
+  position: fixed;
+  margin: 0;
+}
+
+.content {
+  z-index: 999;
 }
