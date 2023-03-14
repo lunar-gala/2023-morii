@@ -118,7 +118,7 @@ function preload() {
     'noxmemoria',
     'paperdolls',
     'rewind',
-    'secoulth',
+    'selcouth',
     'weilai',
     'xiaoshi',
   ];
