@@ -40,15 +40,22 @@ function Line({ lineName, setLine }) {
       onClick={() => setLine(undefined)}
       className={styles.linesContainer}
     >
-      <img src={line?.image} className={styles.linesImg} alt={line?.name} />
-      <div className={styles.content}>
+      <div
+        className={styles.content}
+        style={{
+          backgroundImage: `url(${line?.image})`,
+          ...positioning?.background,
+        }}
+      >
         <p className={styles.name} style={positioning?.name}>
           {name}
         </p>
         <p
           className={styles.description}
           style={positioning?.description}
-          dangerouslySetInnerHTML={{ __html: description }}
+          dangerouslySetInnerHTML={{
+            __html: `${description}<br /><br /><b>${designers.join(', ')}</b>`,
+          }}
         ></p>
       </div>
     </motion.div>

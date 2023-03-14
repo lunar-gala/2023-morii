@@ -49,12 +49,17 @@ export const LINE_INFO = {
     positioning: {
       name: {
         top: addTopMargin('7vh'),
-        left: addLeftMargin('32vw'),
+        left: addLeftMargin('28vw'),
       },
       description: {
         top: addTopMargin('17vh'),
-        left: addLeftMargin('38vw'),
+        left: addLeftMargin('32vw'),
         right: addRightMargin('19.5vw'),
+      },
+      background: {
+        backgroundSize: '109%',
+        backgroundPositionX: '-8vw',
+        backgroundPositionY: 'top',
       },
     },
   },
@@ -87,18 +92,48 @@ export const LINE_INFO = {
   limbic: {
     name: 'Limbic',
     designers: ['Madi Davis'],
-    image: line_img_5,
+    image: line_img_1,
     description:
       "The human brain is the fundamental mechanism that allows us to experience and process what we perceive as moments. Specifically, the neural circuitry of the limbic system facilitates the construction of memories and the expression of emotional responses.<br /><br />Limbic seeks to engage in an exploration of the neurological basis for human perception through an artistic lens. From neuroanatomist Ramon y Cajal's early exploration of the neuron, to the recent appropriation of neural activity for computation, the collection chronologically focuses on different neurological discoveries and how they have altered our understanding of cognition. Incorporating a combination of voluminous silhouettes, mixed media details and romantic finishes, Limbic captures the essence of intricacy and delicateness underlying systems of the brian.",
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('4vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('6vw'),
+        right: addRightMargin('45vw'),
+      },
+      background: {
+        backgroundSize: '108%',
+        backgroundPositionX: 'left',
+        backgroundPositionY: 'top',
+      },
+    },
   },
   noxmemoria: {
     name: 'Nox Memoria',
     designers: ['Amy Hu', 'Angela Huang', 'Sydney Sun'],
     image: line_img_8,
     description:
-      "Nox Memoria, or “Memory of Night”, is the embodiment of that which we try to make permanent, but ultimately fail. These are thoughts and happenings that we can only grasp at, inevitably fading away. Nature proves this to us in the Queen of the Night flower, a rare beauty hardly seen, as it blooms only once a year for a few hours before withering away, This leaves behind a tangle of vines, leaves and us to wander through a haze of memories until the next time one may catch a brief glimpse of the flower's ephemeral beauty.<br />The collection attempts to pluck these fleeting moments from the cycle of impermanence and visualize them through the use of materials varying in opacity and stiffness, and how they can alter forms. The pieces are composed of varying amounts of sheer and solid fabrics representing the flower in different states of clarity.",
-    positioning: {},
+      "Nox Memoria, or “Memory of Night”, is the embodiment of that which we try to make permanent, but ultimately fail. These are thoughts and happenings that we can only grasp at, inevitably fading away. Nature proves this to us in the Queen of the Night flower, a rare beauty hardly seen, as it blooms only once a year for a few hours before withering away, This leaves behind a tangle of vines, leaves and us to wander through a haze of memories until the next time one may catch a brief glimpse of the flower's ephemeral beauty.<br /><br />The collection attempts to pluck these fleeting moments from the cycle of impermanence and visualize them through the use of materials varying in opacity and stiffness, and how they can alter forms. The pieces are composed of varying amounts of sheer and solid fabrics representing the flower in different states of clarity.",
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('4vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('8vw'),
+        right: addRightMargin('39vw'),
+      },
+      background: {
+        backgroundSize: '109%',
+        backgroundPositionX: 'left',
+        backgroundPositionY: 'top',
+      },
+    },
   },
   paperdolls: {
     name: 'Paper Dolls',
@@ -106,7 +141,17 @@ export const LINE_INFO = {
     image: line_img_1,
     description:
       'For those who played with paper dolls in their youth, the feeling of popping a crisp dress out brings back a surge of nostalgia. These dolls were delightful to play with, but it was always bitter sweet. The paper inevitably wore down, the petite tabs fell off, and everything disintegrated until the dolls, and their charming fashions, were gone. While the experience of playing with paper dolls is fleeting, the joy they bring lasts much longer than the paper itself.<br /><br />Paper Dolls is inspired by the innocence of enjoying a delicate, beautiful thing, knowing that it is fleeting from this moment in time. This collection evokes the sensation you have when holding onto the fragile paper, praying for it not to rip, all just so you can enjoy the delightful garments for a little while longer.',
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('49vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('51.5vw'),
+        right: addRightMargin('3.25vw'),
+      },
+    },
   },
   rewind: {
     name: 'Rewind',
@@ -114,7 +159,17 @@ export const LINE_INFO = {
     image: line_img_20,
     description:
       "Memories are our way of capturing fleeting moments, but they are far from perfect. Even our most cherished memories can become distorted with the passage of time, making it impossible to exactly replicate the moments we experience. When I recall my favorite moments, I'm saddened as I realize how little details, like how the wind felt on my face or the exact joke that was shared, have been lost.<br /><br />For me, yarn has always been a comforting and familiar presence, reminding me of when I learned how to knit from my grandmother as a child. With my all-yarn line, I hope to invite others to revisit some of the beautiful moments captured by my memories. Through the soft and fuzzy medium, I aim not to replicate the moments but to recreate the comfort and warmth of these memories, preserving them even as time continues to pass.",
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('49vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('51.5vw'),
+        right: addRightMargin('3.25vw'),
+      },
+    },
   },
   selcouth: {
     name: 'SELCOUTH',
@@ -122,7 +177,22 @@ export const LINE_INFO = {
     image: line_img_6,
     description:
       'A translucent, misty, blanket fogs over your thoughts when you think of a moment, you have encountered an epiphany of hope after an unending, dreadful experience of sudden disappointment. You cannot describe this phenomenon, the seemingly unorthodox emotions, even though you have experienced it countless times: a broken heart, loss of a loved one, or even something as simple as spilled coffee — these moments create hiccups in our lives, spiraling, and unclear. Perhaps these occurrences are blurry because they are fleeting moments. During this time of despair, time is stretched, and each day seems infinite. Then, a change. A light within the negativity. Unnoticeable at first, your mind commands you to pick yourself up, to improvise, and to work your way through the dark; all in an instantaneous moment.',
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('10vh'),
+        left: addLeftMargin('40vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('54vw'),
+        right: addRightMargin('4vw'),
+      },
+      background: {
+        backgroundSize: '109%',
+        backgroundPositionX: 'right',
+        backgroundPositionY: '-10vh',
+      },
+    },
   },
   weilai: {
     name: 'Wei·Lai',

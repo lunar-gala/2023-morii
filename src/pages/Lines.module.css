@@ -34,6 +34,7 @@ iframe,
 
 .linesImg {
   object-fit: cover;
+  object-position: right;
 }
 
 .name {
@@ -51,4 +52,6 @@ iframe,
 
 .content {
   z-index: 999;
+  background-size: cover;
+  background-position-y: top;
 }
