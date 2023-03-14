@@ -14,7 +14,8 @@ import Filter from './pages/Filter';
 function App() {
   const [about, setAbout] = useState(false);
   const [initialView, setInitialView] = useState(true);
-  const [cursor, setCursor] = useState(false);
+  const [cursor, setCursor] = useState(true);
+  const [firstMove, setFirstMove] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
 
@@ -23,7 +24,7 @@ function App() {
       console.log('mousemove');
       const { clientX, clientY } = event;
       setMousePosition({ x: clientX - 50, y: clientY - 50 });
-      setCursor(true);
+      setFirstMove(true);
     };
     document.addEventListener('mousemove', mouseMoveHandler);
 
@@ -47,7 +48,7 @@ function App() {
         <Route path="/lines" element={<Lines setCursor={setCursor} />} />
         {/* <Route path="/people" element={<People />} /> */}
       </Routes>
-      {cursor && <Cursor mousePosition={mousePosition} />}
+      {firstMove && cursor && <Cursor mousePosition={mousePosition} />}
     </HashRouter>
   );
 }
