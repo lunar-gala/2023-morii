@@ -154,7 +154,7 @@ function setup() {
   let xc = width / 2671;
   let yc = height / 1728;
 
-  LINES[0].place(xc * 131, yc * 386);
+  LINES[0].place(xc * 590, yc * 1300);
   LINES[1].place(xc * 386, yc * 213);
   LINES[2].place(xc * 456, yc * 586);
   LINES[3].place(xc * 380, yc * 1100);

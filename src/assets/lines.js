@@ -1,8 +1,7 @@
 import line_img_1 from './line-images/01.jpg';
 import line_img_2 from './line-images/02.jpg';
 import line_img_3 from './line-images/03.jpg';
-import line_img_4 from './line-images/04.jpg';
-import line_img_5 from './line-images/05.jpg';
+import line_img_4 from './line-images/04.png';
 import line_img_6 from './line-images/06.jpg';
 import line_img_8 from './line-images/08.jpg';
 import line_img_9 from './line-images/09.jpg';
@@ -11,6 +10,7 @@ import line_img_12 from './line-images/12.jpg';
 import line_img_14 from './line-images/14.jpg';
 import line_img_19 from './line-images/19.jpg';
 import line_img_20 from './line-images/20.jpg';
+import line_img_22 from './line-images/22.png';
 
 const addTopMargin = (margin) => `calc(7vh + ${margin})`;
 const addLeftMargin = (margin) => `calc(100px + ${margin})`;
@@ -23,14 +23,47 @@ export const LINE_INFO = {
     image: line_img_9,
     description:
       "“Arriba de Monte Teide” is inspired by my trip to Madrid, Spain and the Canary Islands where I was engulfed in historic and mountainous landscapes. The collection's title, “Above Mount Teide,” relates to a mountain on Tenerife Island whose peak reaches above the clouds. Through my designs, I wanted to express the dreamlike and weightlessness of the vibrant terrain that lives in my memory. I pulled inspiration from historical Spanish garments, matador costumes, and climates of different regions to form the silhouettes of the collection that collaborate with a rich color palette. Overall, this collection works to embody the romanticism of walking through the fantastical travels of the past, and how we can begin to lose ourselves when living in this daydream haze.",
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('4vw'),
+        right: addRightMargin('33vw'),
+      },
+      description: {
+        top: addTopMargin('30vh'),
+        left: addLeftMargin('6vw'),
+        right: addRightMargin('48vw'),
+      },
+      background: {
+        backgroundSize: '130%',
+        backgroundPositionX: 'left',
+        backgroundPositionY: '-10vh',
+      },
+    },
   },
   atrophy: {
     name: 'Atrophy',
     designers: ['Julia Kasper', 'Middy Vella'],
     image: line_img_19,
-    description: '',
-    positioning: {},
+    description:
+      'Defined as the process of wasting away, of degeneration, and of becoming vestigial, atrophy describes the fleeting sensation that our line puts to a halt. Paused in time, our designs capture the degeneration of cells through bodies and motion. The continuous process of cellular movement captures a part of the action in a stop-motion frame that is then revitalized as it is worn and adapted to the action of a live body. Only when the piece is in motion is it put back into play and the fluid passage of gradual decay continues. The development of this cycle is displayed as our line progresses from the first piece to the last, with each design beginning to lose its rigidity and shape, parallel to cellular contraction in its advancement towards a terminal in a loss of composition. Through a seamless transition of these frozen pieces of time, this line showcases the continuation of the organic cycle of regeneration, contraction and digression through biomimetic influences.',
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('48vw'),
+        right: addRightMargin('33vw'),
+      },
+      description: {
+        top: addTopMargin('19vh'),
+        left: addLeftMargin('54vw'),
+        right: addRightMargin('3vw'),
+      },
+      background: {
+        backgroundSize: '118%',
+        backgroundPositionX: '-18vw',
+        backgroundPositionY: '-10vh',
+      },
+    },
   },
   delicacy: {
     name: 'Delicacy',
@@ -38,7 +71,17 @@ export const LINE_INFO = {
     image: line_img_4,
     description:
       'Delicacy can mean fragility, the fragility of states of existence or being or mind, but too the beauty of something rare and beautiful. Fragility, or ephemerality, is innate and beauty is acceptance of reality. An obsession with the unscathed, seamless, convenient degrades us, our habitats, our ecological communities, and our minds. And an attachment to cohesion and perfection refuses to accept the nature of our lives and our world in favor of the plastic, the artificial. The practice and labor of self-subsistence and self-production promote conscientiousness and connect us to our delicacy as an alternative to emotionally and physically disconnected production and outsourced labor markets. delicacy is a five-piece line inspired by subsistence labor using deadstock and reused materials.',
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('10vh'),
+        left: addLeftMargin('5vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('8vw'),
+        right: addRightMargin('45vw'),
+      },
+    },
   },
   doodles: {
     name: 'Doodle',
@@ -82,12 +125,27 @@ export const LINE_INFO = {
     },
   },
   lapinata: {
-    name: 'La Pinata',
+    name: 'La Piñata',
     designers: ['Oscar Monarrez'],
     image: line_img_12,
     description:
       'La Piñata is an emblem of Mexican tradition and culture that has existed for hundreds of years. In it, embodies the bright color culture of Mexico and emphasizes the importance of friends and family gathering around the singular object. As we transition to the desire to capture a fleeting experience, the piñata has always symbolized to me what felt like a fleeting experience as I visited my extended family and relatives in Mexico. Taking these ideas into fashion, la Piñata is an embodiment of the culture with which I grew up around with my family and its changes into what I see it as now.',
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('47vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('50vw'),
+        right: addRightMargin('2vw'),
+      },
+      background: {
+        backgroundSize: '110%',
+        backgroundPositionX: '-10vw',
+        backgroundPositionY: 'top',
+      },
+    },
   },
   limbic: {
     name: 'Limbic',
@@ -138,18 +196,22 @@ export const LINE_INFO = {
   paperdolls: {
     name: 'Paper Dolls',
     designers: ['Isabella Boleng'],
-    image: line_img_1,
+    image: line_img_22,
     description:
       'For those who played with paper dolls in their youth, the feeling of popping a crisp dress out brings back a surge of nostalgia. These dolls were delightful to play with, but it was always bitter sweet. The paper inevitably wore down, the petite tabs fell off, and everything disintegrated until the dolls, and their charming fashions, were gone. While the experience of playing with paper dolls is fleeting, the joy they bring lasts much longer than the paper itself.<br /><br />Paper Dolls is inspired by the innocence of enjoying a delicate, beautiful thing, knowing that it is fleeting from this moment in time. This collection evokes the sensation you have when holding onto the fragile paper, praying for it not to rip, all just so you can enjoy the delightful garments for a little while longer.',
     positioning: {
       name: {
         top: addTopMargin('9vh'),
-        left: addLeftMargin('49vw'),
+        left: addLeftMargin('4vw'),
       },
       description: {
         top: addTopMargin('20vh'),
-        left: addLeftMargin('51.5vw'),
-        right: addRightMargin('3.25vw'),
+        left: addLeftMargin('6vw'),
+        right: addRightMargin('45vw'),
+      },
+      background: {
+        backgroundPositionX: 'right',
+        backgroundPositionY: '-105vh',
       },
     },
   },
