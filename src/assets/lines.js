@@ -46,7 +46,17 @@ export const LINE_INFO = {
     image: line_img_14,
     description:
       "My nickname has been “Doodle” ever since childhood, which is possibly the greatest fleeting moment I've ever experienced. It's a name given to me by my mom, who has given me numerous gifts throughout the years: sewing lessons, appreciation for art, and encouragement to let my creativity flourish. I've thought a lot about the various fleeting moments I've tried to capture, and the act of doodling is present in many of them. As a child, I doodled on my mom's freshly-painted walls. I doodled in the margins of my science notes in seventh grade, on the white paper table covers at casual restaurants, and on a chalkboard in a classroom during my final semester of college. Throughout these fleeting moments, I've let my creativity flourish, and this line is another product of that practice.",
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('7vh'),
+        left: addLeftMargin('32vw'),
+      },
+      description: {
+        top: addTopMargin('17vh'),
+        left: addLeftMargin('38vw'),
+        right: addRightMargin('19.5vw'),
+      },
+    },
   },
   kalopsia: {
     name: 'Kalopsia',
@@ -120,7 +130,17 @@ export const LINE_INFO = {
     image: line_img_2,
     description:
       'Wei·Lai (未来) is the future, encapsulating what has yet to come and what has yet to be created. This line subverts western fashion conventions by drawing inspiration from a distinctively East Asian identity, particularly our Chinese heritage. We seek to amplify the resonance of Asian-ness, in a traditionally Eurocentric space where western silhouettes are omnipresent.<br /><br />We question the western hegemony that afflicts not only the fashion realm, but also modern culture and society. Wei·Lai connotes an unborn reality in which no single identity is prevailing; where East Asian culture is not defaulted to exoticism, but exists in tandem with different cultures and identities, actively functioning in dialogue with one another. In a world that is changing at unprecedented speeds, we pause and reflect on what the future entails in retrospect of our past. We aim to disrupt the spaces we exist in—by considering the past, present and future all at once.',
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('9vh'),
+        left: addLeftMargin('43vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('47vw'),
+        right: addRightMargin('9.5vw'),
+      },
+    },
   },
   xiaoshi: {
     name: 'XIAO SHI (消失)',
@@ -128,7 +148,17 @@ export const LINE_INFO = {
     image: line_img_3,
     description:
       "XIAO SHI explores the chronological deterioration of one's culture in a society that misappropriates and misrepresents it. It follows the opposing desires of the immigrant experience – one to preserve the self and another to assimilate in an unforgiving environment, ultimately capturing the fleeting nature of one's cultural identity. Each look draws upon motifs reinforced throughout our childhoods, often as an act by elders to preserve traditional cultural mindsets. Narratives are told through the lens of Chinese mythology, the eight virtues, and satirical takes on western media influence; all ways in which language forms and shapes outward perceptions of culture. As the collection evolves, innocence and nostalgia eventually unravel into a caricature of what is left of one's authentic self, taking tangible experiences to construct a subversive patchwork between the traditional and the contemporary.",
-    positioning: {},
+    positioning: {
+      name: {
+        top: addTopMargin('8vh'),
+        left: addLeftMargin('36vw'),
+      },
+      description: {
+        top: addTopMargin('20vh'),
+        left: addLeftMargin('39vw'),
+        right: addRightMargin('2vw'),
+      },
+    },
   },
 };
 

@@ -157,7 +157,7 @@ function setup() {
   LINES[0].place(xc * 131, yc * 386);
   LINES[1].place(xc * 386, yc * 213);
   LINES[2].place(xc * 456, yc * 586);
-  LINES[3].place(xc * 168, yc * 1200);
+  LINES[3].place(xc * 380, yc * 1100);
   LINES[4].place(xc * 903, yc * 70);
   LINES[5].place(xc * 888, yc * 375);
   LINES[6].place(xc * 833, yc * 927);
