@@ -6,7 +6,7 @@ import './App.css';
 import Cursor from './components/Cursor';
 import Nav from './components/Nav';
 import Home from './pages/Home';
-// import Lines from './pages/Lines';
+import Lines from './pages/Lines';
 // import People from './pages/People';
 import Tickets from './pages/Tickets';
 import Filter from './pages/Filter';
@@ -20,6 +20,7 @@ function App() {
 
   useEffect(() => {
     const mouseMoveHandler = (event) => {
+      console.log('mousemove');
       const { clientX, clientY } = event;
       setMousePosition({ x: clientX - 50, y: clientY - 50 });
       setCursor(true);
@@ -43,8 +44,8 @@ function App() {
         />
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/filter/:id" element={<Filter />} />
-        {/* <Route path="/lines" element={<Lines setCursor={setCursor} />} />
-        <Route path="/people" element={<People />} /> */}
+        <Route path="/lines" element={<Lines setCursor={setCursor} />} />
+        {/* <Route path="/people" element={<People />} /> */}
       </Routes>
       {cursor && <Cursor mousePosition={mousePosition} />}
     </HashRouter>
