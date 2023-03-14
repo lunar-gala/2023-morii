@@ -5,11 +5,11 @@ import { animationStates } from '../assets/constants';
 import { motion } from 'framer-motion';
 
 function Lines({ setCursor }) {
-  const [line, setLine] = useState(-1);
+  const [line, setLine] = useState(undefined);
   useEffect(() => {
     window.document.addEventListener('single_line', handleEvent, false);
     function handleEvent(e) {
-      setLine(e?.detail?.line ?? -1);
+      setLine(e?.detail?.line);
       console.log('single_line event fired', e.detail?.line); // outputs: {foo: 'bar'}
     }
   }, []);
@@ -24,23 +24,23 @@ function Lines({ setCursor }) {
       >
         <iframe src="/camera/index.html" title="Lines Page"></iframe>
       </div>
-      {line >= 0 && <Line num={line} setLine={setLine} />}
+      {line && <Line name={line} setLine={setLine} />}
     </>
   );
 }
 
-function Line({ num, setLine }) {
-  const line = LINE_INFO[num];
+function Line({ name, setLine }) {
+  const line = LINE_INFO[name];
   return (
     <motion.div
       variants={animationStates}
       initial="hidden"
       animate="visible"
-      onClick={() => setLine(-1)}
+      onClick={() => setLine(undefined)}
       className={styles.linesContainer}
     >
       <img src={line?.image} className={styles.linesImg} alt={line?.name} />
-      {num}
+      {name}
     </motion.div>
   );
 }
