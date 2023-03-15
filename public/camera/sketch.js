@@ -71,7 +71,7 @@ function overlap_line() {
 }
 
 function update_hover(lines_arr) {
-  for (var i = 0; i < lines_arr.length; i++) {
+  for (let i = 0; i < lines_arr.length; i++) {
     if (lines_arr[i].overlap()) {
       HOVER = true;
 
