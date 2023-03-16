@@ -162,7 +162,8 @@ export const FILTERS = {
     'https://www.instagram.com/ar/528406916107921/?ch=YjY3NDgxMGU5MWIyODFlOWM2MWEwNjJhZTZjMmIwODg%3D',
   wei_lai:
     'https://www.instagram.com/ar/131394316542248/?ch=NzkxMmM4MGY1YTEyNGI0MzdiYmYwYmM5YTQ1Y2EyNjg%3D',
-  delicacy: '',
+  delicacy:
+    'https://www.instagram.com/ar/169494875904163/?ch=NGQ4MGMxNzAyOTg2OTRiMzZiMzYyNTEwZTQ1NTdkZTk%3D',
   selcouth:
     'https://www.instagram.com/ar/598448225636471/?ch=NmRkODE2Y2Q1YjE1NWRhN2RlMWZkNzM1NjFmYTMxZWU%3D',
   nox_memoria: '',
