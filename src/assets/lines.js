@@ -154,7 +154,8 @@ export const FILTERS = {
   rewind:
     'https://www.instagram.com/ar/135523399212936/?ch=OTMzZDcxZjA1OTQxOWM5N2JiYjE1MzhmNWY0ZDRhYzc%3D',
   paper_dolls: '',
-  limbic: '',
+  limbic:
+    'https://www.instagram.com/ar/562050992569276/?ch=MTIzYTE0OGNkNDY5NGU3NTE2YWI5NTMyYTcyNjRjNTk%3D',
   atrophy:
     'https://www.instagram.com/ar/211207521430948/?ch=MjNmYTdjNjE1NzQzZTI3ZTM4NmMzMGNjOGU5YmIzYTY%3D',
   la_pinata:
