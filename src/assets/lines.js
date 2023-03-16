@@ -273,11 +273,11 @@ export const LINE_INFO = {
     },
   },
   weilai: {
-    name: 'Wei·Lai',
+    name: 'Wei•Lai',
     designers: ['Sihan Wu', 'April Wu', 'Sarah Kwok'],
     image: line_img_2,
     description:
-      'Wei·Lai (未来) is the future, encapsulating what has yet to come and what has yet to be created. This line subverts western fashion conventions by drawing inspiration from a distinctively East Asian identity, particularly our Chinese heritage. We seek to amplify the resonance of Asian-ness, in a traditionally Eurocentric space where western silhouettes are omnipresent.<br /><br />We question the western hegemony that afflicts not only the fashion realm, but also modern culture and society. Wei·Lai connotes an unborn reality in which no single identity is prevailing; where East Asian culture is not defaulted to exoticism, but exists in tandem with different cultures and identities, actively functioning in dialogue with one another. In a world that is changing at unprecedented speeds, we pause and reflect on what the future entails in retrospect of our past. We aim to disrupt the spaces we exist in—by considering the past, present and future all at once.',
+      'Wei•Lai (未来) is the future, encapsulating what has yet to come and what has yet to be created. This line subverts western fashion conventions by drawing inspiration from a distinctively East Asian identity, particularly our Chinese heritage. We seek to amplify the resonance of Asian-ness, in a traditionally Eurocentric space where western silhouettes are omnipresent.<br /><br />We question the western hegemony that afflicts not only the fashion realm, but also modern culture and society. Wei•Lai connotes an unborn reality in which no single identity is prevailing; where East Asian culture is not defaulted to exoticism, but exists in tandem with different cultures and identities, actively functioning in dialogue with one another. In a world that is changing at unprecedented speeds, we pause and reflect on what the future entails in retrospect of our past. We aim to disrupt the spaces we exist in—by considering the past, present and future all at once.',
     positioning: {
       name: {
         top: addTopMargin('9vh'),
@@ -286,14 +286,14 @@ export const LINE_INFO = {
       description: {
         top: addTopMargin('20vh'),
         left: addLeftMargin('47vw'),
-        right: addRightMargin('9.5vw'),
+        right: addRightMargin('7.5vw'),
         minHeight: '50vh',
         overflow: 'auto',
       },
     },
   },
   xiaoshi: {
-    name: 'XIAO SHI (消失)',
+    name: 'xiao•shi (消失)',
     designers: ['Leslie Lin', 'Audrey Zhao', 'Joanna Ni', 'Mason Wang'],
     image: line_img_3,
     description:

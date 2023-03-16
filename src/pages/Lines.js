@@ -7,8 +7,12 @@ import cn from 'classnames';
 
 import exit from '../assets/lines_exit.png';
 import { SHOW_ORDER } from '../assets/lines';
+import useWindowSize from '../hooks/useWindowSize';
 
 function Lines({ setCursor }) {
+  const windowSize = useWindowSize();
+  const isMobile = windowSize?.width < 768;
+
   const [line, setLine] = useState(undefined);
   useEffect(() => {
     window.document.addEventListener('single_line', handleEvent, false);
@@ -61,7 +65,9 @@ function Line({ lineName, setLine }) {
           className={styles.description}
           style={positioning?.description}
           dangerouslySetInnerHTML={{
-            __html: `${description}<br /><br /><b>${designers.join(', ')}</b>`,
+            __html: `${description}<br /><br /><b><span class="isenheim">${designers.join(
+              ', '
+            )}</span></b>`,
           }}
         ></p>
       </div>

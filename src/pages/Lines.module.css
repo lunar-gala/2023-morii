@@ -42,7 +42,7 @@ iframe,
   font-size: 4.4rem;
   position: fixed;
   margin: 0;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .description {
