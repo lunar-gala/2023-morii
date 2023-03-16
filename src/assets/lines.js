@@ -149,8 +149,7 @@ export const LINE_INFO = [
 export const FILTERS = {
   doodles:
     'https://www.instagram.com/ar/601634935151893/?ch=YTBmNzM4NzAwN2VjY2M5NjNkMjA4YjI1ODYzMmE5OWY%3D',
-  arriba:
-    'https://www.instagram.com/ar/596866588981295/?ch=MDAxYWI3MDdkMTE4ODc4OTliYTVhZDRhN2FlYmZiMWQ%3D',
+  arriba: 'https://www.instagram.com/ar/596866588981295',
   rewind:
     'https://www.instagram.com/ar/135523399212936/?ch=OTMzZDcxZjA1OTQxOWM5N2JiYjE1MzhmNWY0ZDRhYzc%3D',
   paper_dolls:
@@ -161,16 +160,13 @@ export const FILTERS = {
     'https://www.instagram.com/ar/211207521430948/?ch=MjNmYTdjNjE1NzQzZTI3ZTM4NmMzMGNjOGU5YmIzYTY%3D',
   la_pinata:
     'https://www.instagram.com/ar/528406916107921/?ch=YjY3NDgxMGU5MWIyODFlOWM2MWEwNjJhZTZjMmIwODg%3D',
-  wei_lai:
-    'https://www.instagram.com/ar/131394316542248/?ch=NzkxMmM4MGY1YTEyNGI0MzdiYmYwYmM5YTQ1Y2EyNjg%3D',
-  delicacy:
-    'https://www.instagram.com/ar/169494875904163/?ch=NGQ4MGMxNzAyOTg2OTRiMzZiMzYyNTEwZTQ1NTdkZTk%3D',
+  wei_lai: 'https://www.instagram.com/ar/131394316542248',
+  delicacy: 'https://www.instagram.com/ar/169494875904163',
   selcouth:
     'https://www.instagram.com/ar/598448225636471/?ch=NmRkODE2Y2Q1YjE1NWRhN2RlMWZkNzM1NjFmYTMxZWU%3D',
   nox_memoria:
     'https://www.instagram.com/ar/714036333842454/?ch=ZGM4M2Q0MWMyMjhiMzdjZDRjNzI2OWIzNDE3OGQ3YzU%3D',
-  kalopsia:
-    'https://www.instagram.com/ar/151798934449464/?ch=NGI4MjQxNGI4Mzk1YTcxNjEwZDgxODM2Y2RlYWJlNzQ%3D',
+  kalopsia: 'https://www.instagram.com/ar/151798934449464',
   xiao_shi:
     'https://www.instagram.com/ar/2989753991332644/?ch=YjI0NjZkM2VlYzA4NGRjZjJlN2IxYTliNzE4NDljMGM%3D',
 };
