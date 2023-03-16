@@ -1,5 +1,3 @@
-import styles from './People.module.css';
-
 function People({ setCursor }) {
   return (
     <>

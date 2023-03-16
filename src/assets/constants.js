@@ -199,7 +199,6 @@ export const NAV = [
   {
     path: '/people',
     title: 'People',
-    coming: '03/17',
   },
   {
     path: '/lines',
