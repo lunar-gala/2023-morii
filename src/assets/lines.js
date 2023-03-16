@@ -309,7 +309,8 @@ export const FILTERS = {
     'https://www.instagram.com/ar/528406916107921/?ch=YjY3NDgxMGU5MWIyODFlOWM2MWEwNjJhZTZjMmIwODg%3D',
   wei_lai: '',
   delicacy: '',
-  selcouth: '',
+  selcouth:
+    'https://www.instagram.com/ar/598448225636471/?ch=NmRkODE2Y2Q1YjE1NWRhN2RlMWZkNzM1NjFmYTMxZWU%3D',
   nox_memoria: '',
   kalopsia: '',
   xiao_shi: '',
