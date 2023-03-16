@@ -48,9 +48,11 @@ function About({ firstLoad }) {
           animate="visible"
           custom={3}
         >
-          For this year's show, we would like to bring you along to witness how
-          current student and alumni designers weave this otherwise
-          indescribable feeling into wearable fashion.
+          the desire to capture a fleeting experience. A show sharing a deep
+          appreciation for the ephemeral, and encouraging us to slow down, savor
+          the moment, and cultivate gratitude for the fleeting experiences which
+          make life rich and meaningful. Join us to witness how this otherwise
+          indescribable feeling weaves into fashion.
         </motion.p>
         <motion.p
           initial="hidden"
@@ -59,7 +61,7 @@ function About({ firstLoad }) {
           className={styles.lastLook}
           custom={3}
         >
-          TAKE ONE LAST LOOK.
+          COME TAKE ONE LAST LOOK.
         </motion.p>
         <motion.p
           initial="hidden"

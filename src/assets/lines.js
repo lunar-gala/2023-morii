@@ -287,6 +287,8 @@ export const LINE_INFO = {
         top: addTopMargin('20vh'),
         left: addLeftMargin('47vw'),
         right: addRightMargin('9.5vw'),
+        minHeight: '50vh',
+        overflow: 'auto',
       },
     },
   },

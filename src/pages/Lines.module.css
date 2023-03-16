@@ -54,6 +54,7 @@ iframe,
   z-index: 90;
   background-size: cover;
   background-position-y: top;
+  background-repeat: no-repeat;
 }
 
 .lineNavContainer {
