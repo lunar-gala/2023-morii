@@ -166,6 +166,7 @@ export const FILTERS = {
   selcouth:
     'https://www.instagram.com/ar/598448225636471/?ch=NmRkODE2Y2Q1YjE1NWRhN2RlMWZkNzM1NjFmYTMxZWU%3D',
   nox_memoria: '',
-  kalopsia: '',
+  kalopsia:
+    'https://www.instagram.com/ar/151798934449464/?ch=NGI4MjQxNGI4Mzk1YTcxNjEwZDgxODM2Y2RlYWJlNzQ%3D',
   xiao_shi: '',
 };
