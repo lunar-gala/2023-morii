@@ -153,7 +153,8 @@ export const FILTERS = {
     'https://www.instagram.com/ar/596866588981295/?ch=MDAxYWI3MDdkMTE4ODc4OTliYTVhZDRhN2FlYmZiMWQ%3D',
   rewind:
     'https://www.instagram.com/ar/135523399212936/?ch=OTMzZDcxZjA1OTQxOWM5N2JiYjE1MzhmNWY0ZDRhYzc%3D',
-  paper_dolls: '',
+  paper_dolls:
+    'https://www.instagram.com/ar/1215136162727083/?ch=ZTFmZGFjOGMzNmU2MTM1MzMyZjFjMDgyMjRhZjJmNDk%3D',
   limbic:
     'https://www.instagram.com/ar/562050992569276/?ch=MTIzYTE0OGNkNDY5NGU3NTE2YWI5NTMyYTcyNjRjNTk%3D',
   atrophy:
