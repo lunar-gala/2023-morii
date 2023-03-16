@@ -171,5 +171,6 @@ export const FILTERS = {
     'https://www.instagram.com/ar/714036333842454/?ch=ZGM4M2Q0MWMyMjhiMzdjZDRjNzI2OWIzNDE3OGQ3YzU%3D',
   kalopsia:
     'https://www.instagram.com/ar/151798934449464/?ch=NGI4MjQxNGI4Mzk1YTcxNjEwZDgxODM2Y2RlYWJlNzQ%3D',
-  xiao_shi: '',
+  xiao_shi:
+    'https://www.instagram.com/ar/2989753991332644/?ch=YjI0NjZkM2VlYzA4NGRjZjJlN2IxYTliNzE4NDljMGM%3D',
 };
