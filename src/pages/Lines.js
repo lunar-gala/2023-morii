@@ -3,6 +3,10 @@ import styles from './Lines.module.css';
 import { LINE_INFO } from '../assets/lines';
 import { animationStates } from '../assets/constants';
 import { motion } from 'framer-motion';
+import cn from 'classnames';
+
+import exit from '../assets/lines_exit.png';
+import { SHOW_ORDER } from '../assets/lines';
 
 function Lines({ setCursor }) {
   const [line, setLine] = useState(undefined);
@@ -31,13 +35,16 @@ function Lines({ setCursor }) {
 
 function Line({ lineName, setLine }) {
   const line = LINE_INFO[lineName];
+  const lineNums = SHOW_ORDER.map((_, index) => index);
+
+  const curNum = lineName ? SHOW_ORDER.indexOf(lineName) : -1;
+
   const { name, designers, description, positioning } = line;
   return (
     <motion.div
       variants={animationStates}
       initial="hidden"
       animate="visible"
-      onClick={() => setLine(undefined)}
       className={styles.linesContainer}
     >
       <div
@@ -57,6 +64,24 @@ function Line({ lineName, setLine }) {
             __html: `${description}<br /><br /><b>${designers.join(', ')}</b>`,
           }}
         ></p>
+      </div>
+      <div className={styles.lineNavContainer}>
+        <img
+          onClick={() => setLine(undefined)}
+          className={styles.exit}
+          alt="exit icon"
+          src={exit}
+        />
+        {lineNums.map((num) => {
+          return (
+            <p
+              onClick={() => setLine(SHOW_ORDER[num])}
+              className={cn(styles.num, num === curNum && styles.active)}
+            >
+              {num + 1}
+            </p>
+          );
+        })}
       </div>
     </motion.div>
   );

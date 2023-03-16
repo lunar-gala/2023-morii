@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-family: 'Gangster Grotesk';
+  src: url('./assets/fonts/GangsterGrotesk-Bold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Space Grotesk';
   src: url('./assets/fonts/SpaceGrotesk-Regular.ttf');
   font-weight: 400;
@@ -23,5 +30,19 @@
   font-family: 'Isenheim';
   src: url('./assets/fonts/Isenheim_Fin.otf');
   font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jugend';
+  src: url('./assets/fonts/Jugend-2021.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jugend';
+  src: url('./assets/fonts/Jugend-1896.otf');
+  font-weight: 600;
   font-style: normal;
 }

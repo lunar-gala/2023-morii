@@ -23,7 +23,7 @@ function App() {
     const mouseMoveHandler = (event) => {
       console.log('mousemove');
       const { clientX, clientY } = event;
-      setMousePosition({ x: clientX - 50, y: clientY - 50 });
+      setMousePosition({ x: clientX - 30, y: clientY - 30 });
       setFirstMove(true);
     };
     document.addEventListener('mousemove', mouseMoveHandler);

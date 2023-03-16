@@ -16,6 +16,22 @@ const addTopMargin = (margin) => `calc(7vh + ${margin})`;
 const addLeftMargin = (margin) => `calc(100px + ${margin})`;
 const addRightMargin = (margin) => `calc(225px + ${margin})`;
 
+export const SHOW_ORDER = [
+  'doodles',
+  'arriba',
+  'rewind',
+  'paperdolls',
+  'limbic',
+  'noxmemoria',
+  'atrophy',
+  'lapinata',
+  'weilai',
+  'delicacy',
+  'selcouth',
+  'kalopsia',
+  'xiaoshi',
+];
+
 export const LINE_INFO = {
   arriba: {
     name: 'Arriba de Monte Teide',
@@ -246,7 +262,7 @@ export const LINE_INFO = {
       },
       description: {
         top: addTopMargin('20vh'),
-        left: addLeftMargin('54vw'),
+        left: addLeftMargin('45vw'),
         right: addRightMargin('4vw'),
       },
       background: {
