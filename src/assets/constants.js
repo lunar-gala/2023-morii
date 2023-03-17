@@ -203,7 +203,6 @@ export const NAV = [
   {
     path: '/lines',
     title: 'Lines',
-    coming: '03/17',
   },
 ];
 

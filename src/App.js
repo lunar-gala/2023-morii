@@ -6,23 +6,25 @@ import './App.css';
 import Cursor from './components/Cursor';
 import Nav from './components/Nav';
 import Home from './pages/Home';
-// import Lines from './pages/Lines';
 import People from './pages/People';
+import Lines from './pages/Lines';
 import Tickets from './pages/Tickets';
 import Filter from './pages/Filter';
 
 function App() {
   const [about, setAbout] = useState(false);
   const [initialView, setInitialView] = useState(true);
-  const [cursor, setCursor] = useState(false);
+  const [cursor, setCursor] = useState(true);
+  const [firstMove, setFirstMove] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
 
   useEffect(() => {
     const mouseMoveHandler = (event) => {
+      console.log('mousemove');
       const { clientX, clientY } = event;
-      setMousePosition({ x: clientX - 50, y: clientY - 50 });
-      setCursor(true);
+      setMousePosition({ x: clientX - 30, y: clientY - 30 });
+      setFirstMove(true);
     };
     document.addEventListener('mousemove', mouseMoveHandler);
 
@@ -43,10 +45,10 @@ function App() {
         />
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/filter/:id" element={<Filter />} />
-        {/* <Route path="/lines" element={<Lines setCursor={setCursor} />} /> */}
         <Route path="/people" element={<People setCursor={setCursor} />} />
+        <Route path="/lines" element={<Lines setCursor={setCursor} />} />
       </Routes>
-      {cursor && <Cursor mousePosition={mousePosition} />}
+      {firstMove && cursor && <Cursor mousePosition={mousePosition} />}
     </HashRouter>
   );
 }

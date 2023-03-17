@@ -23,11 +23,68 @@ iframe,
   background-color: #fffbef;
 }
 
-.linesImg {
+.linesImg,
+.content {
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.linesImg {
   object-fit: cover;
+  object-position: right;
+}
+
+.name {
+  font-family: Isenheim;
+  font-size: 4.4rem;
+  position: fixed;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.description {
+  position: fixed;
+  margin: 0;
+}
+
+.content {
+  z-index: 90;
+  background-size: cover;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.lineNavContainer {
+  position: fixed;
+  bottom: calc(var(--n-b-bottom) + 5vh);
+  left: var(--n-b-left);
+  right: var(--n-b-right);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.num {
+  font-family: Jugend;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 0.7vw;
+  -webkit-text-stroke-width: 0.3px;
+  -webkit-text-stroke-color: white;
+  margin: 0;
+}
+
+.active,
+.num:hover {
+  filter: blur(2px);
+}
+
+.exit {
+  height: 50px;
+  margin-bottom: -2px;
 }

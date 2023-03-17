@@ -1,54 +1,58 @@
-function make_corner(cx, cy, cimg) {
-    let co = {
-      x: cx, y: cy,
-      img: cimg,
-      draw: corner_draw
-    }
-    return co;
+function make_cursor(cx, cy, cimgs) {
+  let c = {
+    x: cx,
+    y: cy,
+    r_in: 1,
+    r_out: 1,
+    imgs: cimgs,
+    draw: cursor_draw,
+    move: cursor_move,
+    speed: 0.06,
+    active: false,
+  };
+
+  return c;
+}
+
+function cursor_move() {
+  if (this.active) {
+    this.r_in -= this.speed;
+    this.r_out += this.speed;
+  } else {
+    this.r_in += this.speed;
+    this.r_out -= this.speed;
   }
-  
-  function corner_draw(){
-    // ellipse(this.x, this.y, 10); // debugging 
-    image(this.img, this.x, this.y);
-  }
-  
-  function make_cursor(cx, cy, cr, cs, cactive_r, cpassive_r, corner_arr) {
-    let c = {
-      x: cx, y: cy, r: cr,
-      corners: corner_arr,
-      active_r: cactive_r, passive_r: cpassive_r,
-      draw: cursor_draw,
-      move: cursor_move,
-      speed: cs,
-      active: false
-    }
-  
-    return c;
-  }
-  
-  function cursor_move(){
-    if (this.active){
-      this.r -= this.speed;
-    } else {
-      this.r += this.speed;
-    }
-    this.r = constrain(this.r, this.active_r, this.passive_r);
-  
-    for (var i = 0; i < 4; i++){
-      let theta = 45 + i*90;
-      this.corners[i].x = this.r*cos(theta);
-      this.corners[i].y = this.r*sin(theta);
-    }
-  
-  }
-  
-  function cursor_draw(){
-    push();
-    translate(this.x, this.y);
-  
-    for (var i = 0; i < 4; i++){
-      this.corners[i].draw();
-    }
-  
-    pop();
-  }
+  this.r_in = constrain(this.r_in, 0.6, 1);
+  this.r_out = constrain(this.r_out, 1, 1.4);
+}
+
+function cursor_draw() {
+  push();
+  translate(this.x, this.y);
+
+  push();
+  rotate(degrees(3 * (1 - this.r_in)));
+  scale(this.r_in);
+  image(this.imgs[0], 0, 0);
+  pop();
+
+  push();
+  rotate(degrees(-3 * (1 - this.r_out)));
+  scale(this.r_out);
+  image(this.imgs[1], 0, 0);
+  pop();
+
+  pop();
+}
+
+document.addEventListener('mousemove', function (event) {
+  var boundingClientRect = document
+    .querySelector('body')
+    .getBoundingClientRect();
+
+  var evt = new CustomEvent('mousemove', { bubbles: true, cancelable: false });
+  evt.clientX = event.clientX + boundingClientRect.left;
+  evt.clientY = event.clientY + boundingClientRect.top;
+
+  window.parent.document.dispatchEvent(evt);
+});
