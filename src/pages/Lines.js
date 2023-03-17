@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import styles from './Lines.module.css';
 import { LINE_INFO } from '../assets/lines';
 import { animationStates } from '../assets/constants';
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import cn from 'classnames';
 
 import MobileLine from '../components/MobileLine';
 
 import exit from '../assets/lines_exit.png';
+import expandIcon from '../assets/expand.svg';
 import { SHOW_ORDER } from '../assets/lines';
 import useWindowSize from '../hooks/useWindowSize';
 
@@ -44,12 +45,26 @@ function Lines({ setCursor }) {
 }
 
 function Line({ lineName, setLine, isMobile }) {
+  const [expand, setExpand] = useState(false);
+
+  const controls = useAnimationControls();
+
   const line = LINE_INFO[lineName];
   const lineNums = SHOW_ORDER.map((_, index) => index);
 
   const curNum = lineName ? SHOW_ORDER.indexOf(lineName) : -1;
 
   const { name, designers, description, positioning } = line;
+
+  const animateArrow = () => {
+    if (expand) {
+      controls.start({ rotate: 0, marginTop: 0 });
+    } else {
+      controls.start({ rotate: 180, marginTop: '1vh' });
+    }
+    setExpand(!expand);
+  };
+
   return (
     <motion.div
       variants={animationStates}
@@ -65,21 +80,40 @@ function Line({ lineName, setLine, isMobile }) {
           })`,
           ...positioning?.background,
         }}
-        onClick={() => setLine(undefined)}
+        onClick={() => !isMobile && setLine(undefined)}
       >
         <div className={styles.view}>
           <p className={styles.name} style={positioning?.name}>
             {name}
           </p>
+          {designers && isMobile && (
+            <p className="isenheim">{designers.join(', ')}</p>
+          )}
           <p
             className={styles.description}
             style={positioning?.description}
+            onClick={animateArrow}
             dangerouslySetInnerHTML={{
-              __html: `${description}<br /><br /><b><span class="isenheim">${designers.join(
-                ', '
-              )}</span></b>`,
+              __html: `${
+                isMobile && !expand
+                  ? `${description.substring(0, 150)}...`
+                  : description
+              }${
+                isMobile
+                  ? ''
+                  : `<br /><br /><b><span class="isenheim">${designers.join(
+                      ', '
+                    )}</span></b>`
+              }`,
             }}
           ></p>
+          <motion.img
+            animate={controls}
+            className={styles.expand}
+            src={expandIcon}
+            alt="expand icon"
+            onClick={animateArrow}
+          />
         </div>
       </div>
       <div className={styles.lineNavContainer}>

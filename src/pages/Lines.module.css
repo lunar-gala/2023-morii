@@ -73,12 +73,12 @@ iframe,
 
 .num {
   font-family: Jugend;
-  color: #ffffff;
+  color: black;
   font-size: var(--t-lines-nav);
   font-weight: 600;
   padding: 0 0.7vw;
   -webkit-text-stroke-width: 0.3px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-color: black;
   margin: 0;
 }
 
@@ -90,6 +90,11 @@ iframe,
 .exit {
   height: 70px;
   margin-bottom: -2px;
+}
+
+.expand {
+  height: 20px;
+  display: none;
 }
 
 @media only screen and (max-width: 767px) {
@@ -118,5 +123,21 @@ iframe,
     position: static !important;
     top: auto;
     left: auto;
+  }
+
+  .description {
+    order: 1;
+  }
+
+  .designers {
+    order: 0;
+  }
+
+  .expand {
+    height: 20px;
+    display: block;
+    order: 2;
+    align-self: flex-start;
+    padding-top: 1vh;
   }
 }

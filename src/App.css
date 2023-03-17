@@ -49,6 +49,7 @@ iframe {
 
 .isenheim {
   font-family: Isenheim;
+  font-weight: 600;
 }
 
 @media (prefers-reduced-motion: no-preference) {
