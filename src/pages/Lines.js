@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import styles from './Lines.module.css';
 import { LINE_INFO } from '../assets/lines';
 import { animationStates } from '../assets/constants';
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import cn from 'classnames';
 
 import MobileLine from '../components/MobileLine';
 
 import exit from '../assets/lines_exit.png';
+import direction_arrow from '../assets/direction_arrow.png';
+import expandIcon from '../assets/expand.svg';
 import { SHOW_ORDER } from '../assets/lines';
 import useWindowSize from '../hooks/useWindowSize';
 
@@ -38,18 +40,32 @@ function Lines({ setCursor }) {
       ) : (
         <MobileLine setLine={setLine} />
       )}
-      {line && <Line lineName={line} setLine={setLine} />}
+      {line && <Line lineName={line} setLine={setLine} isMobile={isMobile} />}
     </>
   );
 }
 
-function Line({ lineName, setLine }) {
+function Line({ lineName, setLine, isMobile }) {
+  const [expand, setExpand] = useState(false);
+
+  const controls = useAnimationControls();
+
   const line = LINE_INFO[lineName];
   const lineNums = SHOW_ORDER.map((_, index) => index);
 
   const curNum = lineName ? SHOW_ORDER.indexOf(lineName) : -1;
 
   const { name, designers, description, positioning } = line;
+
+  const animateArrow = () => {
+    if (expand) {
+      controls.start({ rotate: 0, marginTop: 0 });
+    } else {
+      controls.start({ rotate: 180, marginTop: '1vh' });
+    }
+    setExpand(!expand);
+  };
+
   return (
     <motion.div
       variants={animationStates}
@@ -60,24 +76,54 @@ function Line({ lineName, setLine }) {
       <div
         className={styles.content}
         style={{
-          backgroundImage: `url(${line?.image})`,
+          backgroundImage: `url(${
+            isMobile ? line?.mobile_image : line?.image
+          })`,
           ...positioning?.background,
         }}
+        onClick={() => !isMobile && setLine(undefined)}
       >
-        <p className={styles.name} style={positioning?.name}>
-          {name}
-        </p>
-        <p
-          className={styles.description}
-          style={positioning?.description}
-          dangerouslySetInnerHTML={{
-            __html: `${description}<br /><br /><b><span class="isenheim">${designers.join(
-              ', '
-            )}</span></b>`,
-          }}
-        ></p>
+        <div className={cn(styles.view, expand && styles.expanded)}>
+          <p className={styles.name} style={positioning?.name}>
+            {name}
+          </p>
+          {designers && isMobile && (
+            <p className="isenheim">{designers.join(', ')}</p>
+          )}
+          <p
+            className={styles.description}
+            style={positioning?.description}
+            onClick={animateArrow}
+            dangerouslySetInnerHTML={{
+              __html: `${
+                isMobile && !expand
+                  ? `${description.substring(0, 150)}...`
+                  : description
+              }${
+                isMobile
+                  ? ''
+                  : `<br /><br /><b><span class="isenheim">${designers.join(
+                      ', '
+                    )}</span></b>`
+              }`,
+            }}
+          ></p>
+          <motion.img
+            animate={controls}
+            className={styles.expand}
+            src={expandIcon}
+            alt="expand icon"
+            onClick={animateArrow}
+          />
+        </div>
       </div>
       <div className={styles.lineNavContainer}>
+        <img
+          onClick={() => curNum > 0 && setLine(SHOW_ORDER[curNum - 1])}
+          className={styles.prev}
+          alt="prev line"
+          src={direction_arrow}
+        />
         <img
           onClick={() => setLine(undefined)}
           className={styles.exit}
@@ -94,6 +140,14 @@ function Line({ lineName, setLine }) {
             </p>
           );
         })}
+        <img
+          onClick={() =>
+            curNum < SHOW_ORDER.length - 1 && setLine(SHOW_ORDER[curNum + 1])
+          }
+          className={styles.next}
+          alt="next line"
+          src={direction_arrow}
+        />
       </div>
     </motion.div>
   );

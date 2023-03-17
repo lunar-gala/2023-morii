@@ -39,7 +39,7 @@ iframe,
 
 .name {
   font-family: Isenheim;
-  font-size: 4.4rem;
+  font-size: 4.6vw;
   position: fixed;
   margin: 0;
   text-transform: capitalize;
@@ -48,6 +48,9 @@ iframe,
 .description {
   position: fixed;
   margin: 0;
+  line-height: 1.2;
+  overflow: auto;
+  bottom: calc(var(--n-b-bottom) + 140px);
 }
 
 .content {
@@ -70,12 +73,12 @@ iframe,
 
 .num {
   font-family: Jugend;
-  color: #ffffff;
-  font-size: 18px;
+  color: black;
+  font-size: var(--t-lines-nav);
   font-weight: 600;
   padding: 0 0.7vw;
   -webkit-text-stroke-width: 0.3px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-color: black;
   margin: 0;
 }
 
@@ -84,7 +87,103 @@ iframe,
   filter: blur(2px);
 }
 
+.prev,
+.next {
+  display: none;
+}
+
 .exit {
-  height: 50px;
+  height: 60px;
   margin-bottom: -2px;
+  margin-right: 5px;
+}
+
+.expand {
+  height: 20px;
+  display: none;
+}
+
+.expanded {
+  background: rgba(158, 169, 207, 0.2);
+  mix-blend-mode: normal;
+  backdrop-filter: blur(10px);
+}
+
+@media only screen and (max-width: 767px) {
+  .lineNavContainer {
+    right: auto;
+    left: 50%;
+    bottom: var(--n-b-bottom_mobile);
+    transform: translateX(-50%);
+  }
+
+  .view {
+    position: fixed;
+    top: var(--n-b-top_mobile);
+    bottom: var(--n-b-bottom_mobile);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 5vw;
+  }
+
+  .view > * {
+    position: static;
+  }
+
+  .name {
+    font-size: 60px;
+    word-break: break-word;
+  }
+
+  .name,
+  .description {
+    position: static !important;
+    top: auto;
+    left: auto;
+  }
+
+  .description {
+    order: 1;
+  }
+
+  .designers {
+    order: 0;
+  }
+
+  .expand {
+    height: 20px;
+    display: block;
+    order: 2;
+    align-self: flex-start;
+    padding-top: 1vh;
+  }
+
+  .prev,
+  .next {
+    height: 35px;
+  }
+
+  .prev {
+    transform: rotate(180deg);
+  }
+
+  .exit {
+    margin: 0 4vw;
+  }
+
+  .prev,
+  .next {
+    display: block;
+  }
+
+  .num {
+    display: none;
+  }
+
+  .description {
+    bottom: calc(var(--n-b-bottom_mobile) + 200px);
+    min-height: 0 !important;
+  }
 }

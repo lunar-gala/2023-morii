@@ -42,9 +42,10 @@
 }
 
 .view p {
-  width: 90%;
-  font-size: 24px;
+  width: 80%;
+  font-size: var(--t-body);
   margin: 0.5vh;
+  line-height: 1.2;
 }
 
 .logo {
@@ -82,7 +83,7 @@
     text-align: center;
   }
   .view p {
-    font-size: 16px;
+    font-size: var(--t-lines-body);
     white-space: pre-line;
   }
   .view .welcome {

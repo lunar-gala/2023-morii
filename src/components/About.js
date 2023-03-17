@@ -47,6 +47,7 @@ function About({ firstLoad }) {
           variants={aboutAnimation}
           animate="visible"
           custom={3}
+          className={styles.copy}
         >
           the desire to capture a fleeting experience. A show sharing a deep
           appreciation for the ephemeral, and encouraging us to slow down, savor
