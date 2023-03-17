@@ -28,6 +28,10 @@
   object-position: center bottom;
   /* background-color:red; */
 }
+.person-name {
+  font-weight: 600;
+  padding-bottom: 0.7vh;
+}
 
 .photo-wrapper {
   width: 100%;

@@ -20,7 +20,7 @@ const PhotoGroup = ({ photos }) => {
             <div className="photo-description">
               {/* <p>{photo.description.line1}</p> */}
               {/* <p>{photo.description.line2}</p> */}
-              <p>{photo.text}</p>
+              <p className="person-name">{photo.text}</p>
               <p>{photo.title}</p>
             </div>
           </div>
