@@ -104,6 +104,13 @@ iframe,
 }
 
 @media only screen and (max-width: 767px) {
+  .lineNavContainer {
+    right: auto;
+    left: 50%;
+    bottom: var(--n-b-bottom_mobile);
+    transform: translateX(-50%);
+  }
+
   .view {
     position: fixed;
     top: var(--n-b-top_mobile);
