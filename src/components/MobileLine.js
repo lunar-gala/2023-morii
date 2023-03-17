@@ -4,7 +4,7 @@ import bg from '../assets/lines-bg.png';
 import useWindowSize from '../hooks/useWindowSize';
 import { SHOW_ORDER, MOBILE_ICONS } from '../assets/lines';
 
-function MobileLine() {
+function MobileLine({ setLine }) {
   const windowSize = useWindowSize();
   return (
     <div className={styles.container}>
@@ -25,6 +25,7 @@ function MobileLine() {
             }}
             alt="lines page background"
             src={img}
+            onClick={() => setLine(line)}
           />
         );
       })}

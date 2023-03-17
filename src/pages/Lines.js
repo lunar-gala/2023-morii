@@ -36,7 +36,7 @@ function Lines({ setCursor }) {
           <iframe src="/camera/index.html" title="Lines Page"></iframe>
         </div>
       ) : (
-        <MobileLine />
+        <MobileLine setLine={setLine} />
       )}
       {line && <Line lineName={line} setLine={setLine} />}
     </>
