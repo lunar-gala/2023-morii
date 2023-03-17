@@ -1,24 +1,146 @@
-[{"name": "./removed/Caroline-Jiang.png","text":"Caroline Jiang","title":"Model","type": "file"},
-    {"name": "./removed/morgan-boyd.png","text":"Morgan Boyd","title":"Head of Model","type": "file"},
-    {"name": "./removed/lea-devylder.png","text":"Lea Devylder","title":"Model","type": "file"},
-    {"name": "./removed/saera-kim.jpg.png","text":"Saera Kim","title":"Model","type": "file"},
-    {"name": "./removed/Brooke-Gunter.png","text":"Brooke Gunter.png","title":"Model Coordinator","type": "file"},
-    {"name": "./removed/Kasey-Park.png","text":"Kasey Park.png","title":"Model","type": "file" },
-    {"name": "./removed/adrienne-wang.png","text":"Adrienne Wang","title":"Model","type": "file"},
-    {"name": "./removed/Tejas-Venkatesh.png","text":"Tejas Venkatesh","title":"Model","type": "file"},
-    {"name": "./removed/Sanmoy-Karmakar.png","text":"Sanmoy Karmakar","title":"Model","type": "file"},
-    {"name": "./removed/jamie-liu.png","text":"Jamie Liu","title":"Model Coordinator","type": "file"},
-    {"name": "./removed/john-quinlan.png","text":"John Quinlan","title":"Model","type": "file"},
-    {"name": "./removed/Carmyn.Talento.png","text":"Carmyn Talento","title":"<odel","type": "file" },
-    {"name": "./removed/Anita-Cheng.png","text":"Anita Cheng","title":"Model+Head of finance","type": "file"},
-    {"name": "./removed/Jeffrey-Zhang.png","text":"Jeffrey Zhang","title":"Model Coordinator","type": "file" },
-    {"name": "./removed/joe-lee.png","text":"Joe Lee","title":"Model","type": "file"},
-    {"name": "./removed/jasmine-wiese.png","text":"Jasmine Wiese","title":"Model","type": "file"},
-    {"name": "./removed/Leo-deng.png", "text":"Leo Deng","title":"Model","type": "file"},
-    { "name": "./removed/Olu-Banke-Boakye-Yiadom.png","text":"Olu Banke Boakye Yiadom","title":"Model","type": "file"},
-    {"name": "./removed/anna-gerchanovsky.png", "text":"Anna Gerchanovsky","title":"Model","type": "file"},
-    { "name": "./removed/arin-pantja.png","text":"Arin Pantja","title":"Model","type": "file"},
-    {"name": "./removed/Elizabeth-Hager.png","text":"Elizabeth Hager","title":"Model","type": "file" },
-    {"name": "./removed/yanina-shavialenka.png","text":"Yanina Shavialenka","title":"Model","type": "file"},
-    {"name": "./removed/Adeife-Gafaar.png","text":"Adeife Gafaar","title":"Model","type": "file" },
-    {"name": "./removed/rishika-gogineni.png","text":"Rishika Gogineni","title":"Model","type": "file"}]
+[
+  {
+    "name": "./removed/Caroline-Jiang.png",
+    "text": "Caroline Jiang",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/morgan-boyd.png",
+    "text": "Morgan Boyd",
+    "title": "Head of Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/lea-devylder.png",
+    "text": "Lea Devylder",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/saera-kim.jpg.png",
+    "text": "Saera Kim",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Brooke-Gunter.png",
+    "text": "Brooke Gunter.png",
+    "title": "Model Coordinator",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Kasey-Park.png",
+    "text": "Kasey Park.png",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/adrienne-wang.png",
+    "text": "Adrienne Wang",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Tejas-Venkatesh.png",
+    "text": "Tejas Venkatesh",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Sanmoy-Karmakar.png",
+    "text": "Sanmoy Karmakar",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/jamie-liu.png",
+    "text": "Jamie Liu",
+    "title": "Model Coordinator",
+    "type": "file"
+  },
+  {
+    "name": "./removed/john-quinlan.png",
+    "text": "John Quinlan",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Carmyn.Talento.png",
+    "text": "Carmyn Talento",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Anita-Cheng.png",
+    "text": "Anita Cheng",
+    "title": "Model, Head of finance",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Jeffrey-Zhang.png",
+    "text": "Jeffrey Zhang",
+    "title": "Model Coordinator",
+    "type": "file"
+  },
+  {
+    "name": "./removed/joe-lee.png",
+    "text": "Joe Lee",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/jasmine-wiese.png",
+    "text": "Jasmine Wiese",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Leo-deng.png",
+    "text": "Leo Deng",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Olu-Banke-Boakye-Yiadom.png",
+    "text": "Olu Banke Boakye Yiadom",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/anna-gerchanovsky.png",
+    "text": "Anna Gerchanovsky",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/arin-pantja.png",
+    "text": "Arin Pantja",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Elizabeth-Hager.png",
+    "text": "Elizabeth Hager",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/yanina-shavialenka.png",
+    "text": "Yanina Shavialenka",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/Adeife-Gafaar.png",
+    "text": "Adeife Gafaar",
+    "title": "Model",
+    "type": "file"
+  },
+  {
+    "name": "./removed/rishika-gogineni.png",
+    "text": "Rishika Gogineni",
+    "title": "Model",
+    "type": "file"
+  }
+]
