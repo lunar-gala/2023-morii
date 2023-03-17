@@ -24,6 +24,10 @@ function abs_constrain(val, min, max) {
 }
 
 function first_letter_cap(str) {
+
+  if (str.toUpperCase() == "WEILAI") return "WeiLai";
+  if (str.toUpperCase() == "XIAOSHI") return "XiaoShi";
+
   return str
     .toLowerCase()
     .split(' ')
