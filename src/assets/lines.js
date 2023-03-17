@@ -47,57 +47,70 @@ export const SHOW_ORDER = [
 ];
 
 export const MOBILE_ICONS = {
-  doodles: {
-    x: '',
-    y: '',
-  },
   arriba: {
-    x: '',
-    y: '',
-  },
-  rewind: {
-    x: '',
-    y: '',
-  },
-  paperdolls: {
-    x: '',
-    y: '',
-  },
-  limbic: {
-    x: '',
-    y: '',
-  },
-  noxmemoria: {
-    x: '',
-    y: '',
+    x: 590,
+    y: 1300,
+    img: arriba,
   },
   atrophy: {
-    x: '',
-    y: '',
-  },
-  lapinata: {
-    x: '',
-    y: '',
-  },
-  weilai: {
-    x: '',
-    y: '',
+    x: 386,
+    y: 213,
+    img: atrophy,
   },
   delicacy: {
-    x: '',
-    y: '',
+    x: 456,
+    y: 586,
+    img: delicacy,
   },
-  selcouth: {
-    x: '',
-    y: '',
+  doodles: {
+    x: 380,
+    y: 1100,
+    img: doodles,
   },
   kalopsia: {
-    x: '',
-    y: '',
+    x: 903,
+    y: 70,
+    img: kalopsia,
+  },
+  lapinata: {
+    x: 888,
+    y: 375,
+    img: lapinata,
+  },
+  limbic: {
+    x: 833,
+    y: 927,
+    img: limbic,
+  },
+  noxmemoria: {
+    x: 1243,
+    y: 1005,
+    img: noxmemoria,
+  },
+  paperdolls: {
+    x: 1381,
+    y: 1333,
+    img: paperdolls,
+  },
+  rewind: {
+    x: 1935,
+    y: 98,
+    img: rewind,
+  },
+  selcouth: {
+    x: 1599,
+    y: 277,
+    img: selcouth,
+  },
+  weilai: {
+    x: 1739,
+    y: 685,
+    img: weilai,
   },
   xiaoshi: {
-    x: '',
-    y: '',
+    x: 2090,
+    y: 1009,
+    img: xiaoshi,
   },
 };
 

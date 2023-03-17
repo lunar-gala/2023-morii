@@ -6,3 +6,14 @@
   height: 100vh;
   overflow: scroll;
 }
+
+.bg {
+  width: 280vw;
+  height: 260vh;
+}
+
+.bg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
