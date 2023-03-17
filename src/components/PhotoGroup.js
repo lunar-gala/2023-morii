@@ -10,8 +10,12 @@ const PhotoGroup = ({ photos }) => {
       <div className="photo-group">
         {photos.map((photo, index) => (
           <div className="person-wrapper" key={index}>
-            <div className="photo-wrapper">
-              <img src={photo.name} alt={photo.text} />
+            <div
+              className={`photo-wrapper${
+                photo.text === 'Emily Liu' ? ' emily' : ''
+              }`}
+            >
+              {<img src={photo.name} alt={photo.text} />}
             </div>
             <div className="photo-description">
               {/* <p>{photo.description.line1}</p> */}
