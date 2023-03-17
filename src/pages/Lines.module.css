@@ -103,6 +103,12 @@ iframe,
   display: none;
 }
 
+.expanded {
+  background: rgba(158, 169, 207, 0.2);
+  mix-blend-mode: normal;
+  backdrop-filter: blur(10px);
+}
+
 @media only screen and (max-width: 767px) {
   .lineNavContainer {
     right: auto;

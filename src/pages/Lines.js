@@ -83,7 +83,7 @@ function Line({ lineName, setLine, isMobile }) {
         }}
         onClick={() => !isMobile && setLine(undefined)}
       >
-        <div className={styles.view}>
+        <div className={cn(styles.view, expand && styles.expanded)}>
           <p className={styles.name} style={positioning?.name}>
             {name}
           </p>
