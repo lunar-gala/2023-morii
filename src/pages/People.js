@@ -1,5 +1,5 @@
 import styles from './People.module.css';
-import PhotoGallery from './PhotoGallery';
+import PhotoGallery from '../components/PhotoGallery';
 
 function People({ setCursor }) {
   return (

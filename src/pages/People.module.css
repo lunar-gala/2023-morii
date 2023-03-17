@@ -4,6 +4,12 @@
   overflow: auto;
   margin: 0 auto;
   width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/tickets_backdrop.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 65%;
+  opacity: 80%;
 }
 
 .desktop {
@@ -12,9 +18,7 @@
 
 @media only screen and (max-width: 767px) {
   .mobile {
-    display: flex;
-    top: var(--n-b-top_mobile);
-    bottom: var(--n-b-bottom_mobile);
+    display: block;
   }
   .desktop {
     display: none;

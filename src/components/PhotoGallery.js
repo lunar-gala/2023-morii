@@ -13,11 +13,12 @@ import print from '../json/print.json';
 import production from '../json/production.json';
 import web from '../json/web.json';
 
+import './PhotoGallery.css';
+
 const PhotoGallery = () => {
   return (
     <div className="photo-gallery">
       <div className="bg">
-        {/* <div className="peopleTitle">People</div> */}
         <div className="subTitle">Producers</div>
         <PhotoGroup photos={producers} />
         <div className="subTitle">Designers</div>
@@ -42,19 +43,6 @@ const PhotoGallery = () => {
         <PhotoGroup photos={pr} />
         <div className="subTitle">Production</div>
         <PhotoGroup photos={production} />
-        {/* <div>
-          <p>Not Pictured </p>
-          <p>Natalia Ramirez Video & Camera Technician</p>
-          <p>Hannah Wyatt Video & Camera Technician</p>
-          <p>Ethan Huang Web Developer</p>
-          <p>Camille Chandler </p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          
-        </div> */}
       </div>
     </div>
   );
