@@ -98,7 +98,7 @@ function make_group(gparent, gname, grole, gimg, gisperson){
         x_origin: gx_origin, y_origin: gy_origin,
         x_actual: gx_origin, y_actual: gy_origin, // initially at origin
         text_x: random(0, imgW), text_y: random(0, imgW),
-        speed: 15,
+        speed: 15, // inverse whoops
         img: gimg,
         name: gname,
         role: grole,
@@ -177,14 +177,14 @@ function move_group(rpx, rpy){
         this.alpha += (dir * 255/this.speed);
 
         if (dp != 0){
-            let f = rpc / dp;
+            let f = 10 * rpc / (dp * this.speed);
             let dirx = (this.x_actual - this.rpx) / dp;
             let diry = (this.y_actual - this.rpy) / dp;
             this.x_actual -= dirx*f;
             this.y_actual -= diry*f;
 
-            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
-            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
+            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/250)*dirx*f);
+            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/250)*diry*f);
         }
     } else if (rpx != null){ //groups are in / moving to repelled positions
         this.wait = 0;
@@ -195,14 +195,14 @@ function move_group(rpx, rpy){
         let dp = dist(this.x_actual, this.y_actual, rpx, rpy);
 
         if (dp != 0){
-            let f = rpc / dp;
+            let f = 10 * rpc / (dp * this.speed);
             let dirx = (this.x_actual - rpx) / dp;
             let diry = (this.y_actual - rpy) / dp;
             this.x_actual += dirx*f;
             this.y_actual += diry*f;
 
-            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
-            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
+            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/250)*dirx*f);
+            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/250)*diry*f);
         }
     }
 
