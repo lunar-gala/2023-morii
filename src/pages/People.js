@@ -13,7 +13,9 @@ function People({ setCursor }) {
         <iframe src="/people-page/index.html" title="Lines Page"></iframe>
       </div>
       <div className={styles.mobile}>
-        <PhotoGallery />
+        <div>
+          <PhotoGallery />
+        </div>
       </div>
     </>
   );
