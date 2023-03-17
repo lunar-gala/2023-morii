@@ -132,11 +132,6 @@ export const LINE_INFO = {
         left: addLeftMargin('6vw'),
         right: addRightMargin('48vw'),
       },
-      background: {
-        backgroundSize: '130%',
-        backgroundPositionX: 'left',
-        backgroundPositionY: '-10vh',
-      },
     },
   },
   atrophy: {
@@ -155,11 +150,6 @@ export const LINE_INFO = {
         top: addTopMargin('19vh'),
         left: addLeftMargin('54vw'),
         right: addRightMargin('3vw'),
-      },
-      background: {
-        backgroundSize: '118%',
-        backgroundPositionX: '-18vw',
-        backgroundPositionY: '-10vh',
       },
     },
   },
@@ -197,11 +187,6 @@ export const LINE_INFO = {
         left: addLeftMargin('32vw'),
         right: addRightMargin('19.5vw'),
       },
-      background: {
-        backgroundSize: '109%',
-        backgroundPositionX: '-8vw',
-        backgroundPositionY: 'top',
-      },
     },
   },
   kalopsia: {
@@ -238,11 +223,6 @@ export const LINE_INFO = {
         left: addLeftMargin('50vw'),
         right: addRightMargin('2vw'),
       },
-      background: {
-        backgroundSize: '110%',
-        backgroundPositionX: '-10vw',
-        backgroundPositionY: 'top',
-      },
     },
   },
   limbic: {
@@ -260,11 +240,6 @@ export const LINE_INFO = {
         top: addTopMargin('20vh'),
         left: addLeftMargin('6vw'),
         right: addRightMargin('45vw'),
-      },
-      background: {
-        backgroundSize: '108%',
-        backgroundPositionX: 'left',
-        backgroundPositionY: 'top',
       },
     },
   },
@@ -284,11 +259,6 @@ export const LINE_INFO = {
         left: addLeftMargin('8vw'),
         right: addRightMargin('39vw'),
       },
-      background: {
-        backgroundSize: '109%',
-        backgroundPositionX: 'left',
-        backgroundPositionY: 'top',
-      },
     },
   },
   paperdolls: {
@@ -306,10 +276,6 @@ export const LINE_INFO = {
         top: addTopMargin('20vh'),
         left: addLeftMargin('6vw'),
         right: addRightMargin('45vw'),
-      },
-      background: {
-        backgroundPositionX: 'right',
-        backgroundPositionY: '-105vh',
       },
     },
   },
@@ -346,11 +312,6 @@ export const LINE_INFO = {
         top: addTopMargin('20vh'),
         left: addLeftMargin('45vw'),
         right: addRightMargin('4vw'),
-      },
-      background: {
-        backgroundSize: '109%',
-        backgroundPositionX: 'right',
-        backgroundPositionY: '-10vh',
       },
     },
   },

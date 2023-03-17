@@ -48,6 +48,9 @@ iframe,
 .description {
   position: fixed;
   margin: 0;
+  line-height: 1.2;
+  max-height: 60vh;
+  overflow: auto;
 }
 
 .content {
