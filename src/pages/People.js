@@ -1,3 +1,4 @@
+import styles from './People.module.css';
 import PhotoGallery from './PhotoGallery';
 
 function People({ setCursor }) {
@@ -5,10 +6,14 @@ function People({ setCursor }) {
     <>
       <div
         id="viewport"
+        className={styles.desktop}
         onMouseLeave={() => setCursor(true)}
         onMouseOver={() => setCursor(false)}
       >
         <iframe src="/people-page/index.html" title="Lines Page"></iframe>
+      </div>
+      <div className={styles.mobile}>
+        <PhotoGallery />
       </div>
     </>
   );
