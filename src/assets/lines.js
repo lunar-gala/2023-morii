@@ -12,6 +12,20 @@ import line_img_19 from './line-images/19.jpg';
 import line_img_20 from './line-images/20.jpg';
 import line_img_22 from './line-images/22.png';
 
+import doodles from './line-icons/doodles.png';
+import arriba from './line-icons/arriba.png';
+import rewind from './line-icons/rewind.png';
+import paperdolls from './line-icons/paperdolls.png';
+import limbic from './line-icons/limbic.png';
+import noxmemoria from './line-icons/noxmemoria.png';
+import atrophy from './line-icons/atrophy.png';
+import lapinata from './line-icons/lapinata.png';
+import weilai from './line-icons/weilai.png';
+import delicacy from './line-icons/delicacy.png';
+import selcouth from './line-icons/selcouth.png';
+import kalopsia from './line-icons/kalopsia.png';
+import xiaoshi from './line-icons/xiaoshi.png';
+
 const addTopMargin = (margin) => `calc(7vh + ${margin})`;
 const addLeftMargin = (margin) => `calc(100px + ${margin})`;
 const addRightMargin = (margin) => `calc(225px + ${margin})`;
@@ -31,6 +45,61 @@ export const SHOW_ORDER = [
   'kalopsia',
   'xiaoshi',
 ];
+
+export const MOBILE_ICONS = {
+  doodles: {
+    x: '',
+    y: '',
+  },
+  arriba: {
+    x: '',
+    y: '',
+  },
+  rewind: {
+    x: '',
+    y: '',
+  },
+  paperdolls: {
+    x: '',
+    y: '',
+  },
+  limbic: {
+    x: '',
+    y: '',
+  },
+  noxmemoria: {
+    x: '',
+    y: '',
+  },
+  atrophy: {
+    x: '',
+    y: '',
+  },
+  lapinata: {
+    x: '',
+    y: '',
+  },
+  weilai: {
+    x: '',
+    y: '',
+  },
+  delicacy: {
+    x: '',
+    y: '',
+  },
+  selcouth: {
+    x: '',
+    y: '',
+  },
+  kalopsia: {
+    x: '',
+    y: '',
+  },
+  xiaoshi: {
+    x: '',
+    y: '',
+  },
+};
 
 export const LINE_INFO = {
   arriba: {

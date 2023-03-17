@@ -5,6 +5,8 @@ import { animationStates } from '../assets/constants';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 
+import MobileLine from '../components/MobileLine';
+
 import exit from '../assets/lines_exit.png';
 import { SHOW_ORDER } from '../assets/lines';
 import useWindowSize from '../hooks/useWindowSize';
@@ -24,14 +26,18 @@ function Lines({ setCursor }) {
 
   return (
     <>
-      <div
-        className={styles.viewport}
-        id="viewport"
-        onMouseLeave={() => setCursor(true)}
-        onMouseOver={() => setCursor(false)}
-      >
-        <iframe src="/camera/index.html" title="Lines Page"></iframe>
-      </div>
+      {!isMobile ? (
+        <div
+          className={styles.viewport}
+          id="viewport"
+          onMouseLeave={() => setCursor(true)}
+          onMouseOver={() => setCursor(false)}
+        >
+          <iframe src="/camera/index.html" title="Lines Page"></iframe>
+        </div>
+      ) : (
+        <MobileLine />
+      )}
       {line && <Line lineName={line} setLine={setLine} />}
     </>
   );
