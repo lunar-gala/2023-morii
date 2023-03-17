@@ -13,12 +13,22 @@ let global_alpha = 0;
 let HOVER = false;
 let CURR_LINE = null;
 
+let isenheim;
+
 function abs_constrain(val, min, max) {
   if (min < max) {
     return constrain(val, min, max);
   } else {
     return constrain(val, max, min);
   }
+}
+
+function first_letter_cap(str) {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 }
 
 // line object //
@@ -28,6 +38,8 @@ function create_line(limg, lnum, lname) {
     y_target: 0,
     x_actual: 0,
     x_actual: 0,
+    text_x: random(-25, 25),
+    text_y: random(-100, 100), // magic numbers cuz p5 is weird
     img: limg,
     num: lnum,
     name: lname,
@@ -45,6 +57,12 @@ function create_line(limg, lnum, lname) {
 
 function draw_line() {
   image(this.img, this.x_actual, this.y_actual);
+  if (this.overlap()){
+    fill('black');
+    textFont(isenheim);
+    textSize(36);
+    text(first_letter_cap(this.name), this.x_actual + this.text_x, this.y_actual + this.text_y);
+  }
 }
 
 function move_line(rpx, rpy) {
@@ -178,6 +196,7 @@ let CURSOR;
 function preload() {
   bgImg = loadImage('assets/lines-bg-new.png');
   focus = loadImage('icons/focus.png');
+  isenheim = loadFont("assets/fonts/Isenheim_Regulier.otf");
 
   let line_names = [
     'arriba',
@@ -217,7 +236,7 @@ function setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   angleMode(DEGREES);
-  textAlign(RIGHT, BOTTOM);
+  textAlign(CENTER, CENTER);
 
   for (var i = 0; i < 13; i++) {
     LINES[i].resize(0.8, 0);

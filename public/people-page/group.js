@@ -15,7 +15,7 @@ function first_letter_cap(str) {
       .split(' ')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
-  }
+}
 
 // header_t //
 function make_header(){
