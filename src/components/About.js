@@ -9,7 +9,7 @@ import { aboutAnimation } from '../assets/constants';
 function About({ firstLoad }) {
   const [bun, setBun] = useState(false);
   const location_text =
-    'Wiegand Gymnasium. March 18, \n YEAR OF THE RABBIT. 8:00PM EST.';
+    'Wiegand Gym. March 18, \n YEAR OF THE RABBIT. Doors Open 7:30PM EST.';
   return (
     <motion.div className={styles.container}>
       {firstLoad ? (

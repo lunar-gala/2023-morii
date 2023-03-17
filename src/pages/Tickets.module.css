@@ -153,5 +153,6 @@
 
   .purchaseLink img {
     height: 21px;
+    margin-top: 2vh;
   }
 }
