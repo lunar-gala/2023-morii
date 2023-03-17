@@ -83,7 +83,7 @@
     text-align: center;
   }
   .view p {
-    font-size: var(--t-body);
+    font-size: var(--t-body-mobile);
     white-space: pre-line;
   }
   .view .welcome {
