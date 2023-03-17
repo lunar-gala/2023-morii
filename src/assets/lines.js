@@ -398,26 +398,17 @@ export const LINE_INFO = {
 };
 
 export const FILTERS = {
-  doodles:
-    'https://www.instagram.com/ar/601634935151893/?ch=YTBmNzM4NzAwN2VjY2M5NjNkMjA4YjI1ODYzMmE5OWY%3D',
+  doodles: 'https://www.instagram.com/ar/1157842961502003/',
   arriba: 'https://www.instagram.com/ar/596866588981295',
-  rewind:
-    'https://www.instagram.com/ar/135523399212936/?ch=OTMzZDcxZjA1OTQxOWM5N2JiYjE1MzhmNWY0ZDRhYzc%3D',
-  paper_dolls:
-    'https://www.instagram.com/ar/1215136162727083/?ch=ZTFmZGFjOGMzNmU2MTM1MzMyZjFjMDgyMjRhZjJmNDk%3D',
-  limbic:
-    'https://www.instagram.com/ar/562050992569276/?ch=MTIzYTE0OGNkNDY5NGU3NTE2YWI5NTMyYTcyNjRjNTk%3D',
-  atrophy:
-    'https://www.instagram.com/ar/211207521430948/?ch=MjNmYTdjNjE1NzQzZTI3ZTM4NmMzMGNjOGU5YmIzYTY%3D',
-  la_pinata:
-    'https://www.instagram.com/ar/528406916107921/?ch=YjY3NDgxMGU5MWIyODFlOWM2MWEwNjJhZTZjMmIwODg%3D',
-  wei_lai: 'https://www.instagram.com/ar/131394316542248',
+  rewind: 'https://www.instagram.com/ar/994831128589347/',
+  paper_dolls: 'https://www.instagram.com/ar/915347762950532/',
+  limbic: 'https://www.instagram.com/ar/562050992569276/',
+  atrophy: 'https://www.instagram.com/ar/1086028069456144/',
+  la_pinata: 'https://www.instagram.com/ar/481752957375147/',
+  wei_lai: 'https://www.instagram.com/ar/131394316542248/',
   delicacy: 'https://www.instagram.com/ar/169494875904163',
-  selcouth:
-    'https://www.instagram.com/ar/598448225636471/?ch=NmRkODE2Y2Q1YjE1NWRhN2RlMWZkNzM1NjFmYTMxZWU%3D',
-  nox_memoria:
-    'https://www.instagram.com/ar/714036333842454/?ch=ZGM4M2Q0MWMyMjhiMzdjZDRjNzI2OWIzNDE3OGQ3YzU%3D',
-  kalopsia: 'https://www.instagram.com/ar/151798934449464',
-  xiao_shi:
-    'https://www.instagram.com/ar/2989753991332644/?ch=YjI0NjZkM2VlYzA4NGRjZjJlN2IxYTliNzE4NDljMGM%3D',
+  selcouth: 'https://www.instagram.com/ar/598448225636471/',
+  nox_memoria: 'https://www.instagram.com/ar/158134606732934/',
+  kalopsia: 'https://www.instagram.com/ar/151798934449464/',
+  xiao_shi: 'https://www.instagram.com/ar/1270887456880323/',
 };
