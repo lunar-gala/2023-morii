@@ -1,0 +1,94 @@
+
+
+@media screen and (max-width: 475px){
+  .subTitle{
+    font-family: Isenheim,'Times New Roman';
+    font-size: 35px;
+    margin-bottom: -130px;
+    margin-top: 45px;
+    text-align:center;
+  } 
+}
+
+@media screen and (max-width: 475px){
+  .bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-image: url('../assets/tickets_backdrop.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 65%;
+    opacity: 80%;
+    overflow:auto;
+  }
+}
+
+@media screen and (max-width: 475px){
+  .photo-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+@media screen and (max-width: 475px){ 
+  .photo-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+} 
+@media screen and (max-width: 475px){
+  .photo-wrapper {
+    width: calc(33.33% - 10px);
+    margin-bottom: 20px;
+    position: relative;
+  }
+}
+@media screen and (max-width: 475px){ 
+  .photo-wrapper:nth-child(3n+1) {
+    margin-right: 0;
+  }
+}
+ 
+@media screen and (max-width: 475px){
+  .photo-wrapper:nth-child(n+4) {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 475px){
+  .photo-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 475px){
+  .photo-description {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 475px){
+  .photo-description p {
+    margin: 0;
+  }
+}
+  
+  
