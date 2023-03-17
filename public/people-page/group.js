@@ -145,14 +145,18 @@ function draw_group() {
 
   let line_spacing;
   if (this.isperson) {
-    line_spacing = 20;
+    line_spacing = 22;
     textSize(18);
   } else if (!this.isperson) {
     line_spacing = 40;
     textSize(36);
   }
   fill(0, this.text_alpha);
+  strokeWeight(0.5);
+
+  if (this.isperson) stroke(0, this.text_alpha);
   text(first_letter_cap(this.name), this.text_x, this.text_y);
+  noStroke();
   text(first_letter_cap(this.role), this.text_x, this.text_y + line_spacing);
 
   pop();
