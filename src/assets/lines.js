@@ -147,6 +147,7 @@ export const LINE_INFO = {
         left: addLeftMargin('6vw'),
         right: addRightMargin('48vw'),
         maxHeight: '45vh',
+        minWidth: '25vw',
       },
     },
   },
@@ -325,7 +326,13 @@ export const LINE_INFO = {
         top: addTopMargin('20vh'),
         left: addLeftMargin('51.5vw'),
         right: addRightMargin('3.25vw'),
+        minWidth: '15vw',
       },
+    },
+    midWidth: {
+      position: 'right', //make background-position-y right, description left auto
+      width: '25vw', // description width
+      name: '35vw', // name offset
     },
   },
   selcouth: {

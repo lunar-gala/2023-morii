@@ -97,6 +97,7 @@ function Line({ lineName, setLine, isMobile, preloaded }) {
                 isMobile ? line?.mobile_image : line?.image
               })`,
               ...positioning?.background,
+              backgroundPositionY: positioning?.midWidth?.position ?? 'center',
             }}
             onClick={() => !isMobile && setLine(undefined)}
           >
