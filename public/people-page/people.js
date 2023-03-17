@@ -95,7 +95,7 @@ function make_group_tree(){
           let curr_img = loadImage("assets/people/" + curr_group.name + "/" + curr_file);
           // print("assets/people/" + curr_group.name + "/" + curr_file);
           let curr_name = curr_group.children[j].name.split(".")[0];
-          curr_name = curr_name.replace("-", " ");
+          curr_name = curr_name.replaceAll("-", " ").replaceAll("_", " ").toUpperCase();
           curr_role = curr_group.name.toUpperCase();
           // print(curr_name);
 
@@ -189,6 +189,7 @@ function setup() {
 }
 
 function draw() {
+  clear();
   wait_time++;
   // cnv.parent('viewport');
 

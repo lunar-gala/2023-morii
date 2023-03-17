@@ -6,6 +6,17 @@ function abs_constrain(val, min, max){
     }
 }
 
+function first_letter_cap(str) {
+
+    if (str == "PR") return str; // fuck you pr
+
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
 // header_t //
 function make_header(){
     let h = {
@@ -121,8 +132,8 @@ function draw_group(){
     textFont(isenheim);
     textSize(22);
     fill(0, this.text_alpha);
-    text(this.name.toUpperCase(), this.text_x, this.text_y);
-    text(this.role.toUpperCase(), this.text_x, this.text_y + 28);
+    text(first_letter_cap(this.name), this.text_x, this.text_y);
+    text(first_letter_cap(this.role), this.text_x, this.text_y + 28);
 
     pop();
 
