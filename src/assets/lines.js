@@ -225,7 +225,7 @@ export const LINE_INFO = {
         left: addLeftMargin('48vw'),
       },
       description: {
-        top: addTopMargin('30vh'),
+        top: addTopMargin('22vh'),
         left: addLeftMargin('55.5vw'),
         right: addRightMargin('2vw'),
       },
