@@ -193,16 +193,16 @@ export const NAV = [
     title: 'About',
   },
   {
-    path: '/tickets',
-    title: 'Tickets',
+    path: '/lines',
+    title: 'Lines',
   },
   {
     path: '/people',
     title: 'People',
   },
   {
-    path: '/lines',
-    title: 'Lines',
+    path: '/tickets',
+    title: 'Tickets',
   },
 ];
 
