@@ -184,7 +184,7 @@ function setup() {
   STATE = make_state(MASTER);
   CURSOR = make_cursor(width / 2, height / 2, IMAGES);
 
-  bgImg.resize(width * 3070 / 1728, height * 2090 / 1116);
+  bgImg.resize(width * 4070 / 1728, height * 3090 / 1116);
 
 }
 
@@ -200,7 +200,7 @@ function draw() {
   // tint(255, 80);
   imageMode(CORNER);
   // image(bgImg, width * (2300-28929)/1728, height * (1260-3212)/1116);
-  image(bgImg, -2*height/3, -2*height/3);
+  image(bgImg, -2*height/3 - 200, -2*height/3 - 400);
   imageMode(CENTER);
 
   let rpx = null;

@@ -93,8 +93,8 @@ function make_group(gparent, gname, grole, gimg, gisperson){
     }
 
     let g = {
-        x_target: random(imgW/2, windowWidth - imgW/2), 
-        y_target: random(imgH/2, windowHeight - imgH/2), 
+        x_target: random(150 + imgW/2, windowWidth - 234 - imgW/2), 
+        y_target: random(67 + imgH/2, windowHeight - 34 - imgH/2), 
         x_origin: gx_origin, y_origin: gy_origin,
         x_actual: gx_origin, y_actual: gy_origin, // initially at origin
         text_x: random(0, imgW), text_y: random(0, imgW),
@@ -130,10 +130,19 @@ function draw_group(){
     noStroke();;
     fill(0, this.alpha);
     textFont(isenheim);
-    textSize(22);
+
+    let line_spacing;
+    if (this.isperson) {
+        line_spacing = 20;
+        textSize(18);
+    }
+    else if (!this.isperson) {
+        line_spacing = 40;
+        textSize(36);
+    }
     fill(0, this.text_alpha);
     text(first_letter_cap(this.name), this.text_x, this.text_y);
-    text(first_letter_cap(this.role), this.text_x, this.text_y + 28);
+    text(first_letter_cap(this.role), this.text_x, this.text_y + line_spacing);
 
     pop();
 
@@ -165,6 +174,7 @@ function move_group(rpx, rpy){
         this.wait++;
 
         let dp = dist(this.x_actual, this.y_actual, this.rpx, this.rpy);
+        this.alpha += (dir * 255/this.speed);
 
         if (dp != 0){
             let f = rpc / dp;
@@ -173,10 +183,10 @@ function move_group(rpx, rpy){
             this.x_actual -= dirx*f;
             this.y_actual -= diry*f;
 
-            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/600)*dirx*f);
-            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/600)*diry*f);
+            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
+            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
         }
-    }else if (rpx != null){ // groups are in / moving to repelled positions
+    } else if (rpx != null){ //groups are in / moving to repelled positions
         this.wait = 0;
         
         this.rpx = rpx;
@@ -191,8 +201,8 @@ function move_group(rpx, rpy){
             this.x_actual += dirx*f;
             this.y_actual += diry*f;
 
-            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/600)*dirx*f);
-            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/600)*diry*f);
+            this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
+            this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
         }
     }
 
