@@ -83,7 +83,7 @@
     text-align: center;
   }
   .view p {
-    font-size: var(--t-lines-body);
+    font-size: var(--t-body);
     white-space: pre-line;
   }
   .view .welcome {
@@ -92,6 +92,7 @@
   .logo {
     padding: 0px;
     margin: 2vh 2vh;
+    height: auto;
   }
   .logo img {
     height: auto;
