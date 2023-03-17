@@ -5,6 +5,13 @@
   --n-b-right: 225px;
   --n-b-top_mobile: 50px;
   --n-b-bottom_mobile: 130px;
+
+  --t-title: 90px;
+  --t-subheader: 36px;
+  --t-body: 18px;
+  --t-meta: 36px;
+  --t-nav: 36px;
+  --t-lines-nav: 36px;
 }
 
 body {

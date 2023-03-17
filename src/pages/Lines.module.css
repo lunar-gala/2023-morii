@@ -74,7 +74,7 @@ iframe,
 .num {
   font-family: Jugend;
   color: #ffffff;
-  font-size: 18px;
+  font-size: var(--t-lines-nav);
   font-weight: 600;
   padding: 0 0.7vw;
   -webkit-text-stroke-width: 0.3px;

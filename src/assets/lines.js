@@ -191,7 +191,7 @@ export const LINE_INFO = {
   },
   kalopsia: {
     name: 'Kalopsia',
-    designers: [],
+    designers: ['Mikey DiGiovanna, Maya Galindo Benson'],
     image: line_img_10,
     description:
       "the delusion of things being more beautiful than they really are.<br /><br />Our line attempts to portray the short but intense lifespan of young love being in love makes it easy to romanticize the world around you and ignore negative aspects of daily life. Funny moments like these, in which one can't see beyond their love are the ones we wish to capture forever. Our line uses repeated symbols of nature and flowers to represent a blooming Young love, and blues and violets are used to represent once newfound maturity after coming out the other side.",
@@ -201,7 +201,7 @@ export const LINE_INFO = {
         left: addLeftMargin('48vw'),
       },
       description: {
-        top: addTopMargin('20vh'),
+        top: addTopMargin('35vh'),
         left: addLeftMargin('54vw'),
         right: addRightMargin('2vw'),
       },
@@ -336,7 +336,7 @@ export const LINE_INFO = {
     },
   },
   xiaoshi: {
-    name: 'xiao•shi (消失)',
+    name: 'xiao•shi',
     designers: ['Leslie Lin', 'Audrey Zhao', 'Joanna Ni', 'Mason Wang'],
     image: line_img_3,
     description:
