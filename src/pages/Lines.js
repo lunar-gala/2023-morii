@@ -19,7 +19,7 @@ function Lines({ setCursor }) {
   const windowSize = useWindowSize();
   const isMobile = windowSize?.width < 768;
 
-  useImagePreloader(
+  const { imagesPreloaded } = useImagePreloader(
     SHOW_ORDER.map((line) =>
       isMobile ? LINE_INFO[line].image : LINE_INFO[line].mobile_image
     )
@@ -47,12 +47,20 @@ function Lines({ setCursor }) {
       ) : (
         <MobileLine setLine={setLine} />
       )}
-      {line && <Line lineName={line} setLine={setLine} isMobile={isMobile} />}
+      {line && (
+        <Line
+          preloaded={imagesPreloaded}
+          lineName={line}
+          setLine={setLine}
+          isMobile={isMobile}
+        />
+      )}
     </>
   );
 }
 
-function Line({ lineName, setLine, isMobile }) {
+function Line({ lineName, setLine, isMobile, preloaded }) {
+  console.log(preloaded);
   const [expand, setExpand] = useState(false);
 
   const controls = useAnimationControls();
@@ -74,89 +82,94 @@ function Line({ lineName, setLine, isMobile }) {
   };
 
   return (
-    <motion.div
-      variants={animationStates}
-      initial="hidden"
-      animate="visible"
-      className={styles.linesContainer}
-    >
-      <div
-        className={styles.content}
-        style={{
-          backgroundImage: `url(${
-            isMobile ? line?.mobile_image : line?.image
-          })`,
-          ...positioning?.background,
-        }}
-        onClick={() => !isMobile && setLine(undefined)}
-      >
-        <div className={cn(styles.view, expand && styles.expanded)}>
-          <p className={styles.name} style={positioning?.name}>
-            {name}
-          </p>
-          {designers && isMobile && (
-            <p className="isenheim">{designers.join(', ')}</p>
-          )}
-          <p
-            className={styles.description}
-            style={positioning?.description}
-            onClick={animateArrow}
-            dangerouslySetInnerHTML={{
-              __html: `${
-                isMobile && !expand
-                  ? `${description.substring(0, 150)}...`
-                  : description
-              }${
-                isMobile
-                  ? ''
-                  : `<br /><br /><b><span class="isenheim">${designers.join(
-                      ', '
-                    )}</span></b>`
-              }`,
+    <>
+      {preloaded && (
+        <motion.div
+          variants={animationStates}
+          initial="hidden"
+          animate="visible"
+          className={styles.linesContainer}
+        >
+          <div
+            className={styles.content}
+            style={{
+              backgroundImage: `url(${
+                isMobile ? line?.mobile_image : line?.image
+              })`,
+              ...positioning?.background,
             }}
-          ></p>
-          <motion.img
-            animate={controls}
-            className={styles.expand}
-            src={expandIcon}
-            alt="expand icon"
-            onClick={animateArrow}
-          />
-        </div>
-      </div>
-      <div className={styles.lineNavContainer}>
-        <img
-          onClick={() => curNum > 0 && setLine(SHOW_ORDER[curNum - 1])}
-          className={styles.prev}
-          alt="prev line"
-          src={direction_arrow}
-        />
-        <img
-          onClick={() => setLine(undefined)}
-          className={styles.exit}
-          alt="exit icon"
-          src={exit}
-        />
-        {lineNums.map((num) => {
-          return (
-            <p
-              onClick={() => setLine(SHOW_ORDER[num])}
-              className={cn(styles.num, num === curNum && styles.active)}
-            >
-              {num + 1}
-            </p>
-          );
-        })}
-        <img
-          onClick={() =>
-            curNum < SHOW_ORDER.length - 1 && setLine(SHOW_ORDER[curNum + 1])
-          }
-          className={styles.next}
-          alt="next line"
-          src={direction_arrow}
-        />
-      </div>
-    </motion.div>
+            onClick={() => !isMobile && setLine(undefined)}
+          >
+            <div className={cn(styles.view, expand && styles.expanded)}>
+              <p className={styles.name} style={positioning?.name}>
+                {name}
+              </p>
+              {designers && isMobile && (
+                <p className="isenheim">{designers.join(', ')}</p>
+              )}
+              <p
+                className={styles.description}
+                style={positioning?.description}
+                onClick={animateArrow}
+                dangerouslySetInnerHTML={{
+                  __html: `${
+                    isMobile && !expand
+                      ? `${description.substring(0, 150)}...`
+                      : description
+                  }${
+                    isMobile
+                      ? ''
+                      : `<br /><br /><b><span class="isenheim">${designers.join(
+                          ', '
+                        )}</span></b>`
+                  }`,
+                }}
+              ></p>
+              <motion.img
+                animate={controls}
+                className={styles.expand}
+                src={expandIcon}
+                alt="expand icon"
+                onClick={animateArrow}
+              />
+            </div>
+          </div>
+          <div className={styles.lineNavContainer}>
+            <img
+              onClick={() => curNum > 0 && setLine(SHOW_ORDER[curNum - 1])}
+              className={styles.prev}
+              alt="prev line"
+              src={direction_arrow}
+            />
+            <img
+              onClick={() => setLine(undefined)}
+              className={styles.exit}
+              alt="exit icon"
+              src={exit}
+            />
+            {lineNums.map((num) => {
+              return (
+                <p
+                  onClick={() => setLine(SHOW_ORDER[num])}
+                  className={cn(styles.num, num === curNum && styles.active)}
+                >
+                  {num + 1}
+                </p>
+              );
+            })}
+            <img
+              onClick={() =>
+                curNum < SHOW_ORDER.length - 1 &&
+                setLine(SHOW_ORDER[curNum + 1])
+              }
+              className={styles.next}
+              alt="next line"
+              src={direction_arrow}
+            />
+          </div>
+        </motion.div>
+      )}
+    </>
   );
 }
 
