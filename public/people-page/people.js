@@ -101,7 +101,7 @@ function make_group_tree(){
 
           let curr_person = make_group(groups_dict[curr_group.name], curr_name, curr_role, curr_img, true);
           curr_person.text_x = 0;
-          curr_person.text_y = 150;
+          curr_person.text_y = 120;
           groups_dict[curr_group.name].children.push(curr_person);
         }
       } else {
@@ -117,7 +117,7 @@ function make_group_tree(){
 
             let curr_person = make_group(groups_dict[curr_group.name], curr_name, curr_role, curr_img, true);
             curr_person.text_x = 0;
-            curr_person.text_y = 150;
+            curr_person.text_y = 120;
             groups_dict[curr_group.name].children.push(curr_person);
           }
         }
