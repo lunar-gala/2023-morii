@@ -39,7 +39,7 @@ iframe,
 
 .name {
   font-family: Isenheim;
-  font-size: 4.4rem;
+  font-size: 4.6vw;
   position: fixed;
   margin: 0;
   text-transform: capitalize;
@@ -49,8 +49,8 @@ iframe,
   position: fixed;
   margin: 0;
   line-height: 1.2;
-  max-height: 60vh;
   overflow: auto;
+  bottom: calc(var(--n-b-bottom) + 140px);
 }
 
 .content {
@@ -88,6 +88,35 @@ iframe,
 }
 
 .exit {
-  height: 50px;
+  height: 70px;
   margin-bottom: -2px;
+}
+
+@media only screen and (max-width: 767px) {
+  .view {
+    position: fixed;
+    top: var(--n-b-top_mobile);
+    bottom: var(--n-b-bottom_mobile);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 5vw;
+  }
+
+  .view > * {
+    position: static;
+  }
+
+  .name {
+    font-size: 60px;
+    word-break: break-word;
+  }
+
+  .name,
+  .description {
+    position: static !important;
+    top: auto;
+    left: auto;
+  }
 }

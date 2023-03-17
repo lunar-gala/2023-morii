@@ -38,12 +38,12 @@ function Lines({ setCursor }) {
       ) : (
         <MobileLine setLine={setLine} />
       )}
-      {line && <Line lineName={line} setLine={setLine} />}
+      {line && <Line lineName={line} setLine={setLine} isMobile={isMobile} />}
     </>
   );
 }
 
-function Line({ lineName, setLine }) {
+function Line({ lineName, setLine, isMobile }) {
   const line = LINE_INFO[lineName];
   const lineNums = SHOW_ORDER.map((_, index) => index);
 
@@ -60,22 +60,27 @@ function Line({ lineName, setLine }) {
       <div
         className={styles.content}
         style={{
-          backgroundImage: `url(${line?.image})`,
+          backgroundImage: `url(${
+            isMobile ? line?.mobile_image : line?.image
+          })`,
           ...positioning?.background,
         }}
+        onClick={() => setLine(undefined)}
       >
-        <p className={styles.name} style={positioning?.name}>
-          {name}
-        </p>
-        <p
-          className={styles.description}
-          style={positioning?.description}
-          dangerouslySetInnerHTML={{
-            __html: `${description}<br /><br /><b><span class="isenheim">${designers.join(
-              ', '
-            )}</span></b>`,
-          }}
-        ></p>
+        <div className={styles.view}>
+          <p className={styles.name} style={positioning?.name}>
+            {name}
+          </p>
+          <p
+            className={styles.description}
+            style={positioning?.description}
+            dangerouslySetInnerHTML={{
+              __html: `${description}<br /><br /><b><span class="isenheim">${designers.join(
+                ', '
+              )}</span></b>`,
+            }}
+          ></p>
+        </div>
       </div>
       <div className={styles.lineNavContainer}>
         <img
