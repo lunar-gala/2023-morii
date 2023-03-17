@@ -3,7 +3,7 @@ let viewport = document.getElementById('viewport');
 let VIEWWIDTH = viewport.clientWidth;
 let VIEWHEIGHT = viewport.clientHeight;
 
-let BG = '#C9C8C3';
+let BG = '#F4F3EF';
 let bgImg;
 let focus;
 let LINES = [];
@@ -13,11 +13,11 @@ let global_alpha = 0;
 let HOVER = false;
 let CURR_LINE = null;
 
-function abs_constrain(val, min, max){
-  if (min < max){
-      return constrain(val, min, max);
-  } else{
-      return constrain(val, max, min);
+function abs_constrain(val, min, max) {
+  if (min < max) {
+    return constrain(val, min, max);
+  } else {
+    return constrain(val, max, min);
   }
 }
 
@@ -48,42 +48,59 @@ function draw_line() {
 }
 
 function move_line(rpx, rpy) {
-
   let rpc = 5000; // repulsion force
 
-  if (rpx == null && this.wait <= 20){ //groups are moving back to normal positions
+  if (rpx == null && this.wait <= 20) {
+    //groups are moving back to normal positions
     this.wait++;
 
     let dp = dist(this.x_actual, this.y_actual, this.rpx, this.rpy);
 
-    if (dp != 0){
-        let f = rpc / dp;
-        let dirx = (this.x_actual - this.rpx) / dp;
-        let diry = (this.y_actual - this.rpy) / dp;
-        this.x_actual -= dirx*f;
-        this.y_actual -= diry*f;
+    if (dp != 0) {
+      let f = rpc / dp;
+      let dirx = (this.x_actual - this.rpx) / dp;
+      let diry = (this.y_actual - this.rpy) / dp;
+      this.x_actual -= dirx * f;
+      this.y_actual -= diry * f;
 
-        this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
-        this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
+      this.x_actual = abs_constrain(
+        this.x_actual,
+        this.x_target,
+        this.x_target + (rpc / 500) * dirx * f
+      );
+      this.y_actual = abs_constrain(
+        this.y_actual,
+        this.y_target,
+        this.y_target + (rpc / 500) * diry * f
+      );
     }
-  } else if (rpx != null){ //groups are in / moving to repelled positions
-      this.wait = 0;
-      
-      this.rpx = rpx;
-      this.rpy = rpy;
+  } else if (rpx != null) {
+    //groups are in / moving to repelled positions
+    this.wait = 0;
 
-      let dp = dist(this.x_actual, this.y_actual, rpx, rpy);
+    this.rpx = rpx;
+    this.rpy = rpy;
 
-      if (dp != 0){
-          let f = rpc / dp;
-          let dirx = (this.x_actual - rpx) / dp;
-          let diry = (this.y_actual - rpy) / dp;
-          this.x_actual += dirx*f;
-          this.y_actual += diry*f;
+    let dp = dist(this.x_actual, this.y_actual, rpx, rpy);
 
-          this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
-          this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
-      }
+    if (dp != 0) {
+      let f = rpc / dp;
+      let dirx = (this.x_actual - rpx) / dp;
+      let diry = (this.y_actual - rpy) / dp;
+      this.x_actual += dirx * f;
+      this.y_actual += diry * f;
+
+      this.x_actual = abs_constrain(
+        this.x_actual,
+        this.x_target,
+        this.x_target + (rpc / 500) * dirx * f
+      );
+      this.y_actual = abs_constrain(
+        this.y_actual,
+        this.y_target,
+        this.y_target + (rpc / 500) * diry * f
+      );
+    }
   }
 }
 
@@ -159,7 +176,7 @@ let CURSOR;
 //////////////////
 
 function preload() {
-  bgImg = loadImage('assets/lines-bg.png');
+  bgImg = loadImage('assets/lines-bg-new.png');
   focus = loadImage('icons/focus.png');
 
   let line_names = [
@@ -235,7 +252,7 @@ function draw() {
   let rpx = null;
   let rpy = null;
 
-  if (CURR_LINE != null){
+  if (CURR_LINE != null) {
     rpx = CURR_LINE.x_actual;
     rpy = CURR_LINE.y_actual;
   }
@@ -258,7 +275,6 @@ function draw() {
   CURSOR.draw();
 
   CURR_LINE = LINES[update_hover(LINES)];
-
 }
 
 function mousePressed() {
