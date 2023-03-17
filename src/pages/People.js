@@ -1,11 +1,16 @@
-// import styles from './People.module.css';
 import PhotoGallery from './PhotoGallery';
 
-function People() {
+function People({ setCursor }) {
   return (
-    <div>
-      <PhotoGallery />
-    </div>
+    <>
+      <div
+        id="viewport"
+        onMouseLeave={() => setCursor(true)}
+        onMouseOver={() => setCursor(false)}
+      >
+        <iframe src="/people-page/index.html" title="Lines Page"></iframe>
+      </div>
+    </>
   );
 }
 

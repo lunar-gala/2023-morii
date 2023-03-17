@@ -1,0 +1,20 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.bg {
+  width: 280vw;
+  height: 260vh;
+  opacity: 0.6;
+}
+
+.bg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

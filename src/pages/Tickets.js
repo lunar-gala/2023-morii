@@ -7,7 +7,6 @@ function Tickets() {
     <div className={styles.container}>
       <div className={styles.bg}></div>
       <div className={styles.view}>
-        <h1 className={styles.title}>Tickets</h1>
         <ul className={styles.pricing}>
           {TIERS.map(({ tier, price, bonus }) => (
             <li key={tier}>

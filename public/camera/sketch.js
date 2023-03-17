@@ -3,31 +3,55 @@ let viewport = document.getElementById('viewport');
 let VIEWWIDTH = viewport.clientWidth;
 let VIEWHEIGHT = viewport.clientHeight;
 
-let BG = '#F7F8F2';
+let BG = '#F4F3EF';
 let bgImg;
 let focus;
-let lines = [];
+let LINES = [];
 
 let global_alpha = 0;
 
-let experiri;
-let active = 0;
-let hover = false;
-let curr_line = -1;
+let HOVER = false;
+let CURR_LINE = null;
+
+let isenheim;
+
+function abs_constrain(val, min, max) {
+  if (min < max) {
+    return constrain(val, min, max);
+  } else {
+    return constrain(val, max, min);
+  }
+}
+
+function first_letter_cap(str) {
+
+  if (str.toUpperCase() == "WEILAI") return "WeiLai";
+  if (str.toUpperCase() == "XIAOSHI") return "XiaoShi";
+
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
 
 // line object //
-function create_line(limg, lnum) {
+function create_line(limg, lnum, lname, fname) {
   var l = {
-    x: 0,
-    y: 0,
+    x_target: 0,
+    y_target: 0,
+    x_actual: 0,
+    x_actual: 0,
+    text_x: random(-25, 25),
+    text_y: random(-100, 100), // magic numbers cuz p5 is weird
     img: limg,
     num: lnum,
-    name:
-      'LINE ' +
-      lnum.toString() +
-      '  ' +
-      'DESIGNERS: JOHN SMITH, LUKE SKYWALKER, MITTENS THE CAT',
+    name: lname,
+    display_name: fname,
+    rpx: null,
+    rpy: null,
     draw: draw_line,
+    move: move_line,
     place: place_line,
     resize: resize_line,
     overlap: overlap_line,
@@ -37,12 +61,88 @@ function create_line(limg, lnum) {
 }
 
 function draw_line() {
-  image(this.img, this.x, this.y);
+  image(this.img, this.x_actual, this.y_actual);
+  if (this.overlap()) {
+    fill('black');
+    textFont(isenheim);
+    textSize(36);
+    text(
+      first_letter_cap(this.display_name),
+      this.x_actual + this.text_x,
+      this.y_actual + this.text_y
+    );
+  }
+}
+
+function move_line(rpx, rpy) {
+  let rpc = 5000; // repulsion force
+
+  if (rpx == null && this.wait <= 20) {
+    //groups are moving back to normal positions
+    this.wait++;
+
+    let dp = dist(this.x_actual, this.y_actual, this.rpx, this.rpy);
+
+    if (dp != 0) {
+      let f = rpc / dp;
+      let dirx = (this.x_actual - this.rpx) / dp;
+      let diry = (this.y_actual - this.rpy) / dp;
+      this.x_actual -= dirx * f;
+      this.y_actual -= diry * f;
+
+      this.x_actual = abs_constrain(
+        this.x_actual,
+        this.x_target,
+        this.x_target + (rpc / 500) * dirx * f
+      );
+      this.y_actual = abs_constrain(
+        this.y_actual,
+        this.y_target,
+        this.y_target + (rpc / 500) * diry * f
+      );
+    }
+  } else if (rpx != null) {
+    //groups are in / moving to repelled positions
+    this.wait = 0;
+
+    this.rpx = rpx;
+    this.rpy = rpy;
+
+    let dp = dist(this.x_actual, this.y_actual, rpx, rpy);
+
+    if (dp != 0) {
+      let f = rpc / dp;
+      let dirx = (this.x_actual - rpx) / dp;
+      let diry = (this.y_actual - rpy) / dp;
+      this.x_actual += dirx * f;
+      this.y_actual += diry * f;
+
+      this.x_actual = abs_constrain(
+        this.x_actual,
+        this.x_target,
+        this.x_target + (rpc / 500) * dirx * f
+      );
+      this.y_actual = abs_constrain(
+        this.y_actual,
+        this.y_target,
+        this.y_target + (rpc / 500) * diry * f
+      );
+    }
+  }
 }
 
 function place_line(lx, ly) {
-  this.x = lx;
-  this.y = ly;
+  this.x_target = lx;
+  this.y_target = ly;
+  this.x_actual = lx;
+  this.y_actual = ly;
+}
+
+function display_line(line_key) {
+  console.log('hi');
+  var myCustomData = { line: line_key };
+  var event = new CustomEvent('single_line', { detail: myCustomData });
+  window.parent.document.dispatchEvent(event);
 }
 
 function resize_line(sx, sy) {
@@ -53,10 +153,10 @@ function overlap_line() {
   let centeredX = width / 2 - mouseX;
   let centeredY = height / 2 - mouseY;
 
-  let lineX_lower = this.x - this.img.width / 2 - width / 2;
-  let lineX_upper = this.x + this.img.width / 2 - width / 2;
-  let lineY_lower = this.y - this.img.height / 2 - height / 2;
-  let lineY_upper = this.y + this.img.height / 2 - height / 2;
+  let lineX_lower = this.x_actual - this.img.width / 2 - width / 2;
+  let lineX_upper = this.x_actual + this.img.width / 2 - width / 2;
+  let lineY_lower = this.y_actual - this.img.height / 2 - height / 2;
+  let lineY_upper = this.y_actual + this.img.height / 2 - height / 2;
   if (
     lineX_lower < centeredX &&
     centeredX < lineX_upper &&
@@ -70,25 +170,23 @@ function overlap_line() {
 }
 
 function update_hover(lines_arr) {
-  for (var i = 0; i < lines_arr.length; i++) {
+  for (let i = 0; i < lines_arr.length; i++) {
     if (lines_arr[i].overlap()) {
-      hover = true;
+      HOVER = true;
 
-      cursor.active = true;
+      CURSOR.active = true;
       return i;
     }
   }
 
-  cursor.active = false;
-  hover = false;
+  CURSOR.active = false;
+  HOVER = false;
 }
 
 // CURSOR //
 
-let tl, tr, bl, br;
-let corner_images;
-let corners = [];
-let cursor;
+let IMAGES = [];
+let CURSOR;
 
 // API
 
@@ -105,25 +203,55 @@ let cursor;
 //////////////////
 
 function preload() {
-  bgImg = loadImage('assets/lines-bg.png');
+  bgImg = loadImage('assets/lines-bg-new.png');
   focus = loadImage('icons/focus.png');
+  isenheim = loadFont('assets/fonts/Isenheim_Regulier.otf');
 
-  for (var i = 1; i <= 15; i++) {
-    let curr_img = loadImage('assets/lines' + i.toString() + '.png');
-    lines.push(create_line(curr_img, i));
+  let line_names = [
+    'arriba',
+    'atrophy',
+    'delicacy',
+    'doodles',
+    'kalopsia',
+    'lapinata',
+    'limbic',
+    'noxmemoria',
+    'paperdolls',
+    'rewind',
+    'selcouth',
+    'weilai',
+    'xiaoshi',
+  ];
+  let full_line_names = [
+    'Arriba de Monte Teide',
+    'Atrophy',
+    'Delicacy',
+    'Doodle',
+    'Kalopsia',
+    'La Piñata',
+    'Limbic',
+    'Nox Memoria',
+    'Paper Dolls',
+    'Rewind',
+    'Selcouth',
+    'Wei•Lai',
+    'Xiao•Shi',
+  ];
+
+  for (var i = 0; i < line_names.length; i++) {
+    // print(line_names[i]);
+    let curr_img = loadImage('assets/' + line_names[i] + '.png');
+    LINES.push(create_line(curr_img, i, line_names[i], full_line_names[i]));
   }
 
-  print(lines);
+  // print(LINES);
 
-  experiri = loadImage('assets/experiri.png');
+  // experiri = loadImage('assets/experiri.png');
 
   // cursor
-  tl = loadImage('cursor/assets/tl.png');
-  tr = loadImage('cursor/assets/tr.png');
-  bl = loadImage('cursor/assets/bl.png');
-  br = loadImage('cursor/assets/br.png');
-
-  corner_images = [br, bl, tl, tr];
+  let inner = loadImage('cursor/assets/moR_inner.png');
+  let outer = loadImage('cursor/assets/moR_outer.png');
+  IMAGES = [inner, outer];
 }
 
 function setup() {
@@ -132,129 +260,69 @@ function setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   angleMode(DEGREES);
-  textAlign(RIGHT, BOTTOM);
+  textAlign(CENTER, CENTER);
 
-  for (var i = 0; i < 15; i++) {
-    lines[i].resize(0.8, 0);
+  for (var i = 0; i < 13; i++) {
+    LINES[i].resize(0.8, 0);
   }
 
-  lines[0].place(40, 30);
-  lines[1].place(50, 240);
-  lines[2].place(30, 500);
-  lines[3].place(260, 80);
-  lines[4].place(250, 300);
-  lines[5].place(270, 600);
-  lines[6].place(500, 100);
-  lines[7].place(550, 380);
-  lines[8].place(400, 550);
-  lines[9].place(650, 50);
-  lines[10].place(700, 400);
-  lines[11].place(750, 500);
-  lines[12].place(840, 120);
-  lines[13].place(900, 300);
-  lines[14].place(1000, 580);
+  let xc = width / 2671;
+  let yc = height / 1728;
 
-  for (var i = 0; i < 4; i++) {
-    let theta = 45 + i * 90;
-    let r = 50;
-    corners[i] = make_corner(r * cos(theta), r * sin(theta), corner_images[i]);
-  }
+  LINES[0].place(xc * 590, yc * 1300);
+  LINES[1].place(xc * 386, yc * 213);
+  LINES[2].place(xc * 456, yc * 586);
+  LINES[3].place(xc * 380, yc * 1100);
+  LINES[4].place(xc * 903, yc * 70);
+  LINES[5].place(xc * 888, yc * 375);
+  LINES[6].place(xc * 833, yc * 927);
+  LINES[7].place(xc * 1243, yc * 1005);
+  LINES[8].place(xc * 1381, yc * 1333);
+  LINES[9].place(xc * 1935, yc * 98);
+  LINES[10].place(xc * 1599, yc * 277);
+  LINES[11].place(xc * 1739, yc * 685);
+  LINES[12].place(xc * 2090, yc * 1009);
+  // LINES[13].place(900, 300);
+  // LINES[14].place(1000, 580);
 
-  cursor = make_cursor(width / 2, height / 2, 50, 7, -45, 70, corners);
+  CURSOR = make_cursor(width / 2, height / 2, IMAGES);
 }
 
 function draw() {
   cnv.parent('viewport');
   background(BG);
 
+  let rpx = null;
+  let rpy = null;
+
+  if (CURR_LINE != null) {
+    rpx = CURR_LINE.x_actual;
+    rpy = CURR_LINE.y_actual;
+  }
+
   noCursor();
-  lines_page();
 
-  fill(255, global_alpha);
-  noStroke();
-  rect(width / 2, height / 2, width, height);
-
-  global_alpha -= 5;
-  global_alpha = constrain(global_alpha, 0, 255);
-}
-
-function lines_page() {
   push();
   translate(mouseX - width / 2, mouseY - height / 2);
   bgImg.resize(2 * width, 2 * height);
   image(bgImg, width / 2, height / 2);
 
-  image(lines[0].img, lines[0].x, lines[0].y);
-
-  lines[0].draw();
-  lines[1].draw();
-  lines[2].draw();
-  lines[3].draw();
-  lines[4].draw();
-  lines[5].draw();
-  lines[6].draw();
-  lines[7].draw();
-  lines[8].draw();
-  lines[9].draw();
-  lines[10].draw();
-  lines[11].draw();
-  lines[12].draw();
-  lines[13].draw();
-  lines[14].draw();
+  for (let i = 0; i < LINES.length; i++) {
+    LINES[i].draw();
+    LINES[i].move(rpx, rpy);
+  }
 
   pop();
 
-  cursor.move();
-  cursor.draw();
+  CURSOR.move();
+  CURSOR.draw();
 
-  // // focus
-  // push();
-  // translate(width/2, height/2);
-
-  // strokeWeight(2);
-  // stroke('black');
-
-  curr_line = update_hover(lines);
-  // if (hover){
-  //   stroke('black');
-  //   fill('white');
-  //   textSize(18);
-  //   textFont('monospace');
-  //   text(lines[curr_line].name, width/2 - 5, height/2 - 5);
-
-  //   stroke('red');
-  // }
-
-  // line(-40, 0, 40, 0);
-  // line(0, -40, 0, 40);
-
-  // stroke('black');
-  // for (var i = 0; i < 4; i++){
-  //   rotate(90);
-  //   line(-140, -140, -140 + 80, -140);
-  //   line(-140, -140, -140, -140 + 80);
-  // }
-
-  // pop();
-
-  push();
-  fill(255);
-  blendMode(DIFFERENCE);
-  ellipse(mouseX, mouseY, 80);
-  pop();
-}
-
-function single_line_page() {
-  if (!curr_line || curr_line <= 0) return;
-  var myCustomData = { line: curr_line };
-  var event = new CustomEvent('single_line', { detail: myCustomData });
-  window.parent.document.dispatchEvent(event);
-
-  // experiri.resize(0.95 * width, 0.95 * height);
-  // image(experiri, width / 2, height / 2);
+  CURR_LINE = LINES[update_hover(LINES)];
 }
 
 function mousePressed() {
-  print('pressed');
-  single_line_page();
+  if (CURSOR.active) {
+    // window.open(CURR_LINE.link, "_self");
+    display_line(CURR_LINE.name);
+  }
 }

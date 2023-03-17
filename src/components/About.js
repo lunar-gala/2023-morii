@@ -9,7 +9,7 @@ import { aboutAnimation } from '../assets/constants';
 function About({ firstLoad }) {
   const [bun, setBun] = useState(false);
   const location_text =
-    'Wiegand Gymnasium. March 18, \n YEAR OF THE RABBIT. 8:00PM EST.';
+    'Wiegand Gym. March 18, \n YEAR OF THE RABBIT. Doors Open 7:30PM EST.';
   return (
     <motion.div className={styles.container}>
       {firstLoad ? (
@@ -47,10 +47,13 @@ function About({ firstLoad }) {
           variants={aboutAnimation}
           animate="visible"
           custom={3}
+          className={styles.copy}
         >
-          For this year's show, we would like to bring you along to witness how
-          current student and alumni designers weave this otherwise
-          indescribable feeling into wearable fashion.
+          the desire to capture a fleeting experience. A show sharing a deep
+          appreciation for the ephemeral, and encouraging us to slow down, savor
+          the moment, and cultivate gratitude for the fleeting experiences which
+          make life rich and meaningful. Join us to witness how this otherwise
+          indescribable feeling weaves into fashion.
         </motion.p>
         <motion.p
           initial="hidden"
@@ -59,7 +62,7 @@ function About({ firstLoad }) {
           className={styles.lastLook}
           custom={3}
         >
-          TAKE ONE LAST LOOK.
+          COME TAKE ONE LAST LOOK.
         </motion.p>
         <motion.p
           initial="hidden"

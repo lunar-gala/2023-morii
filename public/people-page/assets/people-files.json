@@ -1,0 +1,587 @@
+{
+  "name": "people",
+  "type": "directory",
+  "children": [
+    {
+      "name": "Design",
+      "type": "directory",
+      "children": [
+        {
+          "name": "Mason-Wang.png",
+          "type": "file"
+        },
+        {
+          "name": "Mikey-DiGiovanna.png",
+          "type": "file"
+        },
+        {
+          "name": "Olivia-Curry.png",
+          "type": "file"
+        },
+        {
+          "name": "Emma-Pollet.png",
+          "type": "file"
+        },
+        {
+          "name": "Sydney-Sun.png",
+          "type": "file"
+        },
+        {
+          "name": "michelle-yue.png",
+          "type": "file"
+        },
+        {
+          "name": "Isabella-Boleng.png",
+          "type": "file"
+        },
+        {
+          "name": "Joanna-Ni.png",
+          "type": "file"
+        },
+        {
+          "name": "Gwen-Toll.png",
+          "type": "file"
+        },
+        {
+          "name": "thon-promlikitchai.png",
+          "type": "file"
+        },
+        {
+          "name": "rui-chang.png",
+          "type": "file"
+        },
+        {
+          "name": "Madi-Davis.png",
+          "type": "file"
+        },
+        {
+          "name": "Middy-Vella.png",
+          "type": "file"
+        },
+        {
+          "name": "Julia-Kasper.png",
+          "type": "file"
+        },
+        {
+          "name": "leslie-lin.png",
+          "type": "file"
+        },
+        {
+          "name": "Amy-Hu.png",
+          "type": "file"
+        },
+        {
+          "name": "Angela-Huang.png",
+          "type": "file"
+        },
+        {
+          "name": "oscar-monarrez.png",
+          "type": "file"
+        },
+        {
+          "name": "Sihan-Wu.png",
+          "type": "file"
+        },
+        {
+          "name": "April-Wu.png",
+          "type": "file"
+        },
+        {
+          "name": "Maya-GalindoBenson.png",
+          "type": "file"
+        },
+        {
+          "name": "amanda-wen.png",
+          "type": "file"
+        },
+        {
+          "name": "minsung-kang.png",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Producers",
+      "type": "directory",
+      "children": [
+        {
+          "name": "nathan-wai.png",
+          "type": "file"
+        },
+        {
+          "name": "Jeanie-Xu.png",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "PR",
+      "type": "directory",
+      "children": [
+        {
+          "name": "lillian-hao.png",
+          "type": "file"
+        },
+        {
+          "name": "megan-yim.png",
+          "type": "file"
+        },
+        {
+          "name": "Sabina-Spektor.png",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Model",
+      "type": "directory",
+      "children": [
+        {
+          "name": "Caroline-Jiang.png",
+          "type": "file"
+        },
+        {
+          "name": "morgan-boyd.png",
+          "type": "file"
+        },
+        {
+          "name": "lea-devylder.png",
+          "type": "file"
+        },
+        {
+          "name": "Brooke-Gunter.png",
+          "type": "file"
+        },
+        {
+          "name": "Kasey-Park.png",
+          "type": "file"
+        },
+        {
+          "name": "adrienne-wang.png",
+          "type": "file"
+        },
+        {
+          "name": "Tejas-Venkatesh.png",
+          "type": "file"
+        },
+        {
+          "name": "Sanmoy-Karmakar.png",
+          "type": "file"
+        },
+        {
+          "name": "jamie-liu.png",
+          "type": "file"
+        },
+        {
+          "name": "saera-kim.png",
+          "type": "file"
+        },
+        {
+          "name": "john-quinlan.png",
+          "type": "file"
+        },
+        {
+          "name": "Carmyn.Talento.png",
+          "type": "file"
+        },
+        {
+          "name": "Anita-Cheng.png",
+          "type": "file"
+        },
+        {
+          "name": "Jeffrey-Zhang.png",
+          "type": "file"
+        },
+        {
+          "name": "joe-lee.png",
+          "type": "file"
+        },
+        {
+          "name": "jasmine-wiese.png",
+          "type": "file"
+        },
+        {
+          "name": "Leo-deng.png",
+          "type": "file"
+        },
+        {
+          "name": "Olu-Banke-Boakye-Yiadom.png",
+          "type": "file"
+        },
+        {
+          "name": "anna-gerchanovsky.png",
+          "type": "file"
+        },
+        {
+          "name": "arin-pantja.png",
+          "type": "file"
+        },
+        {
+          "name": "Elizabeth-Hager.png",
+          "type": "file"
+        },
+        {
+          "name": "yanina-shavialenka.png",
+          "type": "file"
+        },
+        {
+          "name": "Adeife-Gafaar.png",
+          "type": "file"
+        },
+        {
+          "name": "rishika-gogineni.png",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Dance",
+      "type": "directory",
+      "children": [
+        {
+          "name": "jisoo-han.png",
+          "type": "file"
+        },
+        {
+          "name": "brooklyn-mao.png",
+          "type": "file"
+        },
+        {
+          "name": "Jordan-Widjaja.png",
+          "type": "file"
+        },
+        {
+          "name": "joanna-ge.png",
+          "type": "file"
+        },
+        {
+          "name": "Alana-Wu.png",
+          "type": "file"
+        },
+        {
+          "name": "lauren-loria-sklar.png",
+          "type": "file"
+        },
+        {
+          "name": "fran-stedman.png",
+          "type": "file"
+        },
+        {
+          "name": "robyn-lee.png",
+          "type": "file"
+        },
+        {
+          "name": "emily-zhang.png",
+          "type": "file"
+        },
+        {
+          "name": "caroline_michalow.png",
+          "type": "file"
+        },
+        {
+          "name": "rachel-shin.png",
+          "type": "file"
+        },
+        {
+          "name": "Yu Xi-Lee.png",
+          "type": "file"
+        },
+        {
+          "name": "Yoona-Lee.png",
+          "type": "file"
+        },
+        {
+          "name": "ellen-kahng.png",
+          "type": "file"
+        },
+        {
+          "name": "tina-lin.png",
+          "type": "file"
+        },
+        {
+          "name": "Audrey-Shao.png",
+          "type": "file"
+        },
+        {
+          "name": "annika-wu.png",
+          "type": "file"
+        },
+        {
+          "name": "aj-seo.png",
+          "type": "file"
+        },
+        {
+          "name": "vicky-jung.png",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Production",
+      "type": "directory",
+      "children": [
+        {
+          "name": "ella-sanfilippo.png",
+          "type": "file"
+        },
+        {
+          "name": "Sowang-Kundeling.png",
+          "type": "file"
+        },
+        {
+          "name": "Box Office & Usher",
+          "type": "directory",
+          "children": [
+            {
+              "name": "Stephanie-Yu.png",
+              "type": "file"
+            },
+            {
+              "name": "Ervin-Song.png",
+              "type": "file"
+            },
+            {
+              "name": "Lucy-Hwang.png",
+              "type": "file"
+            },
+            {
+              "name": "vivian-liu.png",
+              "type": "file"
+            },
+            {
+              "name": "vivian-lee.png",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Lighting Design",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "Stage Design",
+          "type": "directory",
+          "children": [
+            {
+              "name": "erica-fu.png",
+              "type": "file"
+            },
+            {
+              "name": "Marilyn-Zhang.png",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Stage Manager",
+          "type": "directory",
+          "children": [
+            {
+              "name": "jesse-wallace.png",
+              "type": "file"
+            },
+            {
+              "name": "Harvin-Park.png",
+              "type": "file"
+            },
+            {
+              "name": "Yeajoo-Cho.png",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Sound Design",
+          "type": "directory",
+          "children": [
+            {
+              "name": "Katherine-Wang.png",
+              "type": "file"
+            },
+            {
+              "name": "Harry-Schneider.png",
+              "type": "file"
+            },
+            {
+              "name": "grace-alai.png",
+              "type": "file"
+            },
+            {
+              "name": "cole-savitzvogel.png",
+              "type": "file"
+            },
+            {
+              "name": "Cody-Rong.png",
+              "type": "file"
+            },
+            {
+              "name": "yasemin-rees.png",
+              "type": "file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cinematography",
+      "type": "directory",
+      "children": [
+        {
+          "name": "lin-you.png",
+          "type": "file"
+        },
+        {
+          "name": "jesus-padilla-munoz.png",
+          "type": "file"
+        },
+        {
+          "name": "Jennifer_Zhou.png",
+          "type": "file"
+        },
+        {
+          "name": "Peiran_ge.png",
+          "type": "file"
+        },
+        {
+          "name": "rui-wang.png",
+          "type": "file"
+        },
+        {
+          "name": "Creighton-Arrington.png",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Creative",
+      "type": "directory",
+      "children": [
+        {
+          "name": "shannon-lee.png",
+          "type": "file"
+        },
+        {
+          "name": "olivia-luk.png",
+          "type": "file"
+        },
+        {
+          "name": "Web",
+          "type": "directory",
+          "children": [
+            {
+              "name": "katie-shaw.png",
+              "type": "file"
+            },
+            {
+              "name": "michelle-liu.png",
+              "type": "file"
+            },
+            {
+              "name": "melody-huang.png",
+              "type": "file"
+            },
+            {
+              "name": "yon-maor.png",
+              "type": "file"
+            },
+            {
+              "name": "emily-liu.png",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "jessica-lai.png",
+          "type": "file"
+        },
+        {
+          "name": "Motion",
+          "type": "directory",
+          "children": [
+            {
+              "name": "Jin-Peng.png",
+              "type": "file"
+            },
+            {
+              "name": "heysu-oh.png",
+              "type": "file"
+            },
+            {
+              "name": "phoebe-lee.png",
+              "type": "file"
+            },
+            {
+              "name": "sophia-hao.png",
+              "type": "file"
+            },
+            {
+              "name": "riya-bobde.jpg.png",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Print",
+          "type": "directory",
+          "children": [
+            {
+              "name": "amber-li.png",
+              "type": "file"
+            },
+            {
+              "name": "Yoo Sung Lee.png",
+              "type": "file"
+            },
+            {
+              "name": "yuer-zhu.png",
+              "type": "file"
+            },
+            {
+              "name": "Christy-Zo.png",
+              "type": "file"
+            },
+            {
+              "name": "elise-chapman.png",
+              "type": "file"
+            },
+            {
+              "name": "hannah-lesser.png",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Photo",
+          "type": "directory",
+          "children": [
+            {
+              "name": "Camellia-Wang.png",
+              "type": "file"
+            },
+            {
+              "name": "suanna-zhong.png",
+              "type": "file"
+            },
+            {
+              "name": "Sabrina-Xu.png",
+              "type": "file"
+            },
+            {
+              "name": "Serena-Sun.png",
+              "type": "file"
+            },
+            {
+              "name": "Brandon-Lee.png",
+              "type": "file"
+            },
+            {
+              "name": "Oscar-Wang.png",
+              "type": "file"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
