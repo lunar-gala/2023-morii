@@ -32,7 +32,7 @@ function first_letter_cap(str) {
 }
 
 // line object //
-function create_line(limg, lnum, lname) {
+function create_line(limg, lnum, lname, fname) {
   var l = {
     x_target: 0,
     y_target: 0,
@@ -43,6 +43,7 @@ function create_line(limg, lnum, lname) {
     img: limg,
     num: lnum,
     name: lname,
+    display_name: fname,
     rpx: null,
     rpy: null,
     draw: draw_line,
@@ -57,11 +58,15 @@ function create_line(limg, lnum, lname) {
 
 function draw_line() {
   image(this.img, this.x_actual, this.y_actual);
-  if (this.overlap()){
+  if (this.overlap()) {
     fill('black');
     textFont(isenheim);
     textSize(36);
-    text(first_letter_cap(this.name), this.x_actual + this.text_x, this.y_actual + this.text_y);
+    text(
+      first_letter_cap(this.display_name),
+      this.x_actual + this.text_x,
+      this.y_actual + this.text_y
+    );
   }
 }
 
@@ -196,7 +201,7 @@ let CURSOR;
 function preload() {
   bgImg = loadImage('assets/lines-bg-new.png');
   focus = loadImage('icons/focus.png');
-  isenheim = loadFont("assets/fonts/Isenheim_Regulier.otf");
+  isenheim = loadFont('assets/fonts/Isenheim_Regulier.otf');
 
   let line_names = [
     'arriba',
@@ -213,11 +218,26 @@ function preload() {
     'weilai',
     'xiaoshi',
   ];
+  let full_line_names = [
+    'Arriba de Monte Teide',
+    'Atrophy',
+    'Delicacy',
+    'Doodle',
+    'Kalopsia',
+    'La Piñata',
+    'Limbic',
+    'Nox Memoria',
+    'Paper Dolls',
+    'Rewind',
+    'Selcouth',
+    'Wei•Lai',
+    'Xiao•Shi',
+  ];
 
   for (var i = 0; i < line_names.length; i++) {
     // print(line_names[i]);
     let curr_img = loadImage('assets/' + line_names[i] + '.png');
-    LINES.push(create_line(curr_img, i, line_names[i]));
+    LINES.push(create_line(curr_img, i, line_names[i], full_line_names[i]));
   }
 
   // print(LINES);
