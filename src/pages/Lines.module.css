@@ -109,6 +109,22 @@ iframe,
   backdrop-filter: blur(10px);
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .rightContent {
+    background-position-x: right;
+  }
+
+  .rightContent .description {
+    width: 30vw;
+    left: auto !important;
+  }
+
+  .name {
+    right: calc(var(--n-b-right) + 3vw) !important;
+    left: auto !important;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .lineNavContainer {
     right: auto;
@@ -146,6 +162,7 @@ iframe,
 
   .description {
     order: 1;
+    width: 100% !important;
   }
 
   .designers {

@@ -169,6 +169,7 @@ export const LINE_INFO = {
         left: addLeftMargin('48vw'),
         right: addRightMargin('3vw'),
       },
+      midWidth: 'right',
     },
   },
   delicacy: {
@@ -224,10 +225,11 @@ export const LINE_INFO = {
         left: addLeftMargin('48vw'),
       },
       description: {
-        top: addTopMargin('35vh'),
+        top: addTopMargin('30vh'),
         left: addLeftMargin('55.5vw'),
         right: addRightMargin('2vw'),
       },
+      midWidth: 'right',
     },
   },
   lapinata: {
@@ -247,6 +249,7 @@ export const LINE_INFO = {
         left: addLeftMargin('50vw'),
         right: addRightMargin('2vw'),
       },
+      midWidth: 'right',
     },
   },
   limbic: {
@@ -329,11 +332,7 @@ export const LINE_INFO = {
         minWidth: '15vw',
       },
     },
-    midWidth: {
-      position: 'right', //make background-position-y right, description left auto
-      width: '25vw', // description width
-      name: '35vw', // name offset
-    },
+    midWidth: 'right',
   },
   selcouth: {
     name: 'SELCOUTH',
@@ -352,6 +351,7 @@ export const LINE_INFO = {
         left: addLeftMargin('45vw'),
         right: addRightMargin('4vw'),
       },
+      midWidth: 'right',
     },
   },
   weilai: {
@@ -373,6 +373,7 @@ export const LINE_INFO = {
         minHeight: '50vh',
         overflow: 'auto',
       },
+      midWidth: 'right',
     },
   },
   xiaoshi: {

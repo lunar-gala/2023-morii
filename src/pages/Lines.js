@@ -91,13 +91,15 @@ function Line({ lineName, setLine, isMobile, preloaded }) {
           className={styles.linesContainer}
         >
           <div
-            className={styles.content}
+            className={cn(
+              styles.content,
+              positioning?.midWidth === 'right' && styles.rightContent
+            )}
             style={{
               backgroundImage: `url(${
                 isMobile ? line?.mobile_image : line?.image
               })`,
               ...positioning?.background,
-              backgroundPositionY: positioning?.midWidth?.position ?? 'center',
             }}
             onClick={() => !isMobile && setLine(undefined)}
           >
