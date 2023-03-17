@@ -122,11 +122,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .bonus {
-    font-size: 16px !important;
+    font-size: var(--t-body) !important;
   }
 
   .pricing {
@@ -153,5 +153,6 @@
 
   .purchaseLink img {
     height: 21px;
+    margin-top: 2vh;
   }
 }

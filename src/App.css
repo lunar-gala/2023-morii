@@ -5,10 +5,39 @@
   --n-b-right: 225px;
   --n-b-top_mobile: 50px;
   --n-b-bottom_mobile: 130px;
+
+  --t-title: 90px;
+  --t-subheader: 36px;
+  --t-body-mobile: 16px;
+  --t-body: 18px;
+  --t-meta: 36px;
+  --t-nav: 36px;
+  --t-lines-nav: 36px;
 }
 
 body {
   cursor: none !important;
+  background-color: #f4f3ef;
+  line-height: 1.2;
+}
+
+#viewport {
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+iframe {
+  border: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .App {
@@ -18,6 +47,11 @@ body {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.isenheim {
+  font-family: Isenheim;
+  font-weight: 600;
 }
 
 @media (prefers-reduced-motion: no-preference) {

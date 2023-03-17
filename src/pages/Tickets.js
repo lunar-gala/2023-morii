@@ -7,7 +7,6 @@ function Tickets() {
     <div className={styles.container}>
       <div className={styles.bg}></div>
       <div className={styles.view}>
-        <h1 className={styles.title}>Tickets</h1>
         <ul className={styles.pricing}>
           {TIERS.map(({ tier, price, bonus }) => (
             <li key={tier}>
@@ -21,7 +20,7 @@ function Tickets() {
         <div className={styles.purchase}>
           <a
             target="_blank"
-            href="https://carnegiemellontickets.universitytickets.com"
+            href="https://carnegiemellontickets.universitytickets.com/w/event.aspx?id=2334&p=1&redirect=sso"
             className={styles.purchaseLink}
             rel="noreferrer"
           >
