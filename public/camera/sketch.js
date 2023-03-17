@@ -13,15 +13,28 @@ let global_alpha = 0;
 let HOVER = false;
 let CURR_LINE = null;
 
+function abs_constrain(val, min, max){
+  if (min < max){
+      return constrain(val, min, max);
+  } else{
+      return constrain(val, max, min);
+  }
+}
+
 // line object //
 function create_line(limg, lnum, lname) {
   var l = {
-    x: 0,
-    y: 0,
+    x_target: 0,
+    y_target: 0,
+    x_actual: 0,
+    x_actual: 0,
     img: limg,
     num: lnum,
     name: lname,
+    rpx: null,
+    rpy: null,
     draw: draw_line,
+    move: move_line,
     place: place_line,
     resize: resize_line,
     overlap: overlap_line,
@@ -31,12 +44,54 @@ function create_line(limg, lnum, lname) {
 }
 
 function draw_line() {
-  image(this.img, this.x, this.y);
+  image(this.img, this.x_actual, this.y_actual);
+}
+
+function move_line(rpx, rpy) {
+
+  let rpc = 5000; // repulsion force
+
+  if (rpx == null && this.wait <= 20){ //groups are moving back to normal positions
+    this.wait++;
+
+    let dp = dist(this.x_actual, this.y_actual, this.rpx, this.rpy);
+
+    if (dp != 0){
+        let f = rpc / dp;
+        let dirx = (this.x_actual - this.rpx) / dp;
+        let diry = (this.y_actual - this.rpy) / dp;
+        this.x_actual -= dirx*f;
+        this.y_actual -= diry*f;
+
+        this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
+        this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
+    }
+  } else if (rpx != null){ //groups are in / moving to repelled positions
+      this.wait = 0;
+      
+      this.rpx = rpx;
+      this.rpy = rpy;
+
+      let dp = dist(this.x_actual, this.y_actual, rpx, rpy);
+
+      if (dp != 0){
+          let f = rpc / dp;
+          let dirx = (this.x_actual - rpx) / dp;
+          let diry = (this.y_actual - rpy) / dp;
+          this.x_actual += dirx*f;
+          this.y_actual += diry*f;
+
+          this.x_actual = abs_constrain(this.x_actual, this.x_target, this.x_target + (rpc/500)*dirx*f);
+          this.y_actual = abs_constrain(this.y_actual, this.y_target, this.y_target + (rpc/500)*diry*f);
+      }
+  }
 }
 
 function place_line(lx, ly) {
-  this.x = lx;
-  this.y = ly;
+  this.x_target = lx;
+  this.y_target = ly;
+  this.x_actual = lx;
+  this.y_actual = ly;
 }
 
 function display_line(line_key) {
@@ -54,10 +109,10 @@ function overlap_line() {
   let centeredX = width / 2 - mouseX;
   let centeredY = height / 2 - mouseY;
 
-  let lineX_lower = this.x - this.img.width / 2 - width / 2;
-  let lineX_upper = this.x + this.img.width / 2 - width / 2;
-  let lineY_lower = this.y - this.img.height / 2 - height / 2;
-  let lineY_upper = this.y + this.img.height / 2 - height / 2;
+  let lineX_lower = this.x_actual - this.img.width / 2 - width / 2;
+  let lineX_upper = this.x_actual + this.img.width / 2 - width / 2;
+  let lineY_lower = this.y_actual - this.img.height / 2 - height / 2;
+  let lineY_upper = this.y_actual + this.img.height / 2 - height / 2;
   if (
     lineX_lower < centeredX &&
     centeredX < lineX_upper &&
@@ -124,12 +179,12 @@ function preload() {
   ];
 
   for (var i = 0; i < line_names.length; i++) {
-    print(line_names[i]);
+    // print(line_names[i]);
     let curr_img = loadImage('assets/' + line_names[i] + '.png');
     LINES.push(create_line(curr_img, i, line_names[i]));
   }
 
-  print(LINES);
+  // print(LINES);
 
   // experiri = loadImage('assets/experiri.png');
 
@@ -177,18 +232,16 @@ function draw() {
   cnv.parent('viewport');
   background(BG);
 
+  let rpx = null;
+  let rpy = null;
+
+  if (CURR_LINE != null){
+    rpx = CURR_LINE.x_actual;
+    rpy = CURR_LINE.y_actual;
+  }
+
   noCursor();
-  lines_page();
 
-  fill(255, global_alpha);
-  noStroke();
-  rect(width / 2, height / 2, width, height);
-
-  global_alpha -= 5;
-  global_alpha = constrain(global_alpha, 0, 255);
-}
-
-function lines_page() {
   push();
   translate(mouseX - width / 2, mouseY - height / 2);
   bgImg.resize(2 * width, 2 * height);
@@ -196,6 +249,7 @@ function lines_page() {
 
   for (let i = 0; i < LINES.length; i++) {
     LINES[i].draw();
+    LINES[i].move(rpx, rpy);
   }
 
   pop();
@@ -204,6 +258,7 @@ function lines_page() {
   CURSOR.draw();
 
   CURR_LINE = LINES[update_hover(LINES)];
+
 }
 
 function mousePressed() {

@@ -89,7 +89,7 @@ function make_group(gparent, gname, grole, gimg, gisperson){
     } else if (heads.includes(gname.toUpperCase())){
         grole += " HEAD";
     } else if (gname.toUpperCase() == "ANITA CHENG"){
-        grole += ", TREASURER";
+        grole += ", FINANCE HEAD";
     }
 
     let g = {
