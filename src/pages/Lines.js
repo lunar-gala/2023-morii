@@ -8,6 +8,7 @@ import cn from 'classnames';
 import MobileLine from '../components/MobileLine';
 
 import exit from '../assets/lines_exit.png';
+import direction_arrow from '../assets/direction_arrow.png';
 import expandIcon from '../assets/expand.svg';
 import { SHOW_ORDER } from '../assets/lines';
 import useWindowSize from '../hooks/useWindowSize';
@@ -118,6 +119,12 @@ function Line({ lineName, setLine, isMobile }) {
       </div>
       <div className={styles.lineNavContainer}>
         <img
+          onClick={() => curNum > 0 && setLine(SHOW_ORDER[curNum - 1])}
+          className={styles.prev}
+          alt="prev line"
+          src={direction_arrow}
+        />
+        <img
           onClick={() => setLine(undefined)}
           className={styles.exit}
           alt="exit icon"
@@ -133,6 +140,14 @@ function Line({ lineName, setLine, isMobile }) {
             </p>
           );
         })}
+        <img
+          onClick={() =>
+            curNum < SHOW_ORDER.length - 1 && setLine(SHOW_ORDER[curNum + 1])
+          }
+          className={styles.next}
+          alt="next line"
+          src={direction_arrow}
+        />
       </div>
     </motion.div>
   );

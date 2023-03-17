@@ -87,9 +87,15 @@ iframe,
   filter: blur(2px);
 }
 
+.prev,
+.next {
+  display: none;
+}
+
 .exit {
-  height: 70px;
+  height: 60px;
   margin-bottom: -2px;
+  margin-right: 5px;
 }
 
 .expand {
@@ -139,5 +145,32 @@ iframe,
     order: 2;
     align-self: flex-start;
     padding-top: 1vh;
+  }
+
+  .prev,
+  .next {
+    height: 35px;
+  }
+
+  .prev {
+    transform: rotate(180deg);
+  }
+
+  .exit {
+    margin: 0 4vw;
+  }
+
+  .prev,
+  .next {
+    display: block;
+  }
+
+  .num {
+    display: none;
+  }
+
+  .description {
+    bottom: calc(var(--n-b-bottom_mobile) + 200px);
+    min-height: 0 !important;
   }
 }
