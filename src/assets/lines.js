@@ -143,7 +143,7 @@ export const LINE_INFO = {
         right: addRightMargin('40vw'),
       },
       description: {
-        top: addTopMargin('30vh'),
+        top: addTopMargin('31vh'),
         left: addLeftMargin('6vw'),
         right: addRightMargin('48vw'),
         maxHeight: '45vh',
@@ -165,7 +165,7 @@ export const LINE_INFO = {
         right: addRightMargin('33vw'),
       },
       description: {
-        top: addTopMargin('18vh'),
+        top: addTopMargin('20vh'),
         left: addLeftMargin('48vw'),
         right: addRightMargin('3vw'),
       },
@@ -201,12 +201,12 @@ export const LINE_INFO = {
     positioning: {
       name: {
         top: addTopMargin('7vh'),
-        left: addLeftMargin('28vw'),
+        left: addLeftMargin('4vw'),
       },
       description: {
-        top: addTopMargin('17vh'),
-        left: addLeftMargin('36vw'),
-        right: addRightMargin('19.5vw'),
+        top: addTopMargin('19vh'),
+        left: addLeftMargin('7vw'),
+        right: addRightMargin('40vw'),
         maxHeight: '50vh',
         minWidth: '25vw',
       },
@@ -335,7 +335,7 @@ export const LINE_INFO = {
     midWidth: 'right',
   },
   selcouth: {
-    name: 'SELCOUTH',
+    name: 'selcouth',
     designers: ['Amanda Wen', 'Minsung Kang', 'Thon Promlikitchai'],
     image: line_img_6,
     mobile_image: selcouth_mobile,
@@ -386,11 +386,11 @@ export const LINE_INFO = {
     positioning: {
       name: {
         top: addTopMargin('8vh'),
-        left: addLeftMargin('42vw'),
+        left: addLeftMargin('36vw'),
       },
       description: {
         top: addTopMargin('20vh'),
-        left: addLeftMargin('37vw'),
+        left: addLeftMargin('40vw'),
         right: addRightMargin('2vw'),
       },
     },
