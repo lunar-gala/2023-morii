@@ -10,6 +10,7 @@
 .bg {
   width: 280vw;
   height: 260vh;
+  opacity: 0.6;
 }
 
 .bg img {
