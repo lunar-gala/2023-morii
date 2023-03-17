@@ -148,7 +148,7 @@ function setup() {
   textAlign(RIGHT, BOTTOM);
 
   for (var i = 0; i < 13; i++) {
-    LINES[i].resize(0.6, 0);
+    LINES[i].resize(0.8, 0);
   }
 
   let xc = width / 2671;
