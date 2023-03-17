@@ -20,7 +20,7 @@ function Tickets() {
         <div className={styles.purchase}>
           <a
             target="_blank"
-            href="https://carnegiemellontickets.universitytickets.com"
+            href="https://carnegiemellontickets.universitytickets.com/w/event.aspx?id=2334&p=1&redirect=sso"
             className={styles.purchaseLink}
             rel="noreferrer"
           >

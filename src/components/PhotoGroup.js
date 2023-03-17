@@ -9,8 +9,10 @@ const PhotoGroup = ({ photos }) => {
       </div>
       <div className="photo-group">
         {photos.map((photo, index) => (
-          <div className="photo-wrapper" key={index}>
-            <img src={photo.name} alt={photo.text} />
+          <div className="person-wrapper" key={index}>
+            <div className="photo-wrapper">
+              <img src={photo.name} alt={photo.text} />
+            </div>
             <div className="photo-description">
               {/* <p>{photo.description.line1}</p> */}
               {/* <p>{photo.description.line2}</p> */}

@@ -29,19 +29,19 @@
   margin-top: 10px;
   margin-bottom: 50px;
 }
-.photo-wrapper {
+.person-wrapper {
   width: calc(33.33% - 10px);
   position: relative;
 }
-.photo-wrapper:nth-child(3n + 1) {
+.person-wrapper:nth-child(3n + 1) {
   margin-right: 0;
 }
 
-.photo-wrapper:nth-child(n + 4) {
+.person-wrapper:nth-child(n + 4) {
   margin-top: 20px;
 }
 
-.photo-wrapper img {
+.person-wrapper img {
   width: 100%;
   height: auto;
   display: block;
