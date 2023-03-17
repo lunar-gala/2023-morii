@@ -458,10 +458,6 @@
       "type": "directory",
       "children": [
         {
-          "name": "shannon-lee.png",
-          "type": "file"
-        },
-        {
           "name": "olivia-luk.png",
           "type": "file"
         },
@@ -525,6 +521,10 @@
           "name": "Print",
           "type": "directory",
           "children": [
+            {
+              "name": "shannon-lee.png",
+              "type": "file"
+            },
             {
               "name": "amber-li.png",
               "type": "file"

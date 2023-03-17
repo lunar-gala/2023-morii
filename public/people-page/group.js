@@ -6,14 +6,24 @@ function abs_constrain(val, min, max) {
   }
 }
 
+function nth_letter_cap(str, index) {
+    return str.slice(0, index) + str[index].toUpperCase() + str.slice(index+1, str.length);
+}
+
 function first_letter_cap(str) {
   if (str == 'PR') return str; // fuck you pr
 
-  return str
+  str = str
     .toLowerCase()
     .split(' ')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+
+    if (str.slice(0, 3) == "Co-"){
+        str = nth_letter_cap(str, 3)
+    }
+
+  return str;
 }
 
 // header_t //
@@ -68,6 +78,7 @@ function make_group(gparent, gname, grole, gimg, gisperson) {
     'JESSICA LAI',
     'OLIVIA LUK',
     'SHANNON LEE',
+    'CHRISTY ZO',
     'CAMILLE CHANDLER',
     'ALANA WU',
     'SOWANG KUNDELING',
@@ -77,7 +88,6 @@ function make_group(gparent, gname, grole, gimg, gisperson) {
   let heads = [
     'HEYSU OH',
     'SABRINA XU',
-    'CHRISTY ZO',
     'VIVIAN LEE',
     'CODY RONG',
     'MORGAN BOYD',
