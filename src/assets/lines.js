@@ -2,13 +2,13 @@ import line_img_1 from './line-images/01.jpg';
 import line_img_2 from './line-images/02.jpg';
 import line_img_3 from './line-images/03.jpg';
 import line_img_4 from './line-images/04.png';
-import line_img_6 from './line-images/06.jpg';
-import line_img_8 from './line-images/08.jpg';
+import line_img_6 from './line-images/06.jpeg';
+import line_img_8 from './line-images/08.png';
 import line_img_9 from './line-images/09.jpg';
 import line_img_10 from './line-images/10.jpg';
-import line_img_12 from './line-images/12.jpg';
+import line_img_12 from './line-images/12.jpeg';
 import line_img_14 from './line-images/14.jpg';
-import line_img_19 from './line-images/19.jpg';
+import line_img_19 from './line-images/19.png';
 import line_img_20 from './line-images/20.jpg';
 import line_img_22 from './line-images/22.png';
 
@@ -125,7 +125,7 @@ export const LINE_INFO = {
       name: {
         top: addTopMargin('9vh'),
         left: addLeftMargin('4vw'),
-        right: addRightMargin('33vw'),
+        right: addRightMargin('40vw'),
       },
       description: {
         top: addTopMargin('30vh'),
@@ -167,7 +167,7 @@ export const LINE_INFO = {
       description: {
         top: addTopMargin('20vh'),
         left: addLeftMargin('8vw'),
-        right: addRightMargin('45vw'),
+        right: addRightMargin('33vw'),
       },
     },
   },
@@ -184,7 +184,7 @@ export const LINE_INFO = {
       },
       description: {
         top: addTopMargin('17vh'),
-        left: addLeftMargin('32vw'),
+        left: addLeftMargin('36vw'),
         right: addRightMargin('19.5vw'),
       },
     },
@@ -202,7 +202,7 @@ export const LINE_INFO = {
       },
       description: {
         top: addTopMargin('35vh'),
-        left: addLeftMargin('54vw'),
+        left: addLeftMargin('55.5vw'),
         right: addRightMargin('2vw'),
       },
     },
@@ -239,7 +239,7 @@ export const LINE_INFO = {
       description: {
         top: addTopMargin('20vh'),
         left: addLeftMargin('6vw'),
-        right: addRightMargin('45vw'),
+        right: addRightMargin('50vw'),
       },
     },
   },
@@ -328,8 +328,8 @@ export const LINE_INFO = {
       },
       description: {
         top: addTopMargin('20vh'),
-        left: addLeftMargin('47vw'),
-        right: addRightMargin('7.5vw'),
+        left: addLeftMargin('46vw'),
+        right: addRightMargin('5.5vw'),
         minHeight: '50vh',
         overflow: 'auto',
       },
@@ -344,11 +344,11 @@ export const LINE_INFO = {
     positioning: {
       name: {
         top: addTopMargin('8vh'),
-        left: addLeftMargin('36vw'),
+        left: addLeftMargin('42vw'),
       },
       description: {
         top: addTopMargin('20vh'),
-        left: addLeftMargin('39vw'),
+        left: addLeftMargin('37vw'),
         right: addRightMargin('2vw'),
       },
     },
