@@ -11,18 +11,25 @@ import exit from '../assets/lines_exit.png';
 import direction_arrow from '../assets/direction_arrow.png';
 import expandIcon from '../assets/expand.svg';
 import { SHOW_ORDER } from '../assets/lines';
+
 import useWindowSize from '../hooks/useWindowSize';
+import useImagePreloader from '../hooks/useImagePreloader';
 
 function Lines({ setCursor }) {
   const windowSize = useWindowSize();
   const isMobile = windowSize?.width < 768;
+
+  useImagePreloader(
+    SHOW_ORDER.map((line) =>
+      isMobile ? LINE_INFO[line].image : LINE_INFO[line].mobile_image
+    )
+  );
 
   const [line, setLine] = useState(undefined);
   useEffect(() => {
     window.document.addEventListener('single_line', handleEvent, false);
     function handleEvent(e) {
       setLine(e?.detail?.line);
-      console.log('single_line event fired', e.detail?.line); // outputs: {foo: 'bar'}
     }
   }, []);
 
