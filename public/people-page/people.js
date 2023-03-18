@@ -173,6 +173,7 @@ function preload() {
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
+  bgImg.resize(width * 4070 / 1728, height * 3090 / 1116);
   imageMode(CENTER);
   rectMode(CENTER);
   angleMode(DEGREES);
@@ -183,8 +184,6 @@ function setup() {
 
   STATE = make_state(MASTER);
   CURSOR = make_cursor(width / 2, height / 2, IMAGES);
-
-  bgImg.resize(width * 4070 / 1728, height * 3090 / 1116);
 
 }
 
