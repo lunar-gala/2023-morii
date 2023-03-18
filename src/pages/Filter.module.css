@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  font-family: Isenheim, 'Times New Roman' !important;
+  font-size: 24px;
+}
+
+.container * {
+  text-decoration: none;
+  color: black;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1.5vh 6vw;
+  margin-bottom: 1vh;
+  background: rgba(158, 169, 207, 0.2);
+}
+
+.link img {
+  border: 1px solid black;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 75px;
+  height: 75px;
+}
+
+.link p {
+  padding: 0 5vw;
+}
