@@ -11,7 +11,8 @@ function nth_letter_cap(str, index) {
 }
 
 function first_letter_cap(str) {
-  if (str == 'PR') return str; // fuck you pr
+  if (str == 'PR') return str;
+  if (str == 'PR HEAD') return 'PR Head';
 
   str = str
     .toLowerCase()
