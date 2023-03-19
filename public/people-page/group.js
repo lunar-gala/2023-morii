@@ -110,6 +110,8 @@ function make_group(gparent, gname, grole, gimg, gisperson) {
     grole += ' HEAD';
   } else if (gname.toUpperCase() == 'ANITA CHENG') {
     grole += ', FINANCE HEAD';
+  } else if (gname.toUpperCase() == 'CHRISTY') {
+    grole = 'Web Asset'
   }
 
   let g = {
